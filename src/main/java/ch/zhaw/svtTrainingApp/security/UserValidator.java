@@ -10,18 +10,15 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.transaction.annotation.Transactional;
 
 import ch.zhaw.svtTrainingApp.model.Customer;
-import ch.zhaw.svtTrainingApp.model.Hairdresser;
 import ch.zhaw.svtTrainingApp.repository.CustomerRepository;
-import ch.zhaw.svtTrainingApp.repository.HairdresserRepository;
 
 class UserValidator implements OAuth2TokenValidator<Jwt> {
 
-    HairdresserRepository hairdresserRepository;
     CustomerRepository customerRepository;
     private final ConcurrentMap<String, Object> locks = new ConcurrentHashMap<>();
 
-    public UserValidator(HairdresserRepository hairdresserRepository, CustomerRepository customerRepository) {
-        this.hairdresserRepository = hairdresserRepository;
+    public UserValidator(CustomerRepository customerRepository) {
+        //this.hairdresserRepository = hairdresserRepository;
         this.customerRepository = customerRepository;
     }
 
@@ -35,10 +32,10 @@ class UserValidator implements OAuth2TokenValidator<Jwt> {
         synchronized (locks.computeIfAbsent(userEmail, k -> new Object())) {
             if (userEmail != null && !userEmail.equals("")) {
                 if (userRole.equals("hairdresser")) {
-                    Hairdresser h = hairdresserRepository.findFirstByEmail(userEmail);
-                    if (h == null) {
-                        hairdresserRepository.save(new Hairdresser(nickname, userEmail));
-                    }
+                    //Hairdresser h = hairdresserRepository.findFirstByEmail(userEmail);
+                    //if (h == null) {
+                        //hairdresserRepository.save(new Hairdresser(nickname, userEmail));
+                    //}
                 } else if (userRole.equals("customer")) {
                     Customer c = customerRepository.findFirstByEmail(userEmail);
                     if (c == null) {

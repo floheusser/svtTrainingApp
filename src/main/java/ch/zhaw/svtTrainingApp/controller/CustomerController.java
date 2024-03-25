@@ -1,9 +1,6 @@
 package ch.zhaw.svtTrainingApp.controller;
 
-import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +20,6 @@ import ch.zhaw.svtTrainingApp.model.Customer;
 import ch.zhaw.svtTrainingApp.model.dto.CustomerChangeDTO;
 import ch.zhaw.svtTrainingApp.model.dto.UserCreateDTO;
 import ch.zhaw.svtTrainingApp.repository.CustomerRepository;
-import ch.zhaw.svtTrainingApp.service.AddressValidatorService;
 import ch.zhaw.svtTrainingApp.service.CustomerService;
 
 @RestController
@@ -35,9 +31,6 @@ public class CustomerController {
 
     @Autowired
     CustomerService customerService;
-
-    @Autowired
-    AddressValidatorService addressValidatorService;
 
     @PostMapping("/customer")
     @Secured("ROLE_customer")
@@ -51,12 +44,7 @@ public class CustomerController {
     @Secured("ROLE_customer")
     public ResponseEntity<Object> updateCustomer(@AuthenticationPrincipal Jwt jwt,
             @RequestBody CustomerChangeDTO cDTO) {
-        if (!addressValidatorService.isAddressValid(cDTO.getStreet(), cDTO.getCity(), cDTO.getPostCode())) {
-            Map<String, Object> errorDetails = new HashMap<>();
-            errorDetails.put("timestamp", LocalDateTime.now());
-            errorDetails.put("message", "Invalid address! Check Street, Postcode and City");
-            return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
-        }
+        
         Optional<Customer> optCustomer = customerService.updateCustomer(jwt.getClaimAsString("email"), cDTO);
         if (optCustomer.isPresent()) {
             return new ResponseEntity<>(optCustomer.get(), HttpStatus.OK);

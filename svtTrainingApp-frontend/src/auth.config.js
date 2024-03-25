@@ -1,6 +1,6 @@
 const config = {
-    domain: "hairathomeproject.eu.auth0.com",
-    clientId: "9BHLKG1pCZNJQg0cXTPCJIrgHyLp43z0"
+    domain: "dev-alx3j7ev05k4kopg.us.auth0.com",
+    clientId: "ZSzVn2l4nOiqe5U7sQJm8nbXc0Uzag9z"
 };
   
 export default config;

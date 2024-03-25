@@ -9,7 +9,7 @@
 	<nav class="navbar navbar-expand-lg bg-light sticky-top">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#/">
-				<img src="/logoP2.png" alt="Logo" class="img-fluid" style="max-height: 50px;">
+				<img src="/svt-logo.png" alt="Logo" class="img-fluid" style="max-height: 50px;">
 			</a>
 			<button
 				class="navbar-toggler"

@@ -3,7 +3,6 @@
     const api_root = window.location.origin;
     import AccountForm from "./components/AccountForm.svelte";
     import { user, jwt_token } from "../store";
-    import HairdresserPortfolioForm from "./components/HairdresserPortfolioForm.svelte";
 
     $:{
         if($user.user_roles == "hairdresser") {
@@ -124,7 +123,6 @@
                     <div class="card-header">Portfolio</div>
                     <div class="card-body">
                         <form>
-                            <HairdresserPortfolioForm data = {person} hairdresserTasks = {hairdresserTasks}/>
                             <button on:click={updatePerson} class="btn btn-primary" type="button" >Update Portfolio</button>
                         </form>
                     </div>
