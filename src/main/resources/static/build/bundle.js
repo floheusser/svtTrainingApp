@@ -914,7 +914,7 @@ var app = (function () {
     }
 
     // (260:0) {#if componentParams}
-    function create_if_block$2(ctx) {
+    function create_if_block$1(ctx) {
     	let switch_instance;
     	let switch_instance_anchor;
     	let current;
@@ -999,7 +999,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$2.name,
+    		id: create_if_block$1.name,
     		type: "if",
     		source: "(260:0) {#if componentParams}",
     		ctx
@@ -1013,7 +1013,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$2, create_else_block$1];
+    	const if_block_creators = [create_if_block$1, create_else_block$1];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -1748,8 +1748,6 @@ var app = (function () {
     	let t1;
     	let img;
     	let img_src_value;
-    	let t2;
-    	let h3;
 
     	const block = {
     		c: function create() {
@@ -1760,8 +1758,6 @@ var app = (function () {
     			h1.textContent = "SVT Training App";
     			t1 = space();
     			img = element("img");
-    			t2 = space();
-    			h3 = element("h3");
     			set_style(h1, "color", "#333");
     			set_style(h1, "margin-top", "20px");
     			add_location(h1, file$3, 3, 12, 181);
@@ -1770,9 +1766,6 @@ var app = (function () {
     			attr_dev(img, "class", "img-fluid");
     			set_style(img, "max-height", "200px");
     			add_location(img, file$3, 4, 12, 258);
-    			set_style(h3, "color", "#666");
-    			set_style(h3, "margin-top", "10px");
-    			add_location(h3, file$3, 5, 12, 352);
     			attr_dev(div0, "class", "col-12 d-flex flex-column align-items-center justify-content-center");
     			add_location(div0, file$3, 2, 8, 87);
     			attr_dev(div1, "class", "row");
@@ -1791,8 +1784,6 @@ var app = (function () {
     			append_dev(div0, h1);
     			append_dev(div0, t1);
     			append_dev(div0, img);
-    			append_dev(div0, t2);
-    			append_dev(div0, h3);
     		},
     		p: noop$1,
     		i: noop$1,
@@ -5456,200 +5447,86 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file$1 = "src\\pages\\Account.svelte";
 
-    // (120:8) {#if $user.user_roles === "hairdresser"}
-    function create_if_block$1(ctx) {
-    	let div3;
-    	let div2;
-    	let div0;
-    	let t1;
-    	let div1;
-    	let form;
-    	let button;
-    	let mounted;
-    	let dispose;
-
-    	const block = {
-    		c: function create() {
-    			div3 = element("div");
-    			div2 = element("div");
-    			div0 = element("div");
-    			div0.textContent = "Portfolio";
-    			t1 = space();
-    			div1 = element("div");
-    			form = element("form");
-    			button = element("button");
-    			button.textContent = "Update Portfolio";
-    			attr_dev(div0, "class", "card-header");
-    			add_location(div0, file$1, 122, 20, 3296);
-    			attr_dev(button, "class", "btn btn-primary");
-    			attr_dev(button, "type", "button");
-    			add_location(button, file$1, 125, 28, 3440);
-    			add_location(form, file$1, 124, 24, 3405);
-    			attr_dev(div1, "class", "card-body");
-    			add_location(div1, file$1, 123, 20, 3357);
-    			attr_dev(div2, "class", "card mb-4");
-    			add_location(div2, file$1, 121, 16, 3252);
-    			attr_dev(div3, "class", "col-xl-5");
-    			add_location(div3, file$1, 120, 12, 3213);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, div3, anchor);
-    			append_dev(div3, div2);
-    			append_dev(div2, div0);
-    			append_dev(div2, t1);
-    			append_dev(div2, div1);
-    			append_dev(div1, form);
-    			append_dev(form, button);
-
-    			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*updatePerson*/ ctx[2], false, false, false, false);
-    				mounted = true;
-    			}
-    		},
-    		p: noop$1,
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div3);
-    			mounted = false;
-    			dispose();
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_if_block$1.name,
-    		type: "if",
-    		source: "(120:8) {#if $user.user_roles === \\\"hairdresser\\\"}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
     function create_fragment$1(ctx) {
-    	let div5;
-    	let div4;
-    	let div3;
     	let div2;
-    	let div0;
+    	let div1;
+    	let h3;
     	let t0;
-    	let t1_value = /*$user*/ ctx[0].nickname + "";
+    	let t1_value = /*appUser*/ ctx[0].nickname + "";
     	let t1;
     	let t2;
+    	let ul;
+    	let li0;
     	let t3;
-    	let div1;
-    	let form;
-    	let accountform;
+    	let t4_value = /*appUser*/ ctx[0].email + "";
     	let t4;
-    	let button;
+    	let t5;
+    	let li1;
     	let t6;
-    	let current;
-    	let mounted;
-    	let dispose;
-
-    	accountform = new AccountForm({
-    			props: { data: /*person*/ ctx[1] },
-    			$$inline: true
-    		});
-
-    	let if_block = /*$user*/ ctx[0].user_roles === "hairdresser" && create_if_block$1(ctx);
+    	let t7_value = /*appUser*/ ctx[0].roles + "";
+    	let t7;
+    	let t8;
+    	let div0;
 
     	const block = {
     		c: function create() {
-    			div5 = element("div");
-    			div4 = element("div");
-    			div3 = element("div");
     			div2 = element("div");
-    			div0 = element("div");
-    			t0 = text("Account Details (Nickname: ");
-    			t1 = text(t1_value);
-    			t2 = text(")");
-    			t3 = space();
     			div1 = element("div");
-    			form = element("form");
-    			create_component(accountform.$$.fragment);
-    			t4 = space();
-    			button = element("button");
-    			button.textContent = "Save changes";
-    			t6 = space();
-    			if (if_block) if_block.c();
-    			attr_dev(div0, "class", "card-header");
-    			add_location(div0, file$1, 110, 16, 2752);
-    			attr_dev(button, "class", "btn btn-primary");
-    			attr_dev(button, "type", "button");
-    			add_location(button, file$1, 114, 24, 2974);
-    			add_location(form, file$1, 112, 20, 2888);
-    			attr_dev(div1, "class", "card-body");
-    			add_location(div1, file$1, 111, 16, 2844);
-    			attr_dev(div2, "class", "card mb-4");
-    			add_location(div2, file$1, 109, 12, 2712);
-    			attr_dev(div3, "class", "col-xl-7");
-    			add_location(div3, file$1, 108, 8, 2677);
-    			attr_dev(div4, "class", "row");
-    			add_location(div4, file$1, 107, 4, 2643);
-    			attr_dev(div5, "class", "container-xl px-4 mt-4");
-    			add_location(div5, file$1, 106, 0, 2602);
+    			h3 = element("h3");
+    			t0 = text("Willkommen ");
+    			t1 = text(t1_value);
+    			t2 = space();
+    			ul = element("ul");
+    			li0 = element("li");
+    			t3 = text("E-mail: ");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			li1 = element("li");
+    			t6 = text("Rollen: ");
+    			t7 = text(t7_value);
+    			t8 = space();
+    			div0 = element("div");
+    			add_location(h3, file$1, 37, 8, 914);
+    			add_location(li0, file$1, 39, 12, 979);
+    			add_location(li1, file$1, 40, 12, 1024);
+    			add_location(ul, file$1, 38, 8, 962);
+    			attr_dev(div0, "class", "col-xl-7");
+    			add_location(div0, file$1, 42, 8, 1087);
+    			attr_dev(div1, "class", "row");
+    			add_location(div1, file$1, 36, 4, 887);
+    			attr_dev(div2, "class", "container-xl px-4 mt-4");
+    			add_location(div2, file$1, 35, 0, 846);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div5, anchor);
-    			append_dev(div5, div4);
-    			append_dev(div4, div3);
-    			append_dev(div3, div2);
-    			append_dev(div2, div0);
-    			append_dev(div0, t0);
-    			append_dev(div0, t1);
-    			append_dev(div0, t2);
-    			append_dev(div2, t3);
+    			insert_dev(target, div2, anchor);
     			append_dev(div2, div1);
-    			append_dev(div1, form);
-    			mount_component(accountform, form, null);
-    			append_dev(form, t4);
-    			append_dev(form, button);
-    			append_dev(div4, t6);
-    			if (if_block) if_block.m(div4, null);
-    			current = true;
-
-    			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*updatePerson*/ ctx[2], false, false, false, false);
-    				mounted = true;
-    			}
+    			append_dev(div1, h3);
+    			append_dev(h3, t0);
+    			append_dev(h3, t1);
+    			append_dev(div1, t2);
+    			append_dev(div1, ul);
+    			append_dev(ul, li0);
+    			append_dev(li0, t3);
+    			append_dev(li0, t4);
+    			append_dev(ul, t5);
+    			append_dev(ul, li1);
+    			append_dev(li1, t6);
+    			append_dev(li1, t7);
+    			append_dev(div1, t8);
+    			append_dev(div1, div0);
     		},
     		p: function update(ctx, [dirty]) {
-    			if ((!current || dirty & /*$user*/ 1) && t1_value !== (t1_value = /*$user*/ ctx[0].nickname + "")) set_data_dev(t1, t1_value);
-    			const accountform_changes = {};
-    			if (dirty & /*person*/ 2) accountform_changes.data = /*person*/ ctx[1];
-    			accountform.$set(accountform_changes);
-
-    			if (/*$user*/ ctx[0].user_roles === "hairdresser") {
-    				if (if_block) {
-    					if_block.p(ctx, dirty);
-    				} else {
-    					if_block = create_if_block$1(ctx);
-    					if_block.c();
-    					if_block.m(div4, null);
-    				}
-    			} else if (if_block) {
-    				if_block.d(1);
-    				if_block = null;
-    			}
+    			if (dirty & /*appUser*/ 1 && t1_value !== (t1_value = /*appUser*/ ctx[0].nickname + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*appUser*/ 1 && t4_value !== (t4_value = /*appUser*/ ctx[0].email + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*appUser*/ 1 && t7_value !== (t7_value = /*appUser*/ ctx[0].roles + "")) set_data_dev(t7, t7_value);
     		},
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(accountform.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(accountform.$$.fragment, local);
-    			current = false;
-    		},
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div5);
-    			destroy_component(accountform);
-    			if (if_block) if_block.d();
-    			mounted = false;
-    			dispose();
+    			if (detaching) detach_dev(div2);
     		}
     	};
 
@@ -5668,94 +5545,37 @@ var app = (function () {
     	let $jwt_token;
     	let $user;
     	validate_store(jwt_token, 'jwt_token');
-    	component_subscribe($$self, jwt_token, $$value => $$invalidate(4, $jwt_token = $$value));
+    	component_subscribe($$self, jwt_token, $$value => $$invalidate(1, $jwt_token = $$value));
     	validate_store(user, 'user');
-    	component_subscribe($$self, user, $$value => $$invalidate(0, $user = $$value));
+    	component_subscribe($$self, user, $$value => $$invalidate(2, $user = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Account', slots, []);
     	const api_root = window.location.origin;
-    	let person = {};
 
-    	let customer = {
+    	let appUser = {
     		id: "",
-    		firstname: "",
-    		lastname: "",
+    		roles: [],
     		nickname: "",
-    		phone: "",
-    		email: $user.email,
-    		city: "",
-    		street: "",
-    		postCode: ""
+    		email: $user.email
     	};
 
-    	let hairdresser = {
-    		id: "",
-    		firstname: "",
-    		lastname: "",
-    		nickname: "",
-    		phone: "",
-    		email: $user.email,
-    		city: "",
-    		street: "",
-    		postCode: "",
-    		aboutMeText: "",
-    		hairdresserTasks: []
-    	};
-
-    	let hairdresserTasks = [];
-
-    	function getModelByUserEmail() {
+    	function getUserByEmail() {
     		var config = {
     			method: "get",
-    			url: api_root + "/api/" + $user.user_roles + "/account",
+    			url: api_root + "/api/user/account",
     			headers: { Authorization: "Bearer " + $jwt_token }
     		};
 
     		axios$1(config).then(function (response) {
-    			$$invalidate(1, person = response.data);
+    			$$invalidate(0, appUser = response.data);
     			console.log(person);
     		}).catch(function (error) {
-    			alert("Could not get user");
+    			//alert("Could not get user");
     			console.log(error);
     		});
     	}
 
-    	function updatePerson() {
-    		var config = {
-    			method: "put",
-    			url: api_root + "/api/" + $user.user_roles + "/account/update",
-    			headers: {
-    				"Content-Type": "application/json",
-    				Authorization: "Bearer " + $jwt_token
-    			},
-    			data: person
-    		};
-
-    		axios$1(config).then(function (response) {
-    			$$invalidate(1, person = response.data);
-    			alert("User saved!");
-    		}).catch(function (error) {
-    			alert(error.response.data.message || "Could not update");
-    		});
-    	}
-
-    	function getHairdresserTasks() {
-    		var config = {
-    			method: "get",
-    			url: api_root + "/api/hairdresserTasks",
-    			headers: { Authorization: "Bearer " + $jwt_token }
-    		};
-
-    		axios$1(config).then(function (response) {
-    			hairdresserTasks = response.data;
-    		}).catch(function (error) {
-    			alert("Could not get tasks");
-    			console.log(error);
-    		});
-    	}
-
-    	getModelByUserEmail();
-    	getHairdresserTasks();
+    	getUserByEmail();
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -5768,41 +5588,21 @@ var app = (function () {
     		AccountForm,
     		user,
     		jwt_token,
-    		person,
-    		customer,
-    		hairdresser,
-    		hairdresserTasks,
-    		getModelByUserEmail,
-    		updatePerson,
-    		getHairdresserTasks,
+    		appUser,
+    		getUserByEmail,
     		$jwt_token,
     		$user
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('person' in $$props) $$invalidate(1, person = $$props.person);
-    		if ('customer' in $$props) $$invalidate(6, customer = $$props.customer);
-    		if ('hairdresser' in $$props) $$invalidate(7, hairdresser = $$props.hairdresser);
-    		if ('hairdresserTasks' in $$props) hairdresserTasks = $$props.hairdresserTasks;
+    		if ('appUser' in $$props) $$invalidate(0, appUser = $$props.appUser);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*$user*/ 1) {
-    			{
-    				if ($user.user_roles == "hairdresser") {
-    					$$invalidate(1, person = hairdresser);
-    				} else {
-    					$$invalidate(1, person = customer);
-    				}
-    			}
-    		}
-    	};
-
-    	return [$user, person, updatePerson];
+    	return [appUser];
     }
 
     class Account extends SvelteComponentDev {

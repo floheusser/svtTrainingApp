@@ -4,130 +4,53 @@
     import AccountForm from "./components/AccountForm.svelte";
     import { user, jwt_token } from "../store";
 
-    $:{
-        if($user.user_roles == "hairdresser") {
-            person = hairdresser;
-        } else {
-            person = customer;
-        }
-    }
-    let person = {};
-
-    let customer = {
+    let appUser = {
         id: "",
-        firstname: "",
-        lastname: "",
+        roles: [],
         nickname: "",
-        phone: "",
         email: $user.email,
-        city: "",
-        street: "",
-        postCode: "",
     };
 
-    let hairdresser = {
-        id: "",
-        firstname: "",
-        lastname: "",
-        nickname: "",
-        phone: "",
-        email: $user.email,
-        city: "",
-        street: "",
-        postCode: "",
-        aboutMeText: "",
-        hairdresserTasks: [],
-    };
-
-
-    let hairdresserTasks = []; 
-
-    function getModelByUserEmail() {
+    function getUserByEmail() {
 
         var config = {
             method: "get",
-            url: api_root + "/api/" + $user.user_roles + "/account",
+            url: api_root + "/api/user/account",
             headers: {Authorization: "Bearer "+$jwt_token},
         };
 
         axios(config)
             .then(function (response) {
-                person = response.data;
+                appUser = response.data;
                 console.log(person);
             })
             .catch(function (error) {
-                alert("Could not get user");
+                //alert("Could not get user");
                 console.log(error);
             });
     }
 
-    function updatePerson() {
-        var config = {
-            method: "put",
-            url: api_root + "/api/" + $user.user_roles + "/account/update",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: "Bearer "+$jwt_token
-            },
-            data: person,
-        };
-        axios(config)
-            .then(function (response) {
-                person = response.data;
-                alert("User saved!");
-            })
-            .catch(function (error) {
-                alert(error.response.data.message || "Could not update");
-            });
-    }
-
-
-    function getHairdresserTasks() {
-        var config = {
-            method: "get",
-            url: api_root + "/api/hairdresserTasks",
-            headers: {Authorization: "Bearer "+$jwt_token},
-        };
-
-        axios(config)
-            .then(function (response) {
-                hairdresserTasks = response.data;
-            })
-            .catch(function (error) {
-                alert("Could not get tasks");
-                console.log(error);
-            });
-    }
-
-    getModelByUserEmail();
-    getHairdresserTasks();
-
+    getUserByEmail();
 </script>
 
 <div class="container-xl px-4 mt-4">
-    <div class="row">        
+    <div class="row"> 
+        <h3>Willkommen {appUser.nickname} </h3>
+        <ul>
+            <li>E-mail: {appUser.email}</li>
+            <li>Rollen: {appUser.roles} </li>
+        </ul>       
         <div class="col-xl-7">
+        <!-- Can be used for create/uptate Trainings 
             <div class="card mb-4">
                 <div class="card-header">Account Details (Nickname: {$user.nickname})</div>
                 <div class="card-body">
-                    <form>
-                        <AccountForm data = {person}/>
+                     <form>
+                        <AccountForm data = {appUser}/>
                         <button on:click={updatePerson} class="btn btn-primary" type="button" >Save changes</button>
                     </form>
                 </div>
-            </div>
+            </div>-->
         </div>
-        {#if $user.user_roles === "hairdresser"}
-            <div class="col-xl-5">
-                <div class="card mb-4">
-                    <div class="card-header">Portfolio</div>
-                    <div class="card-body">
-                        <form>
-                            <button on:click={updatePerson} class="btn btn-primary" type="button" >Update Portfolio</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        {/if}
     </div>
 </div>        

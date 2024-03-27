@@ -3,7 +3,6 @@
         <div class="col-12 d-flex flex-column align-items-center justify-content-center">
             <h1 style="color: #333; margin-top: 20px;">SVT Training App</h1>
             <img src="/svt-logo.png" alt="Logo" class="img-fluid" style="max-height: 200px;">
-            <h3 style="color: #666; margin-top: 10px;"></h3>
         </div>
     </div>
 </div>
