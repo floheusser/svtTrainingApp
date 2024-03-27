@@ -24,7 +24,7 @@ async function loginWithPopup() {
   } catch (e) {
     console.error(e);
   }
-  push("#/");
+  push("#/account");
 }
 
 function logout() {

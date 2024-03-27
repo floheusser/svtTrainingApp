@@ -33,13 +33,6 @@
 						>
 					</li>
 					{/if}
-					<li class="nav-item">
-						<a
-							class="nav-link"
-							aria-current="page"
-							href="#/hairdressers">Hairdressers</a
-						>
-					</li>
 					{#if $isAuthenticated && $user.user_roles === "customer"}
 					<li class="nav-item">
 						<a

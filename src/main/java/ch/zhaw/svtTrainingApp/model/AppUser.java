@@ -1,5 +1,7 @@
 package ch.zhaw.svtTrainingApp.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -25,6 +27,6 @@ public class AppUser {
     @NonNull
     private String email;
 
-    private String role;
+    private List<String> roles;
 
 }
