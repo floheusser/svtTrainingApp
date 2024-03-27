@@ -19,7 +19,7 @@ import org.springframework.security.oauth2.jwt.JwtValidators;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import ch.zhaw.svtTrainingApp.repository.CustomerRepository;
+import ch.zhaw.svtTrainingApp.repository.AppUserRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -28,20 +28,14 @@ public class SecurityConfig {
 
     @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
     String issuerUri;
-
-    //@Autowired
-    //HairdresserRepository hairdresserRepository;
     
     @Autowired
-    CustomerRepository customerRepository;
+    AppUserRepository userRepository;
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
                 .requestMatchers("/*").permitAll()
-                .requestMatchers("/api/hairdressers").permitAll()
-                .requestMatchers("/api/hairdresserTasks").permitAll()
-                .requestMatchers("/api/hairdresser/*").permitAll()
                 .requestMatchers("/api/**").authenticated()
                 .requestMatchers("/build/**").permitAll()
                 .and().cors(withDefaults())
@@ -56,7 +50,7 @@ public class SecurityConfig {
     @ConditionalOnMissingBean
     JwtDecoder jwtDecoder() {
         NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder) JwtDecoders.fromIssuerLocation(issuerUri);
-        OAuth2TokenValidator<Jwt> userValidator = new UserValidator(customerRepository);
+        OAuth2TokenValidator<Jwt> userValidator = new UserValidator(userRepository);
         OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuerUri);
         OAuth2TokenValidator<Jwt> myValidator = new DelegatingOAuth2TokenValidator<>(withIssuer, userValidator);
         jwtDecoder.setJwtValidator(myValidator);
