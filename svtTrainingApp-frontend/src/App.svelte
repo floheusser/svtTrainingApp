@@ -33,12 +33,12 @@
 						>
 					</li>
 					{/if}
-					{#if $isAuthenticated && $user.user_roles === "customer"}
+					{#if $isAuthenticated && $user.user_roles.includes("trainer")}
 					<li class="nav-item">
 						<a
 							class="nav-link"
 							aria-current="page"
-							href="#/customerMyAppointments">My Appointments</a
+							href="#/myTrainings">My Trainings</a
 						>
 					</li>
 					{/if}
