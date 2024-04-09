@@ -5,11 +5,11 @@ RUN apt-get update && apt-get install -y curl \
  && curl -L https://www.npmjs.com/install.sh | npm_install="8.19.2" | sh
 WORKDIR /usr/src/app
 COPY . .
-RUN cd hairathome-frontend && npm install
-RUN cd hairathome-frontend && npm run build
-RUN rm -r hairathome-frontend
+RUN cd svtTrainingApp-frontend && npm install
+RUN cd svtTrainingApp-frontend && npm run build
+RUN rm -r svtTrainingApp-frontend
 RUN sed -i 's/\r$//' mvnw
 RUN chmod +x mvnw
 RUN ./mvnw package
 EXPOSE 8080
-CMD ["java", "-jar", "/usr/src/app/target/hairathome-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "/usr/src/app/target/svtTrainingApp-0.0.1-SNAPSHOT.jar"]
