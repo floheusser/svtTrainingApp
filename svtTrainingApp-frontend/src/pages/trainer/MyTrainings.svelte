@@ -35,7 +35,6 @@
             .then(function (response) {
                 training = response.data;
                 getMyTrainings();
-                //alert("Training saved!");
             })
             .catch(function (error) {
                 alert(error.response.data.message || "Could not create");
@@ -56,7 +55,6 @@
             .then(function (response) {
                 myTraining = response.data;
                 getMyTrainings();
-                //alert("Training saved!");
             })
             .catch(function (error) {
                 alert(error.response.data.message || "Could not create");

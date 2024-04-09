@@ -6137,7 +6137,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (128:8) {:else}
+    // (126:8) {:else}
     function create_else_block$2(ctx) {
     	let h6;
 
@@ -6147,7 +6147,7 @@ var app = (function () {
     			h6.textContent = "Keine Trainings erstellt";
     			attr_dev(h6, "class", "text-center my-3 pb-3");
     			set_style(h6, "color", "red");
-    			add_location(h6, file$2, 128, 8, 4544);
+    			add_location(h6, file$2, 126, 8, 4454);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h6, anchor);
@@ -6164,14 +6164,14 @@ var app = (function () {
     		block,
     		id: create_else_block$2.name,
     		type: "else",
-    		source: "(128:8) {:else}",
+    		source: "(126:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (104:8) {#if myTrainings.length != 0}
+    // (102:8) {#if myTrainings.length != 0}
     function create_if_block$2(ctx) {
     	let div;
     	let current;
@@ -6197,7 +6197,7 @@ var app = (function () {
 
     			attr_dev(div, "class", "accordion accordion-flush");
     			attr_dev(div, "id", "accordionFlush");
-    			add_location(div, file$2, 104, 8, 3154);
+    			add_location(div, file$2, 102, 8, 3064);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -6267,14 +6267,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(104:8) {#if myTrainings.length != 0}",
+    		source: "(102:8) {#if myTrainings.length != 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (106:12) {#each myTrainings as myTraining}
+    // (104:12) {#each myTrainings as myTraining}
     function create_each_block$1(ctx) {
     	let div2;
     	let h2;
@@ -6332,24 +6332,24 @@ var app = (function () {
     			attr_dev(button0, "data-bs-target", button0_data_bs_target_value = "#flush-collapse" + /*myTraining*/ ctx[7].id);
     			attr_dev(button0, "aria-expanded", "false");
     			attr_dev(button0, "aria-controls", button0_aria_controls_value = "flush-collapse" + /*myTraining*/ ctx[7].id);
-    			add_location(button0, file$2, 108, 20, 3405);
+    			add_location(button0, file$2, 106, 20, 3315);
     			attr_dev(h2, "class", "accordion-header");
     			attr_dev(h2, "id", h2_id_value = "flush-heading" + /*myTraining*/ ctx[7].id);
-    			add_location(h2, file$2, 107, 16, 3320);
+    			add_location(h2, file$2, 105, 16, 3230);
     			attr_dev(button1, "class", "btn btn-primary");
     			attr_dev(button1, "type", "button");
-    			add_location(button1, file$2, 116, 28, 4134);
-    			add_location(form, file$2, 114, 24, 4010);
+    			add_location(button1, file$2, 114, 28, 4044);
+    			add_location(form, file$2, 112, 24, 3920);
     			attr_dev(div0, "class", "accordion-body");
     			set_style(div0, "background-color", "white");
-    			add_location(div0, file$2, 113, 20, 3923);
+    			add_location(div0, file$2, 111, 20, 3833);
     			attr_dev(div1, "id", div1_id_value = "flush-collapse" + /*myTraining*/ ctx[7].id);
     			attr_dev(div1, "class", "accordion-collapse collapse");
     			attr_dev(div1, "aria-labelledby", div1_aria_labelledby_value = "flush-heading" + /*myTraining*/ ctx[7].id);
     			attr_dev(div1, "data-bs-parent", "#accordionFlush");
-    			add_location(div1, file$2, 112, 16, 3745);
+    			add_location(div1, file$2, 110, 16, 3655);
     			attr_dev(div2, "class", "accordion-item");
-    			add_location(div2, file$2, 106, 12, 3274);
+    			add_location(div2, file$2, 104, 12, 3184);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -6434,7 +6434,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(106:12) {#each myTrainings as myTraining}",
+    		source: "(104:12) {#each myTrainings as myTraining}",
     		ctx
     	});
 
@@ -6504,25 +6504,25 @@ var app = (function () {
     			t6 = space();
     			if_block.c();
     			attr_dev(div0, "class", "card-header");
-    			add_location(div0, file$2, 87, 16, 2492);
+    			add_location(div0, file$2, 85, 16, 2402);
     			attr_dev(button, "class", "btn btn-success");
     			attr_dev(button, "type", "button");
-    			add_location(button, file$2, 91, 24, 2714);
-    			add_location(form, file$2, 89, 20, 2600);
+    			add_location(button, file$2, 89, 24, 2624);
+    			add_location(form, file$2, 87, 20, 2510);
     			attr_dev(div1, "class", "card-body");
-    			add_location(div1, file$2, 88, 16, 2555);
+    			add_location(div1, file$2, 86, 16, 2465);
     			attr_dev(div2, "class", "card mb-4");
-    			add_location(div2, file$2, 86, 12, 2451);
+    			add_location(div2, file$2, 84, 12, 2361);
     			attr_dev(div3, "class", "col-xl");
-    			add_location(div3, file$2, 85, 8, 2417);
+    			add_location(div3, file$2, 83, 8, 2327);
     			attr_dev(div4, "class", "row");
-    			add_location(div4, file$2, 84, 4, 2390);
+    			add_location(div4, file$2, 82, 4, 2300);
     			attr_dev(h4, "class", "text-center");
-    			add_location(h4, file$2, 102, 8, 3060);
+    			add_location(h4, file$2, 100, 8, 2970);
     			attr_dev(div5, "class", "row");
-    			add_location(div5, file$2, 101, 4, 3033);
+    			add_location(div5, file$2, 99, 4, 2943);
     			attr_dev(div6, "class", "container mt-4");
-    			add_location(div6, file$2, 83, 0, 2356);
+    			add_location(div6, file$2, 81, 0, 2266);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6647,7 +6647,7 @@ var app = (function () {
     			$$invalidate(0, training = response.data);
     			getMyTrainings();
     		}).catch(function (error) {
-    			alert(error.response.data.message || "Could not create"); //alert("Training saved!");
+    			alert(error.response.data.message || "Could not create");
     		});
     	}
 
@@ -6666,7 +6666,7 @@ var app = (function () {
     			myTraining = response.data;
     			getMyTrainings();
     		}).catch(function (error) {
-    			alert(error.response.data.message || "Could not create"); //alert("Training saved!");
+    			alert(error.response.data.message || "Could not create");
     		});
     	}
 
