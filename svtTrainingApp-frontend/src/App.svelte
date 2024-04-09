@@ -41,6 +41,13 @@
 							href="#/myTrainings">My Trainings</a
 						>
 					</li>
+					<li class="nav-item">
+						<a
+							class="nav-link"
+							aria-current="page"
+							href="#/allTrainings">All Trainings</a
+						>
+					</li>
 					{/if}
 					{#if $isAuthenticated && $user.user_roles === "hairdresser"}
 					<li class="nav-item">

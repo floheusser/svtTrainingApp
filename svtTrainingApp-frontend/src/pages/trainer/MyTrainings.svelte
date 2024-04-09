@@ -88,7 +88,7 @@
                 <div class="card-header">Neues Training</div>
                 <div class="card-body">
                     <form>
-                        <TrainingProtocolForm data={training} />
+                        <TrainingProtocolForm data={training} readOnly={false}/>
                         <button
                             on:click={createTraining}
                             class="btn btn-success"
@@ -113,7 +113,7 @@
                 <div id="flush-collapse{myTraining.id}" class="accordion-collapse collapse" aria-labelledby="flush-heading{myTraining.id}" data-bs-parent="#accordionFlush">
                     <div class="accordion-body" style="background-color: white;">
                         <form>
-                            <TrainingProtocolForm data={myTraining} />
+                            <TrainingProtocolForm data={myTraining} readOnly={false}/>
                             <button
                                 on:click={updateTraining(myTraining)}
                                 class="btn btn-primary"
