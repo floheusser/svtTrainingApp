@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 COPY . .
 RUN cd svtTrainingApp-frontend && npm install
 RUN cd svtTrainingApp-frontend && npm run build
-RUN rm -r svttrainingapp-frontend
+RUN rm -r svtTrainingApp-frontend
 RUN sed -i 's/\r$//' mvnw
 RUN chmod +x mvnw
 RUN ./mvnw package
