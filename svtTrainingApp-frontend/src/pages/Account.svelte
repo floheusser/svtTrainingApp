@@ -40,17 +40,22 @@
             <li>E-mail: {appUser.email}</li>
             <li>Rollen: {appUser.roles} </li>
         </ul>       
-        <div class="col-xl-7">
-        <!-- Can be used for create/uptate Trainings 
+    </div>
+    <div class="row">
+        <div class="col-xl">
             <div class="card mb-4">
-                <div class="card-header">Account Details (Nickname: {$user.nickname})</div>
+                <div class="card-header">Account</div>
                 <div class="card-body">
-                     <form>
-                        <AccountForm data = {appUser}/>
-                        <button on:click={updatePerson} class="btn btn-primary" type="button" >Save changes</button>
+                    <form>
+                       <!-- 
+                        <button
+                            on:click={updateUser}
+                            class="btn btn-success"
+                            type="button">speichern</button
+                        >-->
                     </form>
                 </div>
-            </div>-->
+            </div>
         </div>
     </div>
 </div>        
