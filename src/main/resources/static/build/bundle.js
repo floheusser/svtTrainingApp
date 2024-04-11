@@ -93,8 +93,17 @@ var app = (function () {
         else if (node.getAttribute(attribute) !== value)
             node.setAttribute(attribute, value);
     }
-    function to_number(value) {
-        return value === '' ? null : +value;
+    function init_binding_group(group) {
+        let _inputs;
+        return {
+            /* push */ p(...inputs) {
+                _inputs = inputs;
+                _inputs.forEach(input => group.push(input));
+            },
+            /* remove */ r() {
+                _inputs.forEach(input => group.splice(group.indexOf(input), 1));
+            }
+        };
     }
     function children(element) {
         return Array.from(element.childNodes);
@@ -5065,6 +5074,85 @@ var app = (function () {
 
     const file$5 = "src\\pages\\components\\AccountForm.svelte";
 
+    function get_each_context$3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[6] = list[i];
+    	return child_ctx;
+    }
+
+    // (21:8) {#each trainerValues as value}
+    function create_each_block$3(ctx) {
+    	let div;
+    	let input;
+    	let t0;
+    	let label;
+    	let t1_value = /*value*/ ctx[6].label + "";
+    	let t1;
+    	let t2;
+    	let binding_group;
+    	let mounted;
+    	let dispose;
+    	binding_group = init_binding_group(/*$$binding_groups*/ ctx[5][0]);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			input = element("input");
+    			t0 = space();
+    			label = element("label");
+    			t1 = text(t1_value);
+    			t2 = space();
+    			attr_dev(input, "class", "form-check-input");
+    			attr_dev(input, "type", "radio");
+    			attr_dev(input, "id", "type" + /*value*/ ctx[6].value);
+    			input.__value = /*value*/ ctx[6].value;
+    			input.value = input.__value;
+    			add_location(input, file$5, 22, 12, 807);
+    			attr_dev(label, "class", "form-check-label");
+    			attr_dev(label, "for", "type" + /*value*/ ctx[6].value);
+    			add_location(label, file$5, 23, 12, 933);
+    			attr_dev(div, "class", "form-check form-check-inline");
+    			add_location(div, file$5, 21, 8, 751);
+    			binding_group.p(input);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, input);
+    			input.checked = input.__value === /*data*/ ctx[0].type;
+    			append_dev(div, t0);
+    			append_dev(div, label);
+    			append_dev(label, t1);
+    			append_dev(div, t2);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "change", /*input_change_handler*/ ctx[4]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*data*/ 1) {
+    				input.checked = input.__value === /*data*/ ctx[0].type;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			binding_group.r();
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$3.name,
+    		type: "each",
+    		source: "(21:8) {#each trainerValues as value}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$5(ctx) {
     	let div2;
     	let div0;
@@ -5077,162 +5165,67 @@ var app = (function () {
     	let t4;
     	let input1;
     	let t5;
-    	let div5;
-    	let div3;
-    	let label2;
-    	let t7;
-    	let input2;
-    	let t8;
     	let div4;
-    	let label3;
-    	let t10;
-    	let input3;
-    	let t11;
-    	let div7;
-    	let div6;
-    	let label4;
-    	let t13;
-    	let input4;
-    	let t14;
-    	let div10;
-    	let div8;
-    	let label5;
-    	let t16;
-    	let input5;
-    	let t17;
-    	let div9;
-    	let label6;
-    	let t19;
-    	let input6;
+    	let div3;
     	let mounted;
     	let dispose;
+    	let each_value = /*trainerValues*/ ctx[1];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
+    	}
 
     	const block = {
     		c: function create() {
     			div2 = element("div");
     			div0 = element("div");
     			label0 = element("label");
-    			label0.textContent = "Vorname";
+    			label0.textContent = "Vor-/Nachname";
     			t1 = space();
     			input0 = element("input");
     			t2 = space();
     			div1 = element("div");
     			label1 = element("label");
-    			label1.textContent = "Nachname";
+    			label1.textContent = "E-Mail";
     			t4 = space();
     			input1 = element("input");
     			t5 = space();
-    			div5 = element("div");
-    			div3 = element("div");
-    			label2 = element("label");
-    			label2.textContent = "E-Mail";
-    			t7 = space();
-    			input2 = element("input");
-    			t8 = space();
     			div4 = element("div");
-    			label3 = element("label");
-    			label3.textContent = "Tel.";
-    			t10 = space();
-    			input3 = element("input");
-    			t11 = space();
-    			div7 = element("div");
-    			div6 = element("div");
-    			label4 = element("label");
-    			label4.textContent = "Strasse und Hausnummer";
-    			t13 = space();
-    			input4 = element("input");
-    			t14 = space();
-    			div10 = element("div");
-    			div8 = element("div");
-    			label5 = element("label");
-    			label5.textContent = "Postleitzahl";
-    			t16 = space();
-    			input5 = element("input");
-    			t17 = space();
-    			div9 = element("div");
-    			label6 = element("label");
-    			label6.textContent = "Ort";
-    			t19 = space();
-    			input6 = element("input");
+    			div3 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
     			attr_dev(label0, "class", "small mb-1");
-    			attr_dev(label0, "for", "inputFirstName");
-    			add_location(label0, file$5, 5, 8, 103);
+    			attr_dev(label0, "for", "inputName");
+    			add_location(label0, file$5, 10, 8, 228);
     			attr_dev(input0, "class", "form-control");
-    			attr_dev(input0, "id", "inputFirstName");
+    			attr_dev(input0, "id", "inputName");
     			attr_dev(input0, "type", "text");
-    			attr_dev(input0, "placeholder", "Enter first name");
-    			add_location(input0, file$5, 6, 8, 174);
+    			attr_dev(input0, "placeholder", "Vor-/Nachname");
+    			add_location(input0, file$5, 11, 8, 300);
     			attr_dev(div0, "class", "col-md-6");
-    			add_location(div0, file$5, 4, 4, 72);
+    			add_location(div0, file$5, 9, 4, 197);
     			attr_dev(label1, "class", "small mb-1");
-    			attr_dev(label1, "for", "inputLastName");
-    			add_location(label1, file$5, 9, 8, 342);
+    			attr_dev(label1, "for", "email");
+    			add_location(label1, file$5, 14, 8, 455);
     			attr_dev(input1, "class", "form-control");
-    			attr_dev(input1, "id", "inputLastName");
-    			attr_dev(input1, "type", "text");
-    			attr_dev(input1, "placeholder", "Enter last name");
-    			add_location(input1, file$5, 10, 8, 413);
+    			input1.readOnly = true;
+    			attr_dev(input1, "id", "email");
+    			attr_dev(input1, "type", "email");
+    			attr_dev(input1, "placeholder", "Enter E-Mail");
+    			add_location(input1, file$5, 15, 8, 516);
     			attr_dev(div1, "class", "col-md-6");
-    			add_location(div1, file$5, 8, 4, 311);
+    			add_location(div1, file$5, 13, 4, 424);
     			attr_dev(div2, "class", "row gx-3 mb-3");
-    			add_location(div2, file$5, 3, 0, 40);
-    			attr_dev(label2, "class", "small mb-1");
-    			attr_dev(label2, "for", "email");
-    			add_location(label2, file$5, 15, 8, 613);
-    			attr_dev(input2, "class", "form-control");
-    			input2.readOnly = true;
-    			attr_dev(input2, "id", "email");
-    			attr_dev(input2, "type", "email");
-    			attr_dev(input2, "placeholder", "Enter E-Mail");
-    			add_location(input2, file$5, 16, 8, 674);
+    			add_location(div2, file$5, 8, 0, 165);
     			attr_dev(div3, "class", "col-md-6");
-    			add_location(div3, file$5, 14, 4, 582);
-    			attr_dev(label3, "class", "small mb-1");
-    			attr_dev(label3, "for", "phone");
-    			add_location(label3, file$5, 19, 8, 835);
-    			attr_dev(input3, "class", "form-control");
-    			attr_dev(input3, "id", "phone");
-    			attr_dev(input3, "type", "text");
-    			attr_dev(input3, "placeholder", "Enter Phonenumber");
-    			add_location(input3, file$5, 20, 8, 894);
-    			attr_dev(div4, "class", "col-md-6");
-    			add_location(div4, file$5, 18, 4, 804);
-    			attr_dev(div5, "class", "row gx-3 mb-3");
-    			add_location(div5, file$5, 13, 0, 550);
-    			attr_dev(label4, "class", "small mb-1");
-    			attr_dev(label4, "for", "street");
-    			add_location(label4, file$5, 25, 8, 1085);
-    			attr_dev(input4, "class", "form-control");
-    			attr_dev(input4, "id", "street");
-    			attr_dev(input4, "type", "text");
-    			attr_dev(input4, "placeholder", "Enter Street");
-    			add_location(input4, file$5, 26, 8, 1163);
-    			attr_dev(div6, "class", "col-md-6");
-    			add_location(div6, file$5, 24, 4, 1054);
-    			attr_dev(div7, "class", "row gx-3 mb-3");
-    			add_location(div7, file$5, 23, 0, 1022);
-    			attr_dev(label5, "class", "small mb-1");
-    			attr_dev(label5, "for", "postcode");
-    			add_location(label5, file$5, 31, 8, 1351);
-    			attr_dev(input5, "class", "form-control");
-    			attr_dev(input5, "id", "postcode");
-    			attr_dev(input5, "type", "number");
-    			attr_dev(input5, "placeholder", "Enter Postcode");
-    			add_location(input5, file$5, 32, 8, 1421);
-    			attr_dev(div8, "class", "col-md-6");
-    			add_location(div8, file$5, 30, 4, 1320);
-    			attr_dev(label6, "class", "small mb-1");
-    			attr_dev(label6, "for", "city");
-    			add_location(label6, file$5, 35, 8, 1582);
-    			attr_dev(input6, "class", "form-control");
-    			attr_dev(input6, "id", "city");
-    			attr_dev(input6, "type", "text");
-    			attr_dev(input6, "placeholder", "Enter City");
-    			add_location(input6, file$5, 36, 8, 1639);
-    			attr_dev(div9, "class", "col-md-6");
-    			add_location(div9, file$5, 34, 4, 1551);
-    			attr_dev(div10, "class", "row gx-3 mb-3");
-    			add_location(div10, file$5, 29, 0, 1288);
+    			add_location(div3, file$5, 19, 4, 681);
+    			attr_dev(div4, "class", "row gx-3 mb-3");
+    			add_location(div4, file$5, 18, 0, 649);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5243,88 +5236,63 @@ var app = (function () {
     			append_dev(div0, label0);
     			append_dev(div0, t1);
     			append_dev(div0, input0);
-    			set_input_value(input0, /*data*/ ctx[0].firstname);
+    			set_input_value(input0, /*data*/ ctx[0].name);
     			append_dev(div2, t2);
     			append_dev(div2, div1);
     			append_dev(div1, label1);
     			append_dev(div1, t4);
     			append_dev(div1, input1);
-    			set_input_value(input1, /*data*/ ctx[0].lastname);
+    			set_input_value(input1, /*data*/ ctx[0].email);
     			insert_dev(target, t5, anchor);
-    			insert_dev(target, div5, anchor);
-    			append_dev(div5, div3);
-    			append_dev(div3, label2);
-    			append_dev(div3, t7);
-    			append_dev(div3, input2);
-    			set_input_value(input2, /*data*/ ctx[0].email);
-    			append_dev(div5, t8);
-    			append_dev(div5, div4);
-    			append_dev(div4, label3);
-    			append_dev(div4, t10);
-    			append_dev(div4, input3);
-    			set_input_value(input3, /*data*/ ctx[0].phone);
-    			insert_dev(target, t11, anchor);
-    			insert_dev(target, div7, anchor);
-    			append_dev(div7, div6);
-    			append_dev(div6, label4);
-    			append_dev(div6, t13);
-    			append_dev(div6, input4);
-    			set_input_value(input4, /*data*/ ctx[0].street);
-    			insert_dev(target, t14, anchor);
-    			insert_dev(target, div10, anchor);
-    			append_dev(div10, div8);
-    			append_dev(div8, label5);
-    			append_dev(div8, t16);
-    			append_dev(div8, input5);
-    			set_input_value(input5, /*data*/ ctx[0].postCode);
-    			append_dev(div10, t17);
-    			append_dev(div10, div9);
-    			append_dev(div9, label6);
-    			append_dev(div9, t19);
-    			append_dev(div9, input6);
-    			set_input_value(input6, /*data*/ ctx[0].city);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div3);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(div3, null);
+    				}
+    			}
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[1]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[2]),
-    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[3]),
-    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[4]),
-    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[5]),
-    					listen_dev(input5, "input", /*input5_input_handler*/ ctx[6]),
-    					listen_dev(input6, "input", /*input6_input_handler*/ ctx[7])
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[2]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[3])
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*data*/ 1 && input0.value !== /*data*/ ctx[0].firstname) {
-    				set_input_value(input0, /*data*/ ctx[0].firstname);
+    			if (dirty & /*data*/ 1 && input0.value !== /*data*/ ctx[0].name) {
+    				set_input_value(input0, /*data*/ ctx[0].name);
     			}
 
-    			if (dirty & /*data*/ 1 && input1.value !== /*data*/ ctx[0].lastname) {
-    				set_input_value(input1, /*data*/ ctx[0].lastname);
+    			if (dirty & /*data*/ 1 && input1.value !== /*data*/ ctx[0].email) {
+    				set_input_value(input1, /*data*/ ctx[0].email);
     			}
 
-    			if (dirty & /*data*/ 1 && input2.value !== /*data*/ ctx[0].email) {
-    				set_input_value(input2, /*data*/ ctx[0].email);
-    			}
+    			if (dirty & /*trainerValues, data*/ 3) {
+    				each_value = /*trainerValues*/ ctx[1];
+    				validate_each_argument(each_value);
+    				let i;
 
-    			if (dirty & /*data*/ 1 && input3.value !== /*data*/ ctx[0].phone) {
-    				set_input_value(input3, /*data*/ ctx[0].phone);
-    			}
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$3(ctx, each_value, i);
 
-    			if (dirty & /*data*/ 1 && input4.value !== /*data*/ ctx[0].street) {
-    				set_input_value(input4, /*data*/ ctx[0].street);
-    			}
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$3(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div3, null);
+    					}
+    				}
 
-    			if (dirty & /*data*/ 1 && to_number(input5.value) !== /*data*/ ctx[0].postCode) {
-    				set_input_value(input5, /*data*/ ctx[0].postCode);
-    			}
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
 
-    			if (dirty & /*data*/ 1 && input6.value !== /*data*/ ctx[0].city) {
-    				set_input_value(input6, /*data*/ ctx[0].city);
+    				each_blocks.length = each_value.length;
     			}
     		},
     		i: noop$1,
@@ -5332,11 +5300,8 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div2);
     			if (detaching) detach_dev(t5);
-    			if (detaching) detach_dev(div5);
-    			if (detaching) detach_dev(t11);
-    			if (detaching) detach_dev(div7);
-    			if (detaching) detach_dev(t14);
-    			if (detaching) detach_dev(div10);
+    			if (detaching) detach_dev(div4);
+    			destroy_each(each_blocks, detaching);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -5358,6 +5323,14 @@ var app = (function () {
     	validate_slots('AccountForm', slots, []);
     	let { data } = $$props;
 
+    	const trainerValues = [
+    		{ label: 'Trainer', value: 'trainer' },
+    		{
+    			label: 'Hilfstrainer',
+    			value: 'helptrainer'
+    		}
+    	];
+
     	$$self.$$.on_mount.push(function () {
     		if (data === undefined && !('data' in $$props || $$self.$$.bound[$$self.$$.props['data']])) {
     			console.warn("<AccountForm> was created without expected prop 'data'");
@@ -5370,38 +5343,20 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<AccountForm> was created with unknown prop '${key}'`);
     	});
 
+    	const $$binding_groups = [[]];
+
     	function input0_input_handler() {
-    		data.firstname = this.value;
+    		data.name = this.value;
     		$$invalidate(0, data);
     	}
 
     	function input1_input_handler() {
-    		data.lastname = this.value;
-    		$$invalidate(0, data);
-    	}
-
-    	function input2_input_handler() {
     		data.email = this.value;
     		$$invalidate(0, data);
     	}
 
-    	function input3_input_handler() {
-    		data.phone = this.value;
-    		$$invalidate(0, data);
-    	}
-
-    	function input4_input_handler() {
-    		data.street = this.value;
-    		$$invalidate(0, data);
-    	}
-
-    	function input5_input_handler() {
-    		data.postCode = to_number(this.value);
-    		$$invalidate(0, data);
-    	}
-
-    	function input6_input_handler() {
-    		data.city = this.value;
+    	function input_change_handler() {
+    		data.type = this.__value;
     		$$invalidate(0, data);
     	}
 
@@ -5409,7 +5364,7 @@ var app = (function () {
     		if ('data' in $$props) $$invalidate(0, data = $$props.data);
     	};
 
-    	$$self.$capture_state = () => ({ data });
+    	$$self.$capture_state = () => ({ data, trainerValues });
 
     	$$self.$inject_state = $$props => {
     		if ('data' in $$props) $$invalidate(0, data = $$props.data);
@@ -5421,13 +5376,11 @@ var app = (function () {
 
     	return [
     		data,
+    		trainerValues,
     		input0_input_handler,
     		input1_input_handler,
-    		input2_input_handler,
-    		input3_input_handler,
-    		input4_input_handler,
-    		input5_input_handler,
-    		input6_input_handler
+    		input_change_handler,
+    		$$binding_groups
     	];
     }
 
@@ -5515,6 +5468,17 @@ var app = (function () {
     	let t10;
     	let div2;
     	let form;
+    	let accountform;
+    	let t11;
+    	let button;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	accountform = new AccountForm({
+    			props: { data: /*appUser*/ ctx[0] },
+    			$$inline: true
+    		});
 
     	const block = {
     		c: function create() {
@@ -5541,25 +5505,32 @@ var app = (function () {
     			t10 = space();
     			div2 = element("div");
     			form = element("form");
-    			add_location(h3, file$4, 37, 8, 914);
-    			add_location(li0, file$4, 39, 12, 979);
-    			add_location(li1, file$4, 40, 12, 1024);
-    			add_location(ul, file$4, 38, 8, 962);
+    			create_component(accountform.$$.fragment);
+    			t11 = space();
+    			button = element("button");
+    			button.textContent = "Speichern";
+    			add_location(h3, file$4, 58, 8, 1497);
+    			add_location(li0, file$4, 60, 12, 1562);
+    			add_location(li1, file$4, 61, 12, 1607);
+    			add_location(ul, file$4, 59, 8, 1545);
     			attr_dev(div0, "class", "row");
-    			add_location(div0, file$4, 36, 4, 887);
+    			add_location(div0, file$4, 57, 4, 1470);
     			attr_dev(div1, "class", "card-header");
-    			add_location(div1, file$4, 46, 16, 1193);
-    			add_location(form, file$4, 48, 20, 1292);
+    			add_location(div1, file$4, 67, 16, 1776);
+    			attr_dev(button, "class", "btn btn-success");
+    			attr_dev(button, "type", "button");
+    			add_location(button, file$4, 72, 24, 1985);
+    			add_location(form, file$4, 69, 20, 1875);
     			attr_dev(div2, "class", "card-body");
-    			add_location(div2, file$4, 47, 16, 1248);
+    			add_location(div2, file$4, 68, 16, 1831);
     			attr_dev(div3, "class", "card mb-4");
-    			add_location(div3, file$4, 45, 12, 1153);
+    			add_location(div3, file$4, 66, 12, 1736);
     			attr_dev(div4, "class", "col-xl");
-    			add_location(div4, file$4, 44, 8, 1120);
+    			add_location(div4, file$4, 65, 8, 1703);
     			attr_dev(div5, "class", "row");
-    			add_location(div5, file$4, 43, 4, 1094);
+    			add_location(div5, file$4, 64, 4, 1677);
     			attr_dev(div6, "class", "container-xl px-4 mt-4");
-    			add_location(div6, file$4, 35, 0, 846);
+    			add_location(div6, file$4, 56, 0, 1429);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5587,16 +5558,38 @@ var app = (function () {
     			append_dev(div3, t10);
     			append_dev(div3, div2);
     			append_dev(div2, form);
+    			mount_component(accountform, form, null);
+    			append_dev(form, t11);
+    			append_dev(form, button);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*updateUser*/ ctx[1], false, false, false, false);
+    				mounted = true;
+    			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*appUser*/ 1 && t1_value !== (t1_value = /*appUser*/ ctx[0].nickname + "")) set_data_dev(t1, t1_value);
-    			if (dirty & /*appUser*/ 1 && t4_value !== (t4_value = /*appUser*/ ctx[0].email + "")) set_data_dev(t4, t4_value);
-    			if (dirty & /*appUser*/ 1 && t7_value !== (t7_value = /*appUser*/ ctx[0].roles + "")) set_data_dev(t7, t7_value);
+    			if ((!current || dirty & /*appUser*/ 1) && t1_value !== (t1_value = /*appUser*/ ctx[0].nickname + "")) set_data_dev(t1, t1_value);
+    			if ((!current || dirty & /*appUser*/ 1) && t4_value !== (t4_value = /*appUser*/ ctx[0].email + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty & /*appUser*/ 1) && t7_value !== (t7_value = /*appUser*/ ctx[0].roles + "")) set_data_dev(t7, t7_value);
+    			const accountform_changes = {};
+    			if (dirty & /*appUser*/ 1) accountform_changes.data = /*appUser*/ ctx[0];
+    			accountform.$set(accountform_changes);
     		},
-    		i: noop$1,
-    		o: noop$1,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(accountform.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(accountform.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div6);
+    			destroy_component(accountform);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -5615,9 +5608,9 @@ var app = (function () {
     	let $jwt_token;
     	let $user;
     	validate_store(jwt_token, 'jwt_token');
-    	component_subscribe($$self, jwt_token, $$value => $$invalidate(1, $jwt_token = $$value));
+    	component_subscribe($$self, jwt_token, $$value => $$invalidate(2, $jwt_token = $$value));
     	validate_store(user, 'user');
-    	component_subscribe($$self, user, $$value => $$invalidate(2, $user = $$value));
+    	component_subscribe($$self, user, $$value => $$invalidate(3, $user = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Account', slots, []);
     	const api_root = window.location.origin;
@@ -5626,7 +5619,9 @@ var app = (function () {
     		id: "",
     		roles: [],
     		nickname: "",
-    		email: $user.email
+    		email: $user.email,
+    		name: "",
+    		type: ""
     	};
 
     	function getUserByEmail() {
@@ -5638,10 +5633,29 @@ var app = (function () {
 
     		axios$1(config).then(function (response) {
     			$$invalidate(0, appUser = response.data);
-    			console.log(person);
     		}).catch(function (error) {
-    			//alert("Could not get user");
     			console.log(error);
+    		});
+    	}
+
+    	function updateUser() {
+    		console.log(appUser);
+
+    		var config = {
+    			method: "put",
+    			url: api_root + "/api/user/update",
+    			headers: {
+    				"Content-Type": "application/json",
+    				Authorization: "Bearer " + $jwt_token
+    			},
+    			data: appUser
+    		};
+
+    		axios$1(config).then(function (response) {
+    			$$invalidate(0, appUser = response.data);
+    			alert("User gespeichert!");
+    		}).catch(function (error) {
+    			alert(error.response.data.message || "Could not create");
     		});
     	}
 
@@ -5660,6 +5674,7 @@ var app = (function () {
     		jwt_token,
     		appUser,
     		getUserByEmail,
+    		updateUser,
     		$jwt_token,
     		$user
     	});
@@ -5672,7 +5687,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [appUser];
+    	return [appUser, updateUser];
     }
 
     class Account extends SvelteComponentDev {

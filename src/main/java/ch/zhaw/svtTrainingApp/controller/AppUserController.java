@@ -9,10 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.zhaw.svtTrainingApp.model.AppUser;
+import ch.zhaw.svtTrainingApp.model.dto.UserUpdateDTO;
 import ch.zhaw.svtTrainingApp.repository.AppUserRepository;
 
 @RestController
@@ -23,12 +26,25 @@ public class AppUserController {
     AppUserRepository userRepository;
 
     @GetMapping("/user/account")
-    public ResponseEntity<AppUser> getCustomerByEmail(@AuthenticationPrincipal Jwt jwt) {
+    public ResponseEntity<AppUser> getUserByEmail(@AuthenticationPrincipal Jwt jwt) {
         Optional<AppUser> optUser = userRepository.findByEmail(jwt.getClaimAsString("email"));
         if (optUser.isPresent()) {
             return new ResponseEntity<>(optUser.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PutMapping("/user/update")
+    public ResponseEntity<Object> updateUser(@AuthenticationPrincipal Jwt jwt, @RequestBody UserUpdateDTO uDTO) {
+        Optional<AppUser> optUser = userRepository.findByEmail(jwt.getClaimAsString("email"));
+        if (optUser.isPresent()) {
+            AppUser uDAO = optUser.get();
+            uDAO.setName(uDTO.getName());
+            uDAO.setType(uDTO.getType());
+            AppUser user = userRepository.save(uDAO);
+            return new ResponseEntity<>(user, HttpStatus.OK); 
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST); 
     }
 
     @GetMapping("/users")

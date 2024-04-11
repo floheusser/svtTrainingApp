@@ -9,6 +9,8 @@
         roles: [],
         nickname: "",
         email: $user.email,
+        name: "",
+        type:""
     };
 
     function getUserByEmail() {
@@ -22,11 +24,30 @@
         axios(config)
             .then(function (response) {
                 appUser = response.data;
-                console.log(person);
             })
             .catch(function (error) {
-                //alert("Could not get user");
                 console.log(error);
+            });
+    }
+
+    function updateUser() {
+        console.log(appUser);
+        var config = {
+            method: "put",
+            url: api_root + "/api/user/update",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer "+$jwt_token
+            },
+            data: appUser,
+        };
+        axios(config)
+            .then(function (response) {
+                appUser = response.data;
+                alert("User gespeichert!");
+            })
+            .catch(function (error) {
+                alert(error.response.data.message || "Could not create");
             });
     }
 
@@ -47,12 +68,13 @@
                 <div class="card-header">Account</div>
                 <div class="card-body">
                     <form>
-                       <!-- 
+                        <AccountForm data={appUser} />
+                       
                         <button
                             on:click={updateUser}
                             class="btn btn-success"
-                            type="button">speichern</button
-                        >-->
+                            type="button">Speichern</button
+                        >
                     </form>
                 </div>
             </div>
