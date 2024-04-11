@@ -31,7 +31,6 @@
     }
 
     function updateUser() {
-        console.log(appUser);
         var config = {
             method: "put",
             url: api_root + "/api/user/update",

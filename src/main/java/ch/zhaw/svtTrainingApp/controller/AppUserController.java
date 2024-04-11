@@ -47,8 +47,20 @@ public class AppUserController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST); 
     }
 
+    @GetMapping("/user/trainers")
+    public ResponseEntity<List<AppUser>> getAllTrainers() {
+        List<AppUser> allTrainers = userRepository.findByType("trainer");
+        return new ResponseEntity<>(allTrainers, HttpStatus.OK);
+    }
+
+    @GetMapping("/user/helptrainers")
+    public ResponseEntity<List<AppUser>> getAllHelpTrainers() {
+        List<AppUser> allHelpTrainers = userRepository.findByType("helptrainer");
+        return new ResponseEntity<>(allHelpTrainers, HttpStatus.OK);
+    }
+
     @GetMapping("/users")
-    public ResponseEntity<List<AppUser>> getAllCustomers() {
+    public ResponseEntity<List<AppUser>> getAllUsers() {
         List<AppUser> allUsers = userRepository.findAll();
         return new ResponseEntity<>(allUsers, HttpStatus.OK);
     }

@@ -7,6 +7,8 @@
     import { user, jwt_token } from "../../store";
 
     let groups = [];
+    let trainers = [];
+    let helptrainers = [];
 
     function getGroups() {
         var config = {
@@ -23,7 +25,42 @@
                 console.log(error);
             });
     }
+
+    
+    function getAllTrainers() {
+        var config = {
+            method: "get",
+            url: api_root + "/api/user/trainers",
+            headers: { Authorization: "Bearer " + $jwt_token },
+        };
+
+        axios(config)
+            .then(function (response) {
+                trainers = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    function getAllHelpTrainers() {
+        var config = {
+            method: "get",
+            url: api_root + "/api/user/helptrainers",
+            headers: { Authorization: "Bearer " + $jwt_token },
+        };
+
+        axios(config)
+            .then(function (response) {
+                helptrainers = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
     getGroups();
+    getAllHelpTrainers();
+    getAllTrainers();
 </script>
 <div class="row gx-3 mb-3">
     <div class="col-md-6">
@@ -34,17 +71,28 @@
 <div class="row gx-3 mb-3">
     <div class="col-md-6">
         <label class="small mb-1" for="inputTrainerName">Name Trainer</label>
-        <input class="form-control" id="inputTrainerName" type="text" placeholder="Vor-/ Nachname" bind:value="{data.trainerName}" readonly={readOnly}>
+        <select class="form-select" id="inputTrainerName" bind:value="{data.trainerName}" readonly={readOnly}>
+            <option selected> </option>
+            {#each trainers as trainer}
+                <option value={trainer.name}>{trainer.name}</option>
+            {/each}
+        </select>
     </div>
     <div class="col-md-6">
         <label class="small mb-1" for="inputHelpTrainerName">Name Hilfstrainer</label>
-        <input class="form-control" id="inputHelpTrainerName" type="text" placeholder="Vor-/ Nachname" bind:value="{data.helpTrainerName}" readonly={readOnly}>
+        <select class="form-select" id="inputHelpTrainerName" bind:value="{data.helpTrainerName}" readonly={readOnly}>
+            <option selected> </option>
+            {#each helptrainers as trainer}
+                <option value={trainer.name}>{trainer.name}</option>
+            {/each}
+        </select>
     </div>
 </div>
 <div class="row gx-3 mb-3">
     <div class="col-md-6">
         <label class="small mb-1" for="inputGroupName">Gruppe</label>
         <select class="form-select" id="inputGroupName" bind:value="{data.groupName}" readonly={readOnly}>
+            <option selected> </option>
             {#each groups as group}
                 <option value={group.name}>{group.name}</option>
             {/each}

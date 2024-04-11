@@ -1,5 +1,6 @@
 package ch.zhaw.svtTrainingApp.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -11,4 +12,5 @@ public interface AppUserRepository extends MongoRepository<AppUser, String> {
     
     AppUser findFirstByEmail(String email);
     Optional<AppUser> findByEmail(String email);
+    List<AppUser> findByType(String type);
 }
