@@ -12,6 +12,7 @@
     let training = {
         id: "",
         trainerName: "",
+        helpTrainerName: "",
         groupName: "",
         date: "",
         weather: "",
@@ -86,7 +87,7 @@
                 <div class="card-header">Neues Training</div>
                 <div class="card-body">
                     <form>
-                        <TrainingProtocolForm data={training} readOnly={false}/>
+                        <TrainingProtocolForm data={training} />
                         <button
                             on:click={createTraining}
                             class="btn btn-success"
@@ -105,13 +106,13 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-heading{myTraining.id}">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{myTraining.id}" aria-expanded="false" aria-controls="flush-collapse{myTraining.id}">
-                         {myTraining.date} {myTraining.trainerName}
+                         <b>Gruppe:</b>&nbsp;{myTraining.groupName}&nbsp;<b>Datum:</b>&nbsp; {myTraining.date}
                     </button>
                 </h2>
                 <div id="flush-collapse{myTraining.id}" class="accordion-collapse collapse" aria-labelledby="flush-heading{myTraining.id}" data-bs-parent="#accordionFlush">
                     <div class="accordion-body" style="background-color: white;">
                         <form>
-                            <TrainingProtocolForm data={myTraining} readOnly={false}/>
+                            <TrainingProtocolForm data={myTraining} />
                             <button
                                 on:click={updateTraining(myTraining)}
                                 class="btn btn-primary"
