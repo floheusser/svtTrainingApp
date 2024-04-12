@@ -4,6 +4,7 @@
     import AccountForm from "./components/AccountForm.svelte";
     import { user, jwt_token } from "../store";
 
+    let disabled = true;
     let appUser = {
         id: "",
         roles: [],
@@ -44,6 +45,7 @@
             .then(function (response) {
                 appUser = response.data;
                 alert("User gespeichert!");
+                disabled = true;
             })
             .catch(function (error) {
                 alert(error.response.data.message || "Could not create");
@@ -54,26 +56,26 @@
 </script>
 
 <div class="container-xl px-4 mt-4">
-    <div class="row"> 
-        <h3>Willkommen {appUser.nickname} </h3>
-        <ul>
-            <li>E-mail: {appUser.email}</li>
-            <li>Rollen: {appUser.roles} </li>
-        </ul>       
-    </div>
     <div class="row">
-        <div class="col-xl">
+        <div class="col-xl-7">
             <div class="card mb-4">
-                <div class="card-header">Account</div>
+                <div class="card-header">
+                    Account
+                    <button
+                    on:click={()=> disabled = false}
+                    class="btn btn-light btn-sm float-end"
+                    type="button"><i class="fa-solid fa-pen-to-square"></i></button> 
+                </div>
                 <div class="card-body">
                     <form>
-                        <AccountForm data={appUser} />
-                       
+                        <AccountForm data={appUser} edit={disabled} />
+                       {#if !disabled}
                         <button
                             on:click={updateUser}
                             class="btn btn-success"
                             type="button">Speichern</button
                         >
+                        {/if}
                     </form>
                 </div>
             </div>
