@@ -23,7 +23,7 @@
 				<span class="navbar-toggler-icon" />
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					{#if $isAuthenticated}
 					<li class="nav-item">
 						<a
@@ -49,18 +49,31 @@
 						>
 					</li>
 					{/if}
-					{#if $isAuthenticated && $user.user_roles === "hairdresser"}
+					
+				</ul>
+				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a
-							class="nav-link"
-							aria-current="page"
-							href="#/hairdresserMyAppointments">My Appointments</a
+						{#if $isAuthenticated}
+						<span class="navbar-text me-2">
+							{$user.name}
+						</span>
+						<button
+							type="button"
+							class="btn btn-primary btn-sm"
+							href = "#/"
+							on:click={auth.logout}>Log Out</button
 						>
+						{:else}
+						<button
+							type="button"
+							class="btn btn-primary btn-sm"
+							on:click={auth.loginWithPopup}>Log In</button
+						>
+						{/if}
 					</li>
-					{/if}
 				</ul>
 			</div>
-			<div class="d-flex">
+			<!-- <div class="d-flex">
 				{#if $isAuthenticated}
 					<span class="navbar-text me-2">
 						{$user.name}
@@ -78,7 +91,7 @@
 						on:click={auth.loginWithPopup}>Log In</button
 					>
 				{/if}
-			</div>
+			</div>-->
 		</div>
 	</nav>
 

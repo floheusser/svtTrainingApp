@@ -5489,7 +5489,7 @@ var app = (function () {
     			button.textContent = "Speichern";
     			attr_dev(button, "class", "btn btn-success");
     			attr_dev(button, "type", "button");
-    			add_location(button, file$4, 72, 24, 2103);
+    			add_location(button, file$4, 72, 24, 2175);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -5553,7 +5553,7 @@ var app = (function () {
     			div3 = element("div");
     			div2 = element("div");
     			div0 = element("div");
-    			t0 = text("Account\n                    ");
+    			t0 = text("Account\r\n                    ");
     			button = element("button");
     			i = element("i");
     			t1 = space();
@@ -5563,23 +5563,23 @@ var app = (function () {
     			t2 = space();
     			if (if_block) if_block.c();
     			attr_dev(i, "class", "fa-solid fa-pen-to-square");
-    			add_location(i, file$4, 66, 34, 1827);
+    			add_location(i, file$4, 66, 34, 1893);
     			attr_dev(button, "class", "btn btn-light btn-sm float-end");
     			attr_dev(button, "type", "button");
-    			add_location(button, file$4, 63, 20, 1673);
+    			add_location(button, file$4, 63, 20, 1736);
     			attr_dev(div0, "class", "card-header");
-    			add_location(div0, file$4, 61, 16, 1599);
-    			add_location(form, file$4, 69, 20, 1962);
+    			add_location(div0, file$4, 61, 16, 1660);
+    			add_location(form, file$4, 69, 20, 2031);
     			attr_dev(div1, "class", "card-body");
-    			add_location(div1, file$4, 68, 16, 1918);
+    			add_location(div1, file$4, 68, 16, 1986);
     			attr_dev(div2, "class", "card mb-4");
-    			add_location(div2, file$4, 60, 12, 1559);
+    			add_location(div2, file$4, 60, 12, 1619);
     			attr_dev(div3, "class", "col-xl-7");
-    			add_location(div3, file$4, 59, 8, 1524);
+    			add_location(div3, file$4, 59, 8, 1583);
     			attr_dev(div4, "class", "row");
-    			add_location(div4, file$4, 58, 4, 1498);
+    			add_location(div4, file$4, 58, 4, 1556);
     			attr_dev(div5, "class", "container-xl px-4 mt-4");
-    			add_location(div5, file$4, 57, 0, 1457);
+    			add_location(div5, file$4, 57, 0, 1514);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7735,7 +7735,7 @@ var app = (function () {
     const file = "src\\App.svelte";
 
     // (27:5) {#if $isAuthenticated}
-    function create_if_block_3(ctx) {
+    function create_if_block_2(ctx) {
     	let li;
     	let a;
 
@@ -7747,9 +7747,9 @@ var app = (function () {
     			attr_dev(a, "class", "nav-link");
     			attr_dev(a, "aria-current", "page");
     			attr_dev(a, "href", "#/account");
-    			add_location(a, file, 28, 6, 830);
+    			add_location(a, file, 28, 6, 879);
     			attr_dev(li, "class", "nav-item");
-    			add_location(li, file, 27, 5, 802);
+    			add_location(li, file, 27, 5, 850);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -7762,7 +7762,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3.name,
+    		id: create_if_block_2.name,
     		type: "if",
     		source: "(27:5) {#if $isAuthenticated}",
     		ctx
@@ -7772,7 +7772,7 @@ var app = (function () {
     }
 
     // (36:5) {#if $isAuthenticated && $user.user_roles.includes("trainer")}
-    function create_if_block_2(ctx) {
+    function create_if_block_1(ctx) {
     	let li0;
     	let a0;
     	let t1;
@@ -7791,15 +7791,15 @@ var app = (function () {
     			attr_dev(a0, "class", "nav-link");
     			attr_dev(a0, "aria-current", "page");
     			attr_dev(a0, "href", "#/myTrainings");
-    			add_location(a0, file, 37, 6, 1050);
+    			add_location(a0, file, 37, 6, 1108);
     			attr_dev(li0, "class", "nav-item");
-    			add_location(li0, file, 36, 5, 1022);
+    			add_location(li0, file, 36, 5, 1079);
     			attr_dev(a1, "class", "nav-link");
     			attr_dev(a1, "aria-current", "page");
     			attr_dev(a1, "href", "#/allTrainings");
-    			add_location(a1, file, 44, 6, 1200);
+    			add_location(a1, file, 44, 6, 1265);
     			attr_dev(li1, "class", "nav-item");
-    			add_location(li1, file, 43, 5, 1172);
+    			add_location(li1, file, 43, 5, 1236);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li0, anchor);
@@ -7817,7 +7817,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2.name,
+    		id: create_if_block_1.name,
     		type: "if",
     		source: "(36:5) {#if $isAuthenticated && $user.user_roles.includes(\\\"trainer\\\")}",
     		ctx
@@ -7826,44 +7826,7 @@ var app = (function () {
     	return block;
     }
 
-    // (52:5) {#if $isAuthenticated && $user.user_roles === "hairdresser"}
-    function create_if_block_1(ctx) {
-    	let li;
-    	let a;
-
-    	const block = {
-    		c: function create() {
-    			li = element("li");
-    			a = element("a");
-    			a.textContent = "My Appointments";
-    			attr_dev(a, "class", "nav-link");
-    			attr_dev(a, "aria-current", "page");
-    			attr_dev(a, "href", "#/hairdresserMyAppointments");
-    			add_location(a, file, 53, 6, 1429);
-    			attr_dev(li, "class", "nav-item");
-    			add_location(li, file, 52, 5, 1401);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, li, anchor);
-    			append_dev(li, a);
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(li);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_if_block_1.name,
-    		type: "if",
-    		source: "(52:5) {#if $isAuthenticated && $user.user_roles === \\\"hairdresser\\\"}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (74:4) {:else}
+    // (66:6) {:else}
     function create_else_block(ctx) {
     	let button;
     	let mounted;
@@ -7874,8 +7837,8 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Log In";
     			attr_dev(button, "type", "button");
-    			attr_dev(button, "class", "btn btn-primary");
-    			add_location(button, file, 74, 5, 1864);
+    			attr_dev(button, "class", "btn btn-primary btn-sm");
+    			add_location(button, file, 66, 6, 1755);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -7897,14 +7860,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(74:4) {:else}",
+    		source: "(66:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (64:4) {#if $isAuthenticated}
+    // (56:6) {#if $isAuthenticated}
     function create_if_block(ctx) {
     	let span;
     	let t0_value = /*$user*/ ctx[1].name + "";
@@ -7922,11 +7885,11 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Log Out";
     			attr_dev(span, "class", "navbar-text me-2");
-    			add_location(span, file, 64, 5, 1650);
+    			add_location(span, file, 56, 6, 1513);
     			attr_dev(button, "type", "button");
-    			attr_dev(button, "class", "btn btn-primary");
+    			attr_dev(button, "class", "btn btn-primary btn-sm");
     			attr_dev(button, "href", "#/");
-    			add_location(button, file, 67, 5, 1719);
+    			add_location(button, file, 59, 6, 1588);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -7955,7 +7918,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(64:4) {#if $isAuthenticated}",
+    		source: "(56:6) {#if $isAuthenticated}",
     		ctx
     	});
 
@@ -7963,9 +7926,9 @@ var app = (function () {
     }
 
     function create_fragment(ctx) {
-    	let div4;
+    	let div3;
     	let nav;
-    	let div2;
+    	let div1;
     	let a;
     	let img;
     	let img_src_value;
@@ -7974,19 +7937,18 @@ var app = (function () {
     	let span;
     	let t1;
     	let div0;
-    	let ul;
+    	let ul0;
     	let t2;
     	let show_if = /*$isAuthenticated*/ ctx[0] && /*$user*/ ctx[1].user_roles.includes("trainer");
     	let t3;
+    	let ul1;
+    	let li;
     	let t4;
-    	let div1;
-    	let t5;
-    	let div3;
+    	let div2;
     	let router;
     	let current;
-    	let if_block0 = /*$isAuthenticated*/ ctx[0] && create_if_block_3(ctx);
-    	let if_block1 = show_if && create_if_block_2(ctx);
-    	let if_block2 = /*$isAuthenticated*/ ctx[0] && /*$user*/ ctx[1].user_roles === "hairdresser" && create_if_block_1(ctx);
+    	let if_block0 = /*$isAuthenticated*/ ctx[0] && create_if_block_2(ctx);
+    	let if_block1 = show_if && create_if_block_1(ctx);
 
     	function select_block_type(ctx, dirty) {
     		if (/*$isAuthenticated*/ ctx[0]) return create_if_block;
@@ -7994,14 +7956,14 @@ var app = (function () {
     	}
 
     	let current_block_type = select_block_type(ctx);
-    	let if_block3 = current_block_type(ctx);
+    	let if_block2 = current_block_type(ctx);
     	router = new Router({ props: { routes }, $$inline: true });
 
     	const block = {
     		c: function create() {
-    			div4 = element("div");
+    			div3 = element("div");
     			nav = element("nav");
-    			div2 = element("div");
+    			div1 = element("div");
     			a = element("a");
     			img = element("img");
     			t0 = space();
@@ -8009,28 +7971,27 @@ var app = (function () {
     			span = element("span");
     			t1 = space();
     			div0 = element("div");
-    			ul = element("ul");
+    			ul0 = element("ul");
     			if (if_block0) if_block0.c();
     			t2 = space();
     			if (if_block1) if_block1.c();
     			t3 = space();
-    			if (if_block2) if_block2.c();
+    			ul1 = element("ul");
+    			li = element("li");
+    			if_block2.c();
     			t4 = space();
-    			div1 = element("div");
-    			if_block3.c();
-    			t5 = space();
-    			div3 = element("div");
+    			div2 = element("div");
     			create_component(router.$$.fragment);
     			if (!src_url_equal(img.src, img_src_value = "/svt-logo.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Logo");
     			attr_dev(img, "class", "img-fluid");
     			set_style(img, "max-height", "50px");
-    			add_location(img, file, 11, 4, 327);
+    			add_location(img, file, 11, 4, 338);
     			attr_dev(a, "class", "navbar-brand");
     			attr_dev(a, "href", "#/");
-    			add_location(a, file, 10, 3, 288);
+    			add_location(a, file, 10, 3, 298);
     			attr_dev(span, "class", "navbar-toggler-icon");
-    			add_location(span, file, 22, 4, 634);
+    			add_location(span, file, 22, 4, 656);
     			attr_dev(button, "class", "navbar-toggler");
     			attr_dev(button, "type", "button");
     			attr_dev(button, "data-bs-toggle", "collapse");
@@ -8038,57 +7999,58 @@ var app = (function () {
     			attr_dev(button, "aria-controls", "navbarNav");
     			attr_dev(button, "aria-expanded", "false");
     			attr_dev(button, "aria-label", "Toggle navigation");
-    			add_location(button, file, 13, 3, 419);
-    			attr_dev(ul, "class", "navbar-nav");
-    			add_location(ul, file, 25, 4, 745);
+    			add_location(button, file, 13, 3, 432);
+    			attr_dev(ul0, "class", "navbar-nav me-auto mb-2 mb-lg-0");
+    			add_location(ul0, file, 25, 4, 770);
+    			attr_dev(li, "class", "nav-item");
+    			add_location(li, file, 54, 5, 1454);
+    			attr_dev(ul1, "class", "navbar-nav");
+    			add_location(ul1, file, 53, 4, 1424);
     			attr_dev(div0, "class", "collapse navbar-collapse");
     			attr_dev(div0, "id", "navbarNav");
-    			add_location(div0, file, 24, 3, 687);
-    			attr_dev(div1, "class", "d-flex");
-    			add_location(div1, file, 62, 3, 1597);
-    			attr_dev(div2, "class", "container-fluid");
-    			add_location(div2, file, 9, 2, 255);
+    			add_location(div0, file, 24, 3, 711);
+    			attr_dev(div1, "class", "container-fluid");
+    			add_location(div1, file, 9, 2, 264);
     			attr_dev(nav, "class", "navbar navbar-expand-lg bg-light sticky-top");
-    			add_location(nav, file, 8, 1, 195);
-    			attr_dev(div3, "class", "container");
-    			add_location(div3, file, 84, 1, 2020);
-    			attr_dev(div4, "id", "app");
-    			add_location(div4, file, 7, 0, 179);
+    			add_location(nav, file, 8, 1, 203);
+    			attr_dev(div2, "class", "container");
+    			add_location(div2, file, 97, 1, 2391);
+    			attr_dev(div3, "id", "app");
+    			add_location(div3, file, 7, 0, 186);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div4, anchor);
-    			append_dev(div4, nav);
-    			append_dev(nav, div2);
-    			append_dev(div2, a);
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, nav);
+    			append_dev(nav, div1);
+    			append_dev(div1, a);
     			append_dev(a, img);
-    			append_dev(div2, t0);
-    			append_dev(div2, button);
+    			append_dev(div1, t0);
+    			append_dev(div1, button);
     			append_dev(button, span);
-    			append_dev(div2, t1);
-    			append_dev(div2, div0);
-    			append_dev(div0, ul);
-    			if (if_block0) if_block0.m(ul, null);
-    			append_dev(ul, t2);
-    			if (if_block1) if_block1.m(ul, null);
-    			append_dev(ul, t3);
-    			if (if_block2) if_block2.m(ul, null);
-    			append_dev(div2, t4);
-    			append_dev(div2, div1);
-    			if_block3.m(div1, null);
-    			append_dev(div4, t5);
-    			append_dev(div4, div3);
-    			mount_component(router, div3, null);
+    			append_dev(div1, t1);
+    			append_dev(div1, div0);
+    			append_dev(div0, ul0);
+    			if (if_block0) if_block0.m(ul0, null);
+    			append_dev(ul0, t2);
+    			if (if_block1) if_block1.m(ul0, null);
+    			append_dev(div0, t3);
+    			append_dev(div0, ul1);
+    			append_dev(ul1, li);
+    			if_block2.m(li, null);
+    			append_dev(div3, t4);
+    			append_dev(div3, div2);
+    			mount_component(router, div2, null);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
     			if (/*$isAuthenticated*/ ctx[0]) {
     				if (if_block0) ; else {
-    					if_block0 = create_if_block_3(ctx);
+    					if_block0 = create_if_block_2(ctx);
     					if_block0.c();
-    					if_block0.m(ul, t2);
+    					if_block0.m(ul0, t2);
     				}
     			} else if (if_block0) {
     				if_block0.d(1);
@@ -8099,35 +8061,24 @@ var app = (function () {
 
     			if (show_if) {
     				if (if_block1) ; else {
-    					if_block1 = create_if_block_2(ctx);
+    					if_block1 = create_if_block_1(ctx);
     					if_block1.c();
-    					if_block1.m(ul, t3);
+    					if_block1.m(ul0, null);
     				}
     			} else if (if_block1) {
     				if_block1.d(1);
     				if_block1 = null;
     			}
 
-    			if (/*$isAuthenticated*/ ctx[0] && /*$user*/ ctx[1].user_roles === "hairdresser") {
-    				if (if_block2) ; else {
-    					if_block2 = create_if_block_1(ctx);
-    					if_block2.c();
-    					if_block2.m(ul, null);
-    				}
-    			} else if (if_block2) {
-    				if_block2.d(1);
-    				if_block2 = null;
-    			}
-
-    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block3) {
-    				if_block3.p(ctx, dirty);
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block2) {
+    				if_block2.p(ctx, dirty);
     			} else {
-    				if_block3.d(1);
-    				if_block3 = current_block_type(ctx);
+    				if_block2.d(1);
+    				if_block2 = current_block_type(ctx);
 
-    				if (if_block3) {
-    					if_block3.c();
-    					if_block3.m(div1, null);
+    				if (if_block2) {
+    					if_block2.c();
+    					if_block2.m(li, null);
     				}
     			}
     		},
@@ -8141,11 +8092,10 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div4);
+    			if (detaching) detach_dev(div3);
     			if (if_block0) if_block0.d();
     			if (if_block1) if_block1.d();
-    			if (if_block2) if_block2.d();
-    			if_block3.d();
+    			if_block2.d();
     			destroy_component(router);
     		}
     	};
