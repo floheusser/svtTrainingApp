@@ -36,6 +36,7 @@
             .then(function (response) {
                 training = response.data;
                 getMyTrainings();
+                window.location.reload();
             })
             .catch(function (error) {
                 alert(error.response.data.message || "Could not create");
@@ -56,6 +57,7 @@
             .then(function (response) {
                 myTraining = response.data;
                 getMyTrainings();
+                alert("Training updated!")
             })
             .catch(function (error) {
                 alert(error.response.data.message || "Could not create");
@@ -91,7 +93,7 @@
                         <button
                             on:click={createTraining}
                             class="btn btn-success"
-                            type="button">Training erstellen</button
+                            type="submit">Training erstellen</button
                         >
                     </form>
                 </div>
@@ -106,7 +108,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-heading{myTraining.id}">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{myTraining.id}" aria-expanded="false" aria-controls="flush-collapse{myTraining.id}">
-                         <b>Gruppe:</b>&nbsp;{myTraining.groupName}&nbsp;<b>Datum:</b>&nbsp; {myTraining.date}
+                         <b>Datum:</b>&nbsp; {myTraining.date}&nbsp;<b>Gruppe:</b>&nbsp;{myTraining.groupName}
                     </button>
                 </h2>
                 <div id="flush-collapse{myTraining.id}" class="accordion-collapse collapse" aria-labelledby="flush-heading{myTraining.id}" data-bs-parent="#accordionFlush">

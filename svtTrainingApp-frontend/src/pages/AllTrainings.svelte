@@ -36,7 +36,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-heading{training.id}">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{training.id}" aria-expanded="false" aria-controls="flush-collapse{training.id}">
-                        <b>Gruppe:</b>&nbsp;{training.groupName}&nbsp;<b>Datum:</b>&nbsp; {training.date}&nbsp;
+                        <b>Datum:</b>&nbsp; {training.date}&nbsp;<b>Gruppe:</b>&nbsp;{training.groupName}
                     </button>
                 </h2>
                 <div id="flush-collapse{training.id}" class="accordion-collapse collapse" aria-labelledby="flush-heading{training.id}" data-bs-parent="#accordionFlush">

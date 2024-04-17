@@ -9,6 +9,8 @@ import ch.zhaw.svtTrainingApp.model.Training;
 
 public interface TrainingRepository extends MongoRepository<Training, String> {
     
-    List<Training> findAllByUserEmail(String email);
+    List<Training> findAllByUserEmailOrderByDateDesc(String email);
+
+    List<Training> findAllByOrderByDateDesc();
 
 }

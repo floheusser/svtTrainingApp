@@ -58,13 +58,13 @@ public class TrainingController {
 
     @GetMapping("/user/myTrainings")
     public ResponseEntity<List<Training>> getAllTrainingsFromUser(@AuthenticationPrincipal Jwt jwt) {
-        List<Training> allMyTrainings = trainingRepository.findAllByUserEmail(jwt.getClaimAsString("email"));
+        List<Training> allMyTrainings = trainingRepository.findAllByUserEmailOrderByDateDesc(jwt.getClaimAsString("email"));
         return new ResponseEntity<>(allMyTrainings, HttpStatus.OK);
     }
 
     @GetMapping("/trainings")
     public ResponseEntity<List<Training>> getAllTrainings() {
-        List<Training> allTrainings = trainingRepository.findAll();
+        List<Training> allTrainings = trainingRepository.findAllByOrderByDateDesc();
         return new ResponseEntity<>(allTrainings, HttpStatus.OK);
     }
 }

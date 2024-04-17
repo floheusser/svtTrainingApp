@@ -5,6 +5,12 @@
     const api_root = window.location.origin;
     import { user, jwt_token } from "../../store";
 
+    $: {
+        getGroups();
+        getAllHelpTrainers();
+        getAllTrainers();
+    }
+
     let groups = [];
     let trainers = [];
     let helptrainers = [];
@@ -57,9 +63,6 @@
                 console.log(error);
             });
     }
-    getGroups();
-    getAllHelpTrainers();
-    getAllTrainers();
 </script>
 <div class="row gx-3 mb-3">
     <div class="col-md-6">
