@@ -24,14 +24,14 @@ async function loginWithPopup() {
   } catch (e) {
     console.error(e);
   }
-  push("#/account");
+  push("/account");
 }
 
 function logout() {
   user.set({});
   jwt_token.set("")
   auth0Client.logout();
-  push("#/");
+  push("/");
 }
 
 const auth = {
