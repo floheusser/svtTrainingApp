@@ -36,6 +36,7 @@
             .then(function (response) {
                 training = response.data;
                 getMyTrainings();
+                alert("Training erstellt!");
                 window.location.reload();
             })
             .catch(function (error) {
@@ -57,7 +58,7 @@
             .then(function (response) {
                 myTraining = response.data;
                 getMyTrainings();
-                alert("Training updated!")
+                alert("Training updated!");
             })
             .catch(function (error) {
                 alert(error.response.data.message || "Could not create");

@@ -112,6 +112,7 @@
     </div>
     <div class="col-md-6">
         <label class="small mb-1" for="inputTrainingContentPicture">Trainingsinhalt (Bild)</label>
+        <br/>
         <input type="file" class="form-control-file" id="inputTrainingContentPicture"  bind:value="{data.trainingContentPicture}" >
     </div>
 </div>
