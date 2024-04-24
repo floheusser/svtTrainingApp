@@ -2,7 +2,6 @@
     import axios from "axios";
     const api_root = window.location.origin;
     import { jwt_token } from "../store";
-    import TrainingProtocolForm from "./components/TrainingProtocolForm.svelte";
 
     let allTrainings = [];
 
@@ -10,20 +9,35 @@
         getAllTrainings();
     }
 
-    function getAllTrainings() {
-        var config = {
+    async function getAllTrainings() {
+        const config = {
             method: "get",
-            url: api_root + "/api/trainings",
-            headers: { Authorization: "Bearer " + $jwt_token },
+            url: `${api_root}/api/trainings`,
+            headers: { Authorization: `Bearer ${$jwt_token}` },
         };
 
-        axios(config)
-            .then(function (response) {
-                allTrainings = response.data;
-            })
-            .catch(function (error) {
-                console.log(error);
+        try {
+            const response = await axios(config);
+            allTrainings = await Promise.all(response.data.map(async training => ({
+                ...training,
+                imageUrl: await fetchTrainingImage(training.id)
+            })));
+        } catch (error) {
+            console.error('Error fetching trainings:', error);
+        }
+    }
+
+    async function fetchTrainingImage(trainingId) {
+        try {
+            const response = await axios.get(`${api_root}/api/user/training/${trainingId}/image`, {
+                headers: { Authorization: `Bearer ${$jwt_token}` },
+                responseType: 'blob'  // This ensures the response is handled as a Blob
             });
+            return URL.createObjectURL(response.data); // Creates a URL for the blob
+        } catch (error) {
+            console.error('Error fetching image:', error);
+            return 'default-placeholder.png'; // A default placeholder in case of errors
+        }
     }
 </script>
 
@@ -69,13 +83,10 @@
                             </div>
                         </div>
                         {/if}
-                        <!-- Bild anzeigen
+                        
                         <div class="row gx-3 mb-3">
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputTrainingContentPicture">Trainingsinhalt (Bild)</label>
-                                <input type="file" class="form-control-file" id="inputTrainingContentPicture"  bind:value="{data.trainingContentPicture}" >
-                            </div>
-                        </div>-->
+                            <img class="img-fluid img-thumbnail mx-auto d-block" style="max-width: 400px; max-height: 600px" src={training.imageUrl} alt={`Trainingsbild für die Gruppe ${training.groupName} am ${training.date}`} />
+                        </div>
                     </div>
                 </div>
             </div>

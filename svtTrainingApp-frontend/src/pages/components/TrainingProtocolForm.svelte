@@ -113,7 +113,8 @@
     <div class="col-md-6">
         <label class="small mb-1" for="inputTrainingContentPicture">Trainingsinhalt (Bild)</label>
         <br/>
-        <input type="file" class="form-control-file" id="inputTrainingContentPicture"  bind:value="{data.trainingContentPicture}" >
+        <!--<input type="file" class="form-control-file" id="inputTrainingContentPicture" accept="image/*"  bind:value="{data.trainingContentPicture}" >-->
+        <input type="file" accept="image/*" id="inputTrainingContentPicture" on:change="{(event) => data.trainingContentPicture = event.target.files[0]}" />
     </div>
 </div>
 
