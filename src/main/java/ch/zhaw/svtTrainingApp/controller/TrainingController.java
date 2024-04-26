@@ -100,4 +100,13 @@ public class TrainingController {
         List<Training> allTrainings = trainingRepository.findAllByOrderByDateDesc();
         return new ResponseEntity<>(allTrainings, HttpStatus.OK);
     }
+
+    @GetMapping("/trainings/{groupName}")
+    public ResponseEntity<List<Training>> getTrainingsByGroup(@PathVariable String groupName) {
+        List<Training> trainings = trainingRepository.findAllByGroupNameOrderByDateDesc(groupName);
+        if (groupName.equals("all")) {
+            trainings = trainingRepository.findAllByOrderByDateDesc();
+        }
+        return new ResponseEntity<>(trainings, HttpStatus.OK);
+    }
 }

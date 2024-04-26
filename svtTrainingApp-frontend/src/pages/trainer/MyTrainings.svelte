@@ -159,7 +159,7 @@
         </div>
     </div>
     <div class="row">
-        <h4 class="text-center">Meine Trainings</h4>
+        <h4 class="text-center">Meine erstellten Trainingsprotokolle</h4>
         {#if myTrainings.length != 0} 
         <div class="accordion accordion-flush" id="accordionFlush">
             {#each myTrainings as myTraining}
@@ -195,7 +195,7 @@
             {/each}
         </div>
         {:else}
-        <h6 class="text-center my-3 pb-3" style="color: red;">Keine Trainings erstellt</h6>
+        <h6 class="text-center my-3 pb-3" style="color: red;">Keine Trainingsprotokolle vorhanden</h6>
         {/if}
     </div>
 </div>
