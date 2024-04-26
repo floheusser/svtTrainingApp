@@ -82,14 +82,14 @@
 <div class="container-xl px-4 mt-4">
     <h4 class="text-center">Alle Trainingsprotokolle</h4>
     <div class="row mt-3 justify-content-center">
-            <div class="col-8">
-                <select class="form-select select-style" id="inputGroupName" bind:value="{groupName}" on:change="{getTrainingsByGroupName}" >
-                    <option selected value = "all">Alle Trainings</option>
-                    {#each groups as group}
-                        <option value={group.name}>{group.name}</option>
-                    {/each}
-                </select>
-            </div>
+        <div class="col-8">
+            <select class="form-select" id="inputGroupName" bind:value="{groupName}" on:change="{getTrainingsByGroupName}" >
+                <option selected value = "all">Alle Trainings</option>
+                {#each groups as group}
+                    <option value={group.name}>{group.name}</option>
+                {/each}
+            </select>
+        </div>
     </div>    
     <div class="row mt-3">
         {#if allTrainings.length != 0} 
