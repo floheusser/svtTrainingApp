@@ -6,5 +6,7 @@ import ch.zhaw.svtTrainingApp.model.Group;
 
 
 public interface GroupRepository extends MongoRepository<Group, String> {
+
+    Group findFirstByName(String name);
     
 }

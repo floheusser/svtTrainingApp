@@ -1,8 +1,11 @@
 package ch.zhaw.svtTrainingApp.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
@@ -22,8 +25,10 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import ch.zhaw.svtTrainingApp.model.Group;
 import ch.zhaw.svtTrainingApp.model.Training;
 import ch.zhaw.svtTrainingApp.model.dto.TrainingDTO;
+import ch.zhaw.svtTrainingApp.repository.GroupRepository;
 import ch.zhaw.svtTrainingApp.repository.TrainingRepository;
 
 @RestController
@@ -32,6 +37,9 @@ public class TrainingController {
 
     @Autowired
     TrainingRepository trainingRepository;
+
+    @Autowired
+    GroupRepository groupRepository;
 
     @PostMapping(value = "/user/training", consumes = "multipart/form-data")
     @Secured("ROLE_trainer")
@@ -109,4 +117,36 @@ public class TrainingController {
         }
         return new ResponseEntity<>(trainings, HttpStatus.OK);
     }
+
+    @GetMapping("/trainingsMissing/{groupName}/{sdate}")
+    @Secured("ROLE_admin")
+    public ResponseEntity<List<LocalDate>> getTrainingsMissingByGroup(@PathVariable String groupName, @PathVariable String sdate) {
+         try {
+            LocalDate startDate = LocalDate.parse(sdate);
+            LocalDate today = LocalDate.now();
+            Group group = groupRepository.findFirstByName(groupName);
+            
+            if (startDate.isAfter(today) || group == null) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            
+            List<LocalDate> allDates = startDate.datesUntil(today)
+                                               .filter(d -> d.getDayOfWeek().equals(group.getWeekday()))
+                                               .collect(Collectors.toList());
+
+            List<LocalDate> trainingDates = trainingRepository.findAllByGroupNameOrderByDateDesc(groupName)
+                                                .stream()
+                                                .map(training -> LocalDate.parse(training.getDate()))
+                                                .collect(Collectors.toList());
+
+            List<LocalDate> missingTrainings = allDates.stream()
+                                                       .filter(date -> !trainingDates.contains(date))
+                                                       .collect(Collectors.toList());
+
+            return new ResponseEntity<>(missingTrainings, HttpStatus.OK);
+        } catch (DateTimeParseException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+    
 }

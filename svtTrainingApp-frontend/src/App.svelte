@@ -49,6 +49,15 @@
 						>
 					</li>
 					{/if}
+					{#if $isAuthenticated && $user.user_roles.includes("admin")}
+					<li class="nav-item">
+						<a
+							class="nav-link"
+							aria-current="page"
+							href="#/adminPage">Admin Page</a
+						>
+					</li>
+					{/if}
 					
 				</ul>
 				<ul class="navbar-nav">

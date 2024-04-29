@@ -76,6 +76,11 @@
         }
     }
 
+    function formatDate(dateStr) {
+        const date = new Date(dateStr);
+        return `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
+    }
+
     getGroups();
 </script>
 
@@ -100,7 +105,7 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{training.id}" aria-expanded="false" aria-controls="flush-collapse{training.id}">
                         <div class="row">
                             <div class="col-sm">
-                                <b>Datum:</b>&nbsp;{training.date}
+                                <b>Datum:</b>&nbsp;{formatDate(training.date)}
                             </div>
                             <div class="col-sm">
                                 <b>Gruppe:</b>&nbsp;{training.groupName}

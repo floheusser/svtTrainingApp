@@ -138,6 +138,11 @@
             return 'default-placeholder.png'; // A default placeholder in case of errors
         }
     }
+    
+    function formatDate(dateStr) {
+        const date = new Date(dateStr);
+        return `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
+    }
 </script>
 
 <div class="container mt-4">
@@ -168,7 +173,7 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{myTraining.id}" aria-expanded="false" aria-controls="flush-collapse{myTraining.id}">
                         <div class="row">
                             <div class="col-sm">
-                                <b>Datum:</b>&nbsp;{myTraining.date}
+                                <b>Datum:</b>&nbsp;{formatDate(myTraining.date)}
                             </div>
                             <div class="col-sm">
                                 <b>Gruppe:</b>&nbsp;{myTraining.groupName}
