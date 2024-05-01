@@ -57,10 +57,16 @@
             <div class="card mb-4">
                 <div class="card-header">Admin</div>
                 <div class="card-body">
+                    <div class="row gx-3 mb-3">
+                        <div class="alert alert-info" role="alert">
+                        <small class="text-muted">Verwenden Sie diese Seite, um die fehlenden Trainingsprotokolle für eine bestimmte Gruppe seit einem bestimmten Datum bis heute anzuzeigen. 
+                        </small>
+                        </div>
+                    </div>
                     <form>
                         <div class="row gx-3 mb-3">
                             <div class="col-md-6">
-                                <label class="small mb-1" for="startdate">Datum von:</label>
+                                <label class="small mb-1" for="startdate">Startdatum</label>
                                 <input class="form-control" id="startdate" type="date" bind:value="{startdate}">
                             </div>
                             <div class="col-md-6">

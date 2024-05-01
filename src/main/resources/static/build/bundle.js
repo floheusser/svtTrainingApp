@@ -5235,7 +5235,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (12:8) {#each trainerValues as value}
+    // (19:8) {#each trainerValues as value}
     function create_each_block$4(ctx) {
     	let div;
     	let input;
@@ -5263,12 +5263,12 @@ var app = (function () {
     			input.__value = /*value*/ ctx[7].value;
     			input.value = input.__value;
     			input.disabled = /*edit*/ ctx[1];
-    			add_location(input, file$6, 13, 12, 352);
+    			add_location(input, file$6, 20, 12, 744);
     			attr_dev(label, "class", "form-check-label");
     			attr_dev(label, "for", "type" + /*value*/ ctx[7].value);
-    			add_location(label, file$6, 14, 12, 496);
+    			add_location(label, file$6, 21, 12, 888);
     			attr_dev(div, "class", "form-check form-check-inline ");
-    			add_location(div, file$6, 12, 8, 296);
+    			add_location(div, file$6, 19, 8, 688);
     			binding_group.p(input);
     		},
     		m: function mount(target, anchor) {
@@ -5306,7 +5306,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(12:8) {#each trainerValues as value}",
+    		source: "(19:8) {#each trainerValues as value}",
     		ctx
     	});
 
@@ -5316,16 +5316,20 @@ var app = (function () {
     function create_fragment$6(ctx) {
     	let div1;
     	let div0;
-    	let t0;
-    	let div4;
-    	let div2;
-    	let label0;
-    	let t2;
-    	let input0;
-    	let t3;
+    	let small;
+    	let t1;
     	let div3;
-    	let label1;
+    	let div2;
+    	let t2;
+    	let div6;
+    	let div4;
+    	let label0;
+    	let t4;
+    	let input0;
     	let t5;
+    	let div5;
+    	let label1;
+    	let t7;
     	let input1;
     	let mounted;
     	let dispose;
@@ -5341,52 +5345,64 @@ var app = (function () {
     		c: function create() {
     			div1 = element("div");
     			div0 = element("div");
+    			small = element("small");
+    			small.textContent = "Bitte geben Sie bei Ihrer ersten Anmeldung die folgenden Informationen an, damit Sie später Trainingsprotokolle unter Ihrem Namen erstellen können.\n        Sobald Ihre Anmeldung vom Administrator bestätigt wurde, können Sie die Webapp vollständig nutzen.";
+    			t1 = space();
+    			div3 = element("div");
+    			div2 = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			t0 = space();
+    			t2 = space();
+    			div6 = element("div");
     			div4 = element("div");
-    			div2 = element("div");
     			label0 = element("label");
     			label0.textContent = "Vor-/Nachname";
-    			t2 = space();
+    			t4 = space();
     			input0 = element("input");
-    			t3 = space();
-    			div3 = element("div");
+    			t5 = space();
+    			div5 = element("div");
     			label1 = element("label");
     			label1.textContent = "E-Mail";
-    			t5 = space();
+    			t7 = space();
     			input1 = element("input");
-    			attr_dev(div0, "class", "col-md-6 my-auto");
+    			attr_dev(small, "class", "text-muted");
+    			add_location(small, file$6, 11, 4, 266);
+    			attr_dev(div0, "class", "alert alert-info");
+    			attr_dev(div0, "role", "alert");
     			add_location(div0, file$6, 10, 4, 218);
     			attr_dev(div1, "class", "row gx-3 mb-3");
     			add_location(div1, file$6, 9, 0, 186);
+    			attr_dev(div2, "class", "col-md-6 my-auto");
+    			add_location(div2, file$6, 17, 4, 610);
+    			attr_dev(div3, "class", "row gx-3 mb-3");
+    			add_location(div3, file$6, 16, 0, 578);
     			attr_dev(label0, "class", "small mb-1");
     			attr_dev(label0, "for", "inputName");
-    			add_location(label0, file$6, 21, 8, 690);
+    			add_location(label0, file$6, 28, 8, 1082);
     			attr_dev(input0, "class", "form-control");
     			attr_dev(input0, "id", "inputName");
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "placeholder", "Vor-/Nachname");
     			input0.disabled = /*edit*/ ctx[1];
-    			add_location(input0, file$6, 22, 8, 762);
-    			attr_dev(div2, "class", "col-md-6");
-    			add_location(div2, file$6, 20, 4, 659);
+    			add_location(input0, file$6, 29, 8, 1154);
+    			attr_dev(div4, "class", "col-md-6");
+    			add_location(div4, file$6, 27, 4, 1051);
     			attr_dev(label1, "class", "small mb-1");
     			attr_dev(label1, "for", "email");
-    			add_location(label1, file$6, 25, 8, 933);
+    			add_location(label1, file$6, 32, 8, 1325);
     			attr_dev(input1, "class", "form-control");
     			input1.disabled = true;
     			attr_dev(input1, "id", "email");
     			attr_dev(input1, "type", "email");
     			attr_dev(input1, "placeholder", "Enter E-Mail");
-    			add_location(input1, file$6, 26, 8, 994);
-    			attr_dev(div3, "class", "col-md-6");
-    			add_location(div3, file$6, 24, 4, 902);
-    			attr_dev(div4, "class", "row gx-3 mb-3");
-    			add_location(div4, file$6, 19, 0, 627);
+    			add_location(input1, file$6, 33, 8, 1386);
+    			attr_dev(div5, "class", "col-md-6");
+    			add_location(div5, file$6, 31, 4, 1294);
+    			attr_dev(div6, "class", "row gx-3 mb-3");
+    			add_location(div6, file$6, 26, 0, 1019);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5394,25 +5410,29 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
     			append_dev(div1, div0);
+    			append_dev(div0, small);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, div2);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				if (each_blocks[i]) {
-    					each_blocks[i].m(div0, null);
+    					each_blocks[i].m(div2, null);
     				}
     			}
 
-    			insert_dev(target, t0, anchor);
-    			insert_dev(target, div4, anchor);
-    			append_dev(div4, div2);
-    			append_dev(div2, label0);
-    			append_dev(div2, t2);
-    			append_dev(div2, input0);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, div6, anchor);
+    			append_dev(div6, div4);
+    			append_dev(div4, label0);
+    			append_dev(div4, t4);
+    			append_dev(div4, input0);
     			set_input_value(input0, /*data*/ ctx[0].name);
-    			append_dev(div4, t3);
-    			append_dev(div4, div3);
-    			append_dev(div3, label1);
-    			append_dev(div3, t5);
-    			append_dev(div3, input1);
+    			append_dev(div6, t5);
+    			append_dev(div6, div5);
+    			append_dev(div5, label1);
+    			append_dev(div5, t7);
+    			append_dev(div5, input1);
     			set_input_value(input1, /*data*/ ctx[0].email);
 
     			if (!mounted) {
@@ -5438,7 +5458,7 @@ var app = (function () {
     					} else {
     						each_blocks[i] = create_each_block$4(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(div0, null);
+    						each_blocks[i].m(div2, null);
     					}
     				}
 
@@ -5465,9 +5485,11 @@ var app = (function () {
     		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(div3);
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(t0);
-    			if (detaching) detach_dev(div4);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(div6);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -5593,7 +5615,7 @@ var app = (function () {
     const { console: console_1$4 } = globals;
     const file$5 = "src\\pages\\Account.svelte";
 
-    // (72:23) {#if !disabled}
+    // (76:23) {#if !disabled}
     function create_if_block$3(ctx) {
     	let button;
     	let mounted;
@@ -5605,7 +5627,7 @@ var app = (function () {
     			button.textContent = "Speichern";
     			attr_dev(button, "class", "btn btn-success");
     			attr_dev(button, "type", "button");
-    			add_location(button, file$5, 72, 24, 2175);
+    			add_location(button, file$5, 76, 24, 2321);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -5627,7 +5649,7 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
-    		source: "(72:23) {#if !disabled}",
+    		source: "(76:23) {#if !disabled}",
     		ctx
     	});
 
@@ -5679,23 +5701,23 @@ var app = (function () {
     			t2 = space();
     			if (if_block) if_block.c();
     			attr_dev(i, "class", "fa-solid fa-pen-to-square");
-    			add_location(i, file$5, 66, 34, 1893);
+    			add_location(i, file$5, 70, 34, 2039);
     			attr_dev(button, "class", "btn btn-light btn-sm float-end");
     			attr_dev(button, "type", "button");
-    			add_location(button, file$5, 63, 20, 1736);
+    			add_location(button, file$5, 67, 20, 1882);
     			attr_dev(div0, "class", "card-header");
-    			add_location(div0, file$5, 61, 16, 1660);
-    			add_location(form, file$5, 69, 20, 2031);
+    			add_location(div0, file$5, 65, 16, 1806);
+    			add_location(form, file$5, 73, 20, 2177);
     			attr_dev(div1, "class", "card-body");
-    			add_location(div1, file$5, 68, 16, 1986);
+    			add_location(div1, file$5, 72, 16, 2132);
     			attr_dev(div2, "class", "card mb-4");
-    			add_location(div2, file$5, 60, 12, 1619);
+    			add_location(div2, file$5, 64, 12, 1765);
     			attr_dev(div3, "class", "col-xl-7");
-    			add_location(div3, file$5, 59, 8, 1583);
+    			add_location(div3, file$5, 63, 8, 1729);
     			attr_dev(div4, "class", "row");
-    			add_location(div4, file$5, 58, 4, 1556);
+    			add_location(div4, file$5, 62, 4, 1702);
     			attr_dev(div5, "class", "container-xl px-4 mt-4");
-    			add_location(div5, file$5, 57, 0, 1514);
+    			add_location(div5, file$5, 61, 0, 1660);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5800,6 +5822,11 @@ var app = (function () {
 
     		axios$1(config).then(function (response) {
     			$$invalidate(1, appUser = response.data);
+    			console.log(appUser.name);
+
+    			if (appUser.name == null) {
+    				$$invalidate(0, disabled = false);
+    			}
     		}).catch(function (error) {
     			console.log(error);
     		});
@@ -8186,7 +8213,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (70:36) {#each groups as group}
+    // (76:36) {#each groups as group}
     function create_each_block_1(ctx) {
     	let option;
     	let t_value = /*group*/ ctx[13].name + "";
@@ -8199,7 +8226,7 @@ var app = (function () {
     			t = text(t_value);
     			option.__value = option_value_value = /*group*/ ctx[13].name;
     			option.value = option.__value;
-    			add_location(option, file$1, 70, 40, 2473);
+    			add_location(option, file$1, 76, 40, 2877);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -8222,14 +8249,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(70:36) {#each groups as group}",
+    		source: "(76:36) {#each groups as group}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (88:8) {#each missingTrainings as date}
+    // (94:8) {#each missingTrainings as date}
     function create_each_block(ctx) {
     	let li;
     	let t_value = formatDate(/*date*/ ctx[10]) + "";
@@ -8240,7 +8267,7 @@ var app = (function () {
     			li = element("li");
     			t = text(t_value);
     			attr_dev(li, "class", "list-group-item");
-    			add_location(li, file$1, 88, 12, 3173);
+    			add_location(li, file$1, 94, 12, 3577);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -8258,7 +8285,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(88:8) {#each missingTrainings as date}",
+    		source: "(94:8) {#each missingTrainings as date}",
     		ctx
     	});
 
@@ -8266,29 +8293,33 @@ var app = (function () {
     }
 
     function create_fragment$1(ctx) {
+    	let div11;
     	let div9;
+    	let div8;
     	let div7;
-    	let div6;
-    	let div5;
     	let div0;
     	let t1;
-    	let div4;
-    	let form;
-    	let div3;
-    	let div1;
-    	let label0;
-    	let t3;
-    	let input;
-    	let t4;
+    	let div6;
     	let div2;
-    	let label1;
+    	let div1;
+    	let small;
+    	let t3;
+    	let form;
+    	let div5;
+    	let div3;
+    	let label0;
+    	let t5;
+    	let input;
     	let t6;
+    	let div4;
+    	let label1;
+    	let t8;
     	let select;
     	let option;
-    	let t7;
-    	let button;
     	let t9;
-    	let div8;
+    	let button;
+    	let t11;
+    	let div10;
     	let ul;
     	let mounted;
     	let dispose;
@@ -8310,26 +8341,31 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+    			div11 = element("div");
     			div9 = element("div");
+    			div8 = element("div");
     			div7 = element("div");
-    			div6 = element("div");
-    			div5 = element("div");
     			div0 = element("div");
     			div0.textContent = "Admin";
     			t1 = space();
-    			div4 = element("div");
-    			form = element("form");
-    			div3 = element("div");
-    			div1 = element("div");
-    			label0 = element("label");
-    			label0.textContent = "Datum von:";
-    			t3 = space();
-    			input = element("input");
-    			t4 = space();
+    			div6 = element("div");
     			div2 = element("div");
+    			div1 = element("div");
+    			small = element("small");
+    			small.textContent = "Verwenden Sie diese Seite, um die fehlenden Trainingsprotokolle für eine bestimmte Gruppe seit einem bestimmten Datum bis heute anzuzeigen.";
+    			t3 = space();
+    			form = element("form");
+    			div5 = element("div");
+    			div3 = element("div");
+    			label0 = element("label");
+    			label0.textContent = "Startdatum";
+    			t5 = space();
+    			input = element("input");
+    			t6 = space();
+    			div4 = element("div");
     			label1 = element("label");
     			label1.textContent = "Gruppe";
-    			t6 = space();
+    			t8 = space();
     			select = element("select");
     			option = element("option");
 
@@ -8337,11 +8373,11 @@ var app = (function () {
     				each_blocks_1[i].c();
     			}
 
-    			t7 = space();
+    			t9 = space();
     			button = element("button");
     			button.textContent = "Missing Protocols";
-    			t9 = space();
-    			div8 = element("div");
+    			t11 = space();
+    			div10 = element("div");
     			ul = element("ul");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -8350,72 +8386,83 @@ var app = (function () {
 
     			attr_dev(div0, "class", "card-header");
     			add_location(div0, file$1, 57, 16, 1607);
+    			attr_dev(small, "class", "text-muted");
+    			add_location(small, file$1, 61, 24, 1828);
+    			attr_dev(div1, "class", "alert alert-info");
+    			attr_dev(div1, "role", "alert");
+    			add_location(div1, file$1, 60, 24, 1759);
+    			attr_dev(div2, "class", "row gx-3 mb-3");
+    			add_location(div2, file$1, 59, 20, 1706);
     			attr_dev(label0, "class", "small mb-1");
     			attr_dev(label0, "for", "startdate");
-    			add_location(label0, file$1, 62, 32, 1851);
+    			add_location(label0, file$1, 68, 32, 2255);
     			attr_dev(input, "class", "form-control");
     			attr_dev(input, "id", "startdate");
     			attr_dev(input, "type", "date");
-    			add_location(input, file$1, 63, 32, 1945);
-    			attr_dev(div1, "class", "col-md-6");
-    			add_location(div1, file$1, 61, 28, 1795);
+    			add_location(input, file$1, 69, 32, 2349);
+    			attr_dev(div3, "class", "col-md-6");
+    			add_location(div3, file$1, 67, 28, 2199);
     			attr_dev(label1, "class", "small mb-1");
     			attr_dev(label1, "for", "groupName");
-    			add_location(label1, file$1, 66, 32, 2147);
+    			add_location(label1, file$1, 72, 32, 2551);
     			option.selected = true;
     			option.__value = " ";
     			option.value = option.__value;
-    			add_location(option, file$1, 68, 36, 2343);
+    			add_location(option, file$1, 74, 36, 2747);
     			attr_dev(select, "class", "form-select");
     			attr_dev(select, "id", "groupName");
     			if (/*groupName*/ ctx[1] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[6].call(select));
-    			add_location(select, file$1, 67, 32, 2237);
-    			attr_dev(div2, "class", "col-md-6");
-    			add_location(div2, file$1, 65, 28, 2091);
-    			attr_dev(div3, "class", "row gx-3 mb-3");
-    			add_location(div3, file$1, 60, 24, 1738);
+    			add_location(select, file$1, 73, 32, 2641);
+    			attr_dev(div4, "class", "col-md-6");
+    			add_location(div4, file$1, 71, 28, 2495);
+    			attr_dev(div5, "class", "row gx-3 mb-3");
+    			add_location(div5, file$1, 66, 24, 2142);
     			attr_dev(button, "class", "btn btn-primary");
     			attr_dev(button, "type", "submit");
-    			add_location(button, file$1, 75, 24, 2727);
-    			add_location(form, file$1, 59, 20, 1706);
-    			attr_dev(div4, "class", "card-body");
-    			add_location(div4, file$1, 58, 16, 1661);
-    			attr_dev(div5, "class", "card mb-4");
-    			add_location(div5, file$1, 56, 12, 1566);
-    			attr_dev(div6, "class", "col-xl");
-    			add_location(div6, file$1, 55, 8, 1532);
-    			attr_dev(div7, "class", "row");
-    			add_location(div7, file$1, 54, 4, 1505);
+    			add_location(button, file$1, 81, 24, 3131);
+    			add_location(form, file$1, 65, 20, 2110);
+    			attr_dev(div6, "class", "card-body");
+    			add_location(div6, file$1, 58, 16, 1661);
+    			attr_dev(div7, "class", "card mb-4");
+    			add_location(div7, file$1, 56, 12, 1566);
+    			attr_dev(div8, "class", "col-xl");
+    			add_location(div8, file$1, 55, 8, 1532);
+    			attr_dev(div9, "class", "row");
+    			add_location(div9, file$1, 54, 4, 1505);
     			attr_dev(ul, "class", "list-group list-group-flush");
-    			add_location(ul, file$1, 86, 8, 3077);
-    			attr_dev(div8, "class", "row");
-    			add_location(div8, file$1, 85, 4, 3050);
-    			attr_dev(div9, "class", "container mt-4");
-    			add_location(div9, file$1, 53, 0, 1471);
+    			add_location(ul, file$1, 92, 8, 3481);
+    			attr_dev(div10, "class", "row");
+    			add_location(div10, file$1, 91, 4, 3454);
+    			attr_dev(div11, "class", "container mt-4");
+    			add_location(div11, file$1, 53, 0, 1471);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div9, anchor);
-    			append_dev(div9, div7);
+    			insert_dev(target, div11, anchor);
+    			append_dev(div11, div9);
+    			append_dev(div9, div8);
+    			append_dev(div8, div7);
+    			append_dev(div7, div0);
+    			append_dev(div7, t1);
     			append_dev(div7, div6);
-    			append_dev(div6, div5);
-    			append_dev(div5, div0);
-    			append_dev(div5, t1);
-    			append_dev(div5, div4);
-    			append_dev(div4, form);
-    			append_dev(form, div3);
-    			append_dev(div3, div1);
-    			append_dev(div1, label0);
-    			append_dev(div1, t3);
-    			append_dev(div1, input);
+    			append_dev(div6, div2);
+    			append_dev(div2, div1);
+    			append_dev(div1, small);
+    			append_dev(div6, t3);
+    			append_dev(div6, form);
+    			append_dev(form, div5);
+    			append_dev(div5, div3);
+    			append_dev(div3, label0);
+    			append_dev(div3, t5);
+    			append_dev(div3, input);
     			set_input_value(input, /*startdate*/ ctx[0]);
-    			append_dev(div3, t4);
-    			append_dev(div3, div2);
-    			append_dev(div2, label1);
-    			append_dev(div2, t6);
-    			append_dev(div2, select);
+    			append_dev(div5, t6);
+    			append_dev(div5, div4);
+    			append_dev(div4, label1);
+    			append_dev(div4, t8);
+    			append_dev(div4, select);
     			append_dev(select, option);
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
@@ -8425,11 +8472,11 @@ var app = (function () {
     			}
 
     			select_option(select, /*groupName*/ ctx[1], true);
-    			append_dev(form, t7);
+    			append_dev(form, t9);
     			append_dev(form, button);
-    			append_dev(div9, t9);
-    			append_dev(div9, div8);
-    			append_dev(div8, ul);
+    			append_dev(div11, t11);
+    			append_dev(div11, div10);
+    			append_dev(div10, ul);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				if (each_blocks[i]) {
@@ -8507,7 +8554,7 @@ var app = (function () {
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div9);
+    			if (detaching) detach_dev(div11);
     			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
     			mounted = false;

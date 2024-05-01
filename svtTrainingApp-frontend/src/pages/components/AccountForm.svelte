@@ -8,6 +8,13 @@
 	];
 </script>
 <div class="row gx-3 mb-3">
+    <div class="alert alert-info" role="alert">
+    <small class="text-muted">Bitte geben Sie bei Ihrer ersten Anmeldung die folgenden Informationen an, damit Sie später Trainingsprotokolle unter Ihrem Namen erstellen können.
+        Sobald Ihre Anmeldung vom Administrator bestätigt wurde, können Sie die Webapp vollständig nutzen.
+    </small>
+    </div>
+</div>
+<div class="row gx-3 mb-3">
     <div class="col-md-6 my-auto">
         {#each trainerValues as value}
         <div class="form-check form-check-inline ">
