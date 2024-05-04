@@ -175,8 +175,8 @@ public class TrainingController {
 
         for (Training training : trainings) {
             document.newPage();
-            document.add(new Paragraph("Date: " + training.getDate()));
-            document.add(new Paragraph("Group: " + training.getGroupName()));
+            document.add(new Paragraph("Datum: " + training.getDate()));
+            document.add(new Paragraph("Gruppe: " + training.getGroupName()));
             document.add(new Paragraph("Trainer: " + training.getTrainerName()));
             document.add(new Paragraph("Hilfstrainer: " + training.getHelpTrainerName()));
             document.add(new Paragraph("Wetter/ Wind: " + training.getWeather()));
