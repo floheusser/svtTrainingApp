@@ -1,5 +1,7 @@
 package ch.zhaw.svtTrainingApp.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -10,6 +12,8 @@ import java.util.stream.Collectors;
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +28,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import ch.zhaw.svtTrainingApp.model.Group;
 import ch.zhaw.svtTrainingApp.model.Training;
@@ -147,6 +157,50 @@ public class TrainingController {
         } catch (DateTimeParseException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    
+    @GetMapping("/trainings/pdf/{seasonYear}")
+    public ResponseEntity<InputStreamResource> downloadTrainingsPdf(@PathVariable String seasonYear) throws DocumentException, IOException {
+        List<Training> trainings = trainingRepository.findAllByDateContainsOrderByDateDesc(seasonYear);
+
+        if (seasonYear.equalsIgnoreCase("alle")) {
+            trainings = trainingRepository.findAllByOrderByDateDesc();
+        }
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        Document document = new Document();
+        PdfWriter.getInstance(document, out);
+        document.open();
+
+        for (Training training : trainings) {
+            document.newPage();
+            document.add(new Paragraph("Datum: " + training.getDate()));
+            document.add(new Paragraph("Gruppe: " + training.getGroupName()));
+            document.add(new Paragraph("Trainer: " + training.getTrainerName()));
+            document.add(new Paragraph("Hilfstrainer: " + training.getHelpTrainerName()));
+            document.add(new Paragraph("Wetter/ Wind: " + training.getWeather()));
+            document.add(new Paragraph("Trainingsinhalt: " + training.getTrainingContent()));
+
+            if (training.getTrainingContentPicture() != null) {
+                Image img = Image.getInstance(training.getTrainingContentPicture().getData());
+                img.scaleToFit(400, 600);
+            
+                // Center the image on the page
+                img.setAlignment(Image.ALIGN_CENTER | Image.ALIGN_MIDDLE);
+                document.add(img);
+            }
+        }
+
+        document.close();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename="+seasonYear+"_Trainingprotokolle.pdf");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(new ByteArrayInputStream(out.toByteArray())));
     }
     
 }
