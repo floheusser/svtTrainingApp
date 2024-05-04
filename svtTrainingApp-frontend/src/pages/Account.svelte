@@ -25,6 +25,10 @@
         axios(config)
             .then(function (response) {
                 appUser = response.data;
+                console.log(appUser.name)
+                if (appUser.name == null) {
+                    disabled = false;
+                }
             })
             .catch(function (error) {
                 console.log(error);

@@ -1,5 +1,7 @@
 package ch.zhaw.svtTrainingApp.model;
 
+import java.time.DayOfWeek;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,4 +24,5 @@ public class Group {
     @NonNull
     private String name;
 
+    private DayOfWeek weekday;
 }

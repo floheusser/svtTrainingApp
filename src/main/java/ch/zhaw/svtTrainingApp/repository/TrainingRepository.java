@@ -13,4 +13,6 @@ public interface TrainingRepository extends MongoRepository<Training, String> {
 
     List<Training> findAllByOrderByDateDesc();
 
+    List<Training> findAllByGroupNameOrderByDateDesc(String groupName);
+
 }

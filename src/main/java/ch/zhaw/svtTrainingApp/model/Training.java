@@ -1,5 +1,6 @@
 package ch.zhaw.svtTrainingApp.model;
 
+import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -37,7 +38,7 @@ public class Training {
     @NonNull
     private String weather;
 
-    private String trainingContentPicture;
+    private Binary trainingContentPicture;
 
     private String trainingContent;
 

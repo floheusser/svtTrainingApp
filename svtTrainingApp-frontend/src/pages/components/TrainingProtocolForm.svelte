@@ -101,7 +101,7 @@
         </select>
     </div>
     <div class="col-md-6">
-        <label class="small mb-1" for="inputWeather">Wetter</label>
+        <label class="small mb-1" for="inputWeather">Wetter/ Wind</label>
         <input class="form-control" id="inputWeather" type="text" placeholder="Wetter/ Wind" bind:value="{data.weather}">
     </div>
 </div>
@@ -113,7 +113,7 @@
     <div class="col-md-6">
         <label class="small mb-1" for="inputTrainingContentPicture">Trainingsinhalt (Bild)</label>
         <br/>
-        <input type="file" class="form-control-file" id="inputTrainingContentPicture"  bind:value="{data.trainingContentPicture}" >
+        <input type="file" accept="image/*" id="inputTrainingContentPicture" on:change="{(event) => data.trainingContentPicture = event.target.files[0]}" />
     </div>
 </div>
 

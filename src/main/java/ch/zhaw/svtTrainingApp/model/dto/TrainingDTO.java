@@ -15,6 +15,6 @@ public class TrainingDTO {
     private String helpTrainerName;
     private String date;
     private String weather;
-    private String trainingContentPicture;
+    //private MultipartFile trainingContentPicture;
     private String trainingContent;
 }
