@@ -7471,7 +7471,7 @@ var app = (function () {
     			h6.textContent = "Keine Trainingsprotokolle vorhanden";
     			attr_dev(h6, "class", "text-center my-3 pb-3");
     			set_style(h6, "color", "red");
-    			add_location(h6, file$2, 155, 8, 6414);
+    			add_location(h6, file$2, 155, 8, 6426);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h6, anchor);
@@ -7582,9 +7582,9 @@ var app = (function () {
     			t0 = text("Trainingsinhalt: ");
     			t1 = text(t1_value);
     			attr_dev(div0, "class", "col-md-6");
-    			add_location(div0, file$2, 140, 28, 5737);
+    			add_location(div0, file$2, 140, 28, 5749);
     			attr_dev(div1, "class", "row gx-3 mb-3");
-    			add_location(div1, file$2, 139, 24, 5680);
+    			add_location(div1, file$2, 139, 24, 5692);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -7637,7 +7637,7 @@ var app = (function () {
     	let div4;
     	let div3;
     	let t8;
-    	let t9_value = /*training*/ ctx[10].date + "";
+    	let t9_value = formatDate$1(/*training*/ ctx[10].date) + "";
     	let t9;
     	let t10;
     	let div7;
@@ -7743,25 +7743,25 @@ var app = (function () {
     			attr_dev(div4, "class", "row gx-3 mb-3");
     			add_location(div4, file$2, 117, 24, 4601);
     			attr_dev(div5, "class", "col-md-6");
-    			add_location(div5, file$2, 123, 28, 4886);
+    			add_location(div5, file$2, 123, 28, 4898);
     			attr_dev(div6, "class", "col-md-6");
-    			add_location(div6, file$2, 126, 28, 5039);
+    			add_location(div6, file$2, 126, 28, 5051);
     			attr_dev(div7, "class", "row gx-3 mb-3");
-    			add_location(div7, file$2, 122, 23, 4829);
+    			add_location(div7, file$2, 122, 23, 4841);
     			attr_dev(div8, "class", "col-md-6");
-    			add_location(div8, file$2, 131, 28, 5286);
+    			add_location(div8, file$2, 131, 28, 5298);
     			attr_dev(div9, "class", "col-md-6");
-    			add_location(div9, file$2, 134, 28, 5436);
+    			add_location(div9, file$2, 134, 28, 5448);
     			attr_dev(div10, "class", "row gx-3 mb-3");
-    			add_location(div10, file$2, 130, 24, 5229);
+    			add_location(div10, file$2, 130, 24, 5241);
     			attr_dev(img, "class", "img-fluid img-thumbnail mx-auto d-block");
     			set_style(img, "max-width", "400px");
     			set_style(img, "max-height", "600px");
     			if (!src_url_equal(img.src, img_src_value = /*training*/ ctx[10].imageUrl)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = `Trainingsbild für die Gruppe ${/*training*/ ctx[10].groupName} am ${/*training*/ ctx[10].date}`);
-    			add_location(img, file$2, 147, 28, 6044);
+    			add_location(img, file$2, 147, 28, 6056);
     			attr_dev(div11, "class", "row gx-3 mb-3");
-    			add_location(div11, file$2, 146, 24, 5987);
+    			add_location(div11, file$2, 146, 24, 5999);
     			attr_dev(div12, "class", "accordion-body");
     			set_style(div12, "background-color", "white");
     			add_location(div12, file$2, 116, 20, 4514);
@@ -7835,7 +7835,7 @@ var app = (function () {
     				attr_dev(h2, "id", h2_id_value);
     			}
 
-    			if (dirty & /*allTrainings*/ 1 && t9_value !== (t9_value = /*training*/ ctx[10].date + "")) set_data_dev(t9, t9_value);
+    			if (dirty & /*allTrainings*/ 1 && t9_value !== (t9_value = formatDate$1(/*training*/ ctx[10].date) + "")) set_data_dev(t9, t9_value);
     			if (dirty & /*allTrainings*/ 1 && t12_value !== (t12_value = /*training*/ ctx[10].trainerName + "")) set_data_dev(t12, t12_value);
     			if (dirty & /*allTrainings*/ 1 && t15_value !== (t15_value = /*training*/ ctx[10].helpTrainerName + "")) set_data_dev(t15, t15_value);
     			if (dirty & /*allTrainings*/ 1 && t18_value !== (t18_value = /*training*/ ctx[10].groupName + "")) set_data_dev(t18, t18_value);
@@ -8203,20 +8203,20 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[13] = list[i];
+    	child_ctx[15] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[16] = list[i];
+    	child_ctx[18] = list[i];
     	return child_ctx;
     }
 
-    // (127:36) {#each groups as group}
+    // (133:36) {#each groups as group}
     function create_each_block_1(ctx) {
     	let option;
-    	let t_value = /*group*/ ctx[16].name + "";
+    	let t_value = /*group*/ ctx[18].name + "";
     	let t;
     	let option_value_value;
 
@@ -8224,18 +8224,18 @@ var app = (function () {
     		c: function create() {
     			option = element("option");
     			t = text(t_value);
-    			option.__value = option_value_value = /*group*/ ctx[16].name;
+    			option.__value = option_value_value = /*group*/ ctx[18].name;
     			option.value = option.__value;
-    			add_location(option, file$1, 127, 40, 5323);
+    			add_location(option, file$1, 133, 40, 5678);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
     			append_dev(option, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*groups*/ 8 && t_value !== (t_value = /*group*/ ctx[16].name + "")) set_data_dev(t, t_value);
+    			if (dirty & /*groups*/ 16 && t_value !== (t_value = /*group*/ ctx[18].name + "")) set_data_dev(t, t_value);
 
-    			if (dirty & /*groups*/ 8 && option_value_value !== (option_value_value = /*group*/ ctx[16].name)) {
+    			if (dirty & /*groups*/ 16 && option_value_value !== (option_value_value = /*group*/ ctx[18].name)) {
     				prop_dev(option, "__value", option_value_value);
     				option.value = option.__value;
     			}
@@ -8249,17 +8249,17 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(127:36) {#each groups as group}",
+    		source: "(133:36) {#each groups as group}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (145:8) {#each missingTrainings as date}
+    // (152:8) {#each missingTrainings as date}
     function create_each_block(ctx) {
     	let li;
-    	let t_value = formatDate(/*date*/ ctx[13]) + "";
+    	let t_value = formatDate(/*date*/ ctx[15]) + "";
     	let t;
 
     	const block = {
@@ -8267,14 +8267,14 @@ var app = (function () {
     			li = element("li");
     			t = text(t_value);
     			attr_dev(li, "class", "list-group-item");
-    			add_location(li, file$1, 145, 12, 6023);
+    			add_location(li, file$1, 152, 12, 6406);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
     			append_dev(li, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*missingTrainings*/ 16 && t_value !== (t_value = formatDate(/*date*/ ctx[13]) + "")) set_data_dev(t, t_value);
+    			if (dirty & /*missingTrainings*/ 32 && t_value !== (t_value = formatDate(/*date*/ ctx[15]) + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(li);
@@ -8285,7 +8285,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(145:8) {#each missingTrainings as date}",
+    		source: "(152:8) {#each missingTrainings as date}",
     		ctx
     	});
 
@@ -8293,7 +8293,7 @@ var app = (function () {
     }
 
     function create_fragment$1(ctx) {
-    	let div21;
+    	let div23;
     	let div9;
     	let div8;
     	let div7;
@@ -8315,18 +8315,18 @@ var app = (function () {
     	let i;
     	let t7;
     	let t8;
+    	let div21;
+    	let div20;
     	let div19;
-    	let div18;
-    	let div17;
     	let div10;
     	let t10;
-    	let div16;
+    	let div18;
     	let div12;
     	let div11;
     	let small1;
     	let t12;
     	let form;
-    	let div15;
+    	let div17;
     	let div13;
     	let label1;
     	let t14;
@@ -8335,16 +8335,22 @@ var app = (function () {
     	let div14;
     	let label2;
     	let t17;
+    	let input2;
+    	let t18;
+    	let div16;
+    	let div15;
+    	let label3;
+    	let t20;
     	let select;
     	let option;
-    	let t18;
+    	let t21;
     	let button1;
-    	let t20;
-    	let div20;
+    	let t23;
+    	let div22;
     	let ul;
     	let mounted;
     	let dispose;
-    	let each_value_1 = /*groups*/ ctx[3];
+    	let each_value_1 = /*groups*/ ctx[4];
     	validate_each_argument(each_value_1);
     	let each_blocks_1 = [];
 
@@ -8352,7 +8358,7 @@ var app = (function () {
     		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
-    	let each_value = /*missingTrainings*/ ctx[4];
+    	let each_value = /*missingTrainings*/ ctx[5];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -8362,7 +8368,7 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div21 = element("div");
+    			div23 = element("div");
     			div9 = element("div");
     			div8 = element("div");
     			div7 = element("div");
@@ -8387,30 +8393,37 @@ var app = (function () {
     			i = element("i");
     			t7 = text("  Download");
     			t8 = space();
+    			div21 = element("div");
+    			div20 = element("div");
     			div19 = element("div");
-    			div18 = element("div");
-    			div17 = element("div");
     			div10 = element("div");
     			div10.textContent = "Fehlende Trainingsprotokolle";
     			t10 = space();
-    			div16 = element("div");
+    			div18 = element("div");
     			div12 = element("div");
     			div11 = element("div");
     			small1 = element("small");
-    			small1.textContent = "Verwenden Sie diese Funktion, um die fehlenden Trainingsprotokolle für eine bestimmte Gruppe seit einem bestimmten Datum bis heute anzuzeigen.";
+    			small1.textContent = "Verwenden Sie diese Funktion, um die fehlenden Trainingsprotokolle für eine bestimmte Gruppe in einem bestimmten Zeitraum (Von-Bis) anzuzeigen.";
     			t12 = space();
     			form = element("form");
-    			div15 = element("div");
+    			div17 = element("div");
     			div13 = element("div");
     			label1 = element("label");
-    			label1.textContent = "Startdatum";
+    			label1.textContent = "Von";
     			t14 = space();
     			input1 = element("input");
     			t15 = space();
     			div14 = element("div");
     			label2 = element("label");
-    			label2.textContent = "Gruppe";
+    			label2.textContent = "Bis";
     			t17 = space();
+    			input2 = element("input");
+    			t18 = space();
+    			div16 = element("div");
+    			div15 = element("div");
+    			label3 = element("label");
+    			label3.textContent = "Gruppe";
+    			t20 = space();
     			select = element("select");
     			option = element("option");
 
@@ -8418,11 +8431,11 @@ var app = (function () {
     				each_blocks_1[i].c();
     			}
 
-    			t18 = space();
+    			t21 = space();
     			button1 = element("button");
     			button1.textContent = "Missing Protocols";
-    			t20 = space();
-    			div20 = element("div");
+    			t23 = space();
+    			div22 = element("div");
     			ul = element("ul");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -8430,99 +8443,110 @@ var app = (function () {
     			}
 
     			attr_dev(div0, "class", "card-header");
-    			add_location(div0, file$1, 79, 16, 2493);
+    			add_location(div0, file$1, 80, 16, 2524);
     			attr_dev(small0, "class", "text-muted");
-    			add_location(small0, file$1, 83, 24, 2737);
+    			add_location(small0, file$1, 84, 24, 2768);
     			attr_dev(div1, "class", "alert alert-info");
     			attr_dev(div1, "role", "alert");
-    			add_location(div1, file$1, 82, 24, 2668);
+    			add_location(div1, file$1, 83, 24, 2699);
     			attr_dev(div2, "class", "row gx-3 mb-3");
-    			add_location(div2, file$1, 81, 20, 2615);
+    			add_location(div2, file$1, 82, 20, 2646);
     			attr_dev(label0, "class", "small mb-1");
     			attr_dev(label0, "for", "seasonYear");
-    			add_location(label0, file$1, 89, 28, 3163);
+    			add_location(label0, file$1, 90, 28, 3194);
     			attr_dev(input0, "class", "form-control");
     			attr_dev(input0, "id", "seasonYear");
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "placeholder", "z.B 2024");
-    			add_location(input0, file$1, 90, 28, 3255);
+    			add_location(input0, file$1, 91, 28, 3286);
     			attr_dev(div3, "class", "col-6");
-    			add_location(div3, file$1, 88, 24, 3114);
+    			add_location(div3, file$1, 89, 24, 3145);
     			attr_dev(i, "class", "fa-solid fa-download");
-    			add_location(i, file$1, 97, 32, 3692);
+    			add_location(i, file$1, 98, 32, 3723);
     			attr_dev(button0, "class", "btn btn-primary h-100");
     			attr_dev(button0, "type", "submit");
-    			add_location(button0, file$1, 93, 28, 3472);
+    			add_location(button0, file$1, 94, 28, 3503);
     			attr_dev(div4, "class", "col-6 mt-4");
-    			add_location(div4, file$1, 92, 24, 3418);
+    			add_location(div4, file$1, 93, 24, 3449);
     			attr_dev(div5, "class", "row gx-3 mb-3");
-    			add_location(div5, file$1, 87, 20, 3061);
+    			add_location(div5, file$1, 88, 20, 3092);
     			attr_dev(div6, "class", "card-body");
-    			add_location(div6, file$1, 80, 16, 2570);
+    			add_location(div6, file$1, 81, 16, 2601);
     			attr_dev(div7, "class", "card mb-4");
-    			add_location(div7, file$1, 78, 12, 2452);
+    			add_location(div7, file$1, 79, 12, 2483);
     			attr_dev(div8, "class", "col-xl");
-    			add_location(div8, file$1, 77, 8, 2418);
+    			add_location(div8, file$1, 78, 8, 2449);
     			attr_dev(div9, "class", "row");
-    			add_location(div9, file$1, 76, 4, 2391);
+    			add_location(div9, file$1, 77, 4, 2422);
     			attr_dev(div10, "class", "card-header");
-    			add_location(div10, file$1, 108, 16, 4027);
+    			add_location(div10, file$1, 109, 16, 4058);
     			attr_dev(small1, "class", "text-muted");
-    			add_location(small1, file$1, 112, 24, 4271);
+    			add_location(small1, file$1, 113, 24, 4302);
     			attr_dev(div11, "class", "alert alert-info");
     			attr_dev(div11, "role", "alert");
-    			add_location(div11, file$1, 111, 24, 4202);
+    			add_location(div11, file$1, 112, 24, 4233);
     			attr_dev(div12, "class", "row gx-3 mb-3");
-    			add_location(div12, file$1, 110, 20, 4149);
+    			add_location(div12, file$1, 111, 20, 4180);
     			attr_dev(label1, "class", "small mb-1");
-    			attr_dev(label1, "for", "startdate");
-    			add_location(label1, file$1, 119, 32, 4701);
+    			attr_dev(label1, "for", "fromDate");
+    			add_location(label1, file$1, 120, 32, 4733);
     			attr_dev(input1, "class", "form-control");
-    			attr_dev(input1, "id", "startdate");
+    			attr_dev(input1, "id", "fromDate");
     			attr_dev(input1, "type", "date");
-    			add_location(input1, file$1, 120, 32, 4795);
+    			add_location(input1, file$1, 121, 32, 4819);
     			attr_dev(div13, "class", "col-md-6");
-    			add_location(div13, file$1, 118, 28, 4645);
+    			add_location(div13, file$1, 119, 28, 4677);
     			attr_dev(label2, "class", "small mb-1");
-    			attr_dev(label2, "for", "groupName");
-    			add_location(label2, file$1, 123, 32, 4997);
+    			attr_dev(label2, "for", "toDate");
+    			add_location(label2, file$1, 124, 32, 5019);
+    			attr_dev(input2, "class", "form-control");
+    			attr_dev(input2, "id", "toDate");
+    			attr_dev(input2, "type", "date");
+    			add_location(input2, file$1, 125, 32, 5103);
+    			attr_dev(div14, "class", "col-md-6");
+    			add_location(div14, file$1, 123, 28, 4963);
+    			attr_dev(label3, "class", "small mb-1");
+    			attr_dev(label3, "for", "groupName");
+    			add_location(label3, file$1, 129, 32, 5352);
     			option.selected = true;
     			option.__value = " ";
     			option.value = option.__value;
-    			add_location(option, file$1, 125, 36, 5193);
+    			add_location(option, file$1, 131, 36, 5548);
     			attr_dev(select, "class", "form-select");
     			attr_dev(select, "id", "groupName");
-    			if (/*groupName*/ ctx[1] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[9].call(select));
-    			add_location(select, file$1, 124, 32, 5087);
-    			attr_dev(div14, "class", "col-md-6");
-    			add_location(div14, file$1, 122, 28, 4941);
-    			attr_dev(div15, "class", "row gx-3 mb-3");
-    			add_location(div15, file$1, 117, 24, 4588);
+    			if (/*groupName*/ ctx[2] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[11].call(select));
+    			add_location(select, file$1, 130, 32, 5442);
+    			attr_dev(div15, "class", "col-md-6");
+    			add_location(div15, file$1, 128, 28, 5296);
+    			attr_dev(div16, "class", "row gx-3 mb-3");
+    			add_location(div16, file$1, 127, 24, 5239);
+    			attr_dev(div17, "class", "row gx-3 mb-3");
+    			add_location(div17, file$1, 118, 24, 4620);
     			attr_dev(button1, "class", "btn btn-primary");
     			attr_dev(button1, "type", "submit");
-    			add_location(button1, file$1, 132, 24, 5577);
-    			add_location(form, file$1, 116, 20, 4556);
-    			attr_dev(div16, "class", "card-body");
-    			add_location(div16, file$1, 109, 16, 4104);
-    			attr_dev(div17, "class", "card mb-4");
-    			add_location(div17, file$1, 107, 12, 3986);
-    			attr_dev(div18, "class", "col-xl");
-    			add_location(div18, file$1, 106, 8, 3952);
-    			attr_dev(div19, "class", "row");
-    			add_location(div19, file$1, 105, 4, 3925);
+    			add_location(button1, file$1, 139, 24, 5960);
+    			add_location(form, file$1, 117, 20, 4588);
+    			attr_dev(div18, "class", "card-body");
+    			add_location(div18, file$1, 110, 16, 4135);
+    			attr_dev(div19, "class", "card mb-4");
+    			add_location(div19, file$1, 108, 12, 4017);
+    			attr_dev(div20, "class", "col-xl");
+    			add_location(div20, file$1, 107, 8, 3983);
+    			attr_dev(div21, "class", "row");
+    			add_location(div21, file$1, 106, 4, 3956);
     			attr_dev(ul, "class", "list-group list-group-flush");
-    			add_location(ul, file$1, 143, 8, 5927);
-    			attr_dev(div20, "class", "row");
-    			add_location(div20, file$1, 142, 4, 5900);
-    			attr_dev(div21, "class", "container mt-4");
-    			add_location(div21, file$1, 75, 0, 2357);
+    			add_location(ul, file$1, 150, 8, 6310);
+    			attr_dev(div22, "class", "row");
+    			add_location(div22, file$1, 149, 4, 6283);
+    			attr_dev(div23, "class", "container mt-4");
+    			add_location(div23, file$1, 76, 0, 2388);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div21, anchor);
-    			append_dev(div21, div9);
+    			insert_dev(target, div23, anchor);
+    			append_dev(div23, div9);
     			append_dev(div9, div8);
     			append_dev(div8, div7);
     			append_dev(div7, div0);
@@ -8537,35 +8561,42 @@ var app = (function () {
     			append_dev(div3, label0);
     			append_dev(div3, t5);
     			append_dev(div3, input0);
-    			set_input_value(input0, /*seasonYear*/ ctx[2]);
+    			set_input_value(input0, /*seasonYear*/ ctx[3]);
     			append_dev(div5, t6);
     			append_dev(div5, div4);
     			append_dev(div4, button0);
     			append_dev(button0, i);
     			append_dev(button0, t7);
-    			append_dev(div21, t8);
-    			append_dev(div21, div19);
+    			append_dev(div23, t8);
+    			append_dev(div23, div21);
+    			append_dev(div21, div20);
+    			append_dev(div20, div19);
+    			append_dev(div19, div10);
+    			append_dev(div19, t10);
     			append_dev(div19, div18);
-    			append_dev(div18, div17);
-    			append_dev(div17, div10);
-    			append_dev(div17, t10);
-    			append_dev(div17, div16);
-    			append_dev(div16, div12);
+    			append_dev(div18, div12);
     			append_dev(div12, div11);
     			append_dev(div11, small1);
-    			append_dev(div16, t12);
-    			append_dev(div16, form);
-    			append_dev(form, div15);
-    			append_dev(div15, div13);
+    			append_dev(div18, t12);
+    			append_dev(div18, form);
+    			append_dev(form, div17);
+    			append_dev(div17, div13);
     			append_dev(div13, label1);
     			append_dev(div13, t14);
     			append_dev(div13, input1);
-    			set_input_value(input1, /*startdate*/ ctx[0]);
-    			append_dev(div15, t15);
-    			append_dev(div15, div14);
+    			set_input_value(input1, /*fromDate*/ ctx[0]);
+    			append_dev(div17, t15);
+    			append_dev(div17, div14);
     			append_dev(div14, label2);
     			append_dev(div14, t17);
-    			append_dev(div14, select);
+    			append_dev(div14, input2);
+    			set_input_value(input2, /*toDate*/ ctx[1]);
+    			append_dev(div17, t18);
+    			append_dev(div17, div16);
+    			append_dev(div16, div15);
+    			append_dev(div15, label3);
+    			append_dev(div15, t20);
+    			append_dev(div15, select);
     			append_dev(select, option);
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
@@ -8574,12 +8605,12 @@ var app = (function () {
     				}
     			}
 
-    			select_option(select, /*groupName*/ ctx[1], true);
-    			append_dev(form, t18);
+    			select_option(select, /*groupName*/ ctx[2], true);
+    			append_dev(form, t21);
     			append_dev(form, button1);
-    			append_dev(div21, t20);
-    			append_dev(div21, div20);
-    			append_dev(div20, ul);
+    			append_dev(div23, t23);
+    			append_dev(div23, div22);
+    			append_dev(div22, ul);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				if (each_blocks[i]) {
@@ -8589,21 +8620,22 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[7]),
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[8]),
     					listen_dev(
     						button0,
     						"click",
     						function () {
-    							if (is_function(/*downloadPDF*/ ctx[6](/*seasonYear*/ ctx[2]))) /*downloadPDF*/ ctx[6](/*seasonYear*/ ctx[2]).apply(this, arguments);
+    							if (is_function(/*downloadPDF*/ ctx[7](/*seasonYear*/ ctx[3]))) /*downloadPDF*/ ctx[7](/*seasonYear*/ ctx[3]).apply(this, arguments);
     						},
     						false,
     						false,
     						false,
     						false
     					),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[8]),
-    					listen_dev(select, "change", /*select_change_handler*/ ctx[9]),
-    					listen_dev(button1, "click", /*getMissingTrainings*/ ctx[5], false, false, false, false)
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[9]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[10]),
+    					listen_dev(select, "change", /*select_change_handler*/ ctx[11]),
+    					listen_dev(button1, "click", /*getMissingTrainings*/ ctx[6], false, false, false, false)
     				];
 
     				mounted = true;
@@ -8612,16 +8644,20 @@ var app = (function () {
     		p: function update(new_ctx, [dirty]) {
     			ctx = new_ctx;
 
-    			if (dirty & /*seasonYear*/ 4 && input0.value !== /*seasonYear*/ ctx[2]) {
-    				set_input_value(input0, /*seasonYear*/ ctx[2]);
+    			if (dirty & /*seasonYear*/ 8 && input0.value !== /*seasonYear*/ ctx[3]) {
+    				set_input_value(input0, /*seasonYear*/ ctx[3]);
     			}
 
-    			if (dirty & /*startdate*/ 1) {
-    				set_input_value(input1, /*startdate*/ ctx[0]);
+    			if (dirty & /*fromDate*/ 1) {
+    				set_input_value(input1, /*fromDate*/ ctx[0]);
     			}
 
-    			if (dirty & /*groups*/ 8) {
-    				each_value_1 = /*groups*/ ctx[3];
+    			if (dirty & /*toDate*/ 2) {
+    				set_input_value(input2, /*toDate*/ ctx[1]);
+    			}
+
+    			if (dirty & /*groups*/ 16) {
+    				each_value_1 = /*groups*/ ctx[4];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -8644,12 +8680,12 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
-    			if (dirty & /*groupName, groups*/ 10) {
-    				select_option(select, /*groupName*/ ctx[1]);
+    			if (dirty & /*groupName, groups*/ 20) {
+    				select_option(select, /*groupName*/ ctx[2]);
     			}
 
-    			if (dirty & /*formatDate, missingTrainings*/ 16) {
-    				each_value = /*missingTrainings*/ ctx[4];
+    			if (dirty & /*formatDate, missingTrainings*/ 32) {
+    				each_value = /*missingTrainings*/ ctx[5];
     				validate_each_argument(each_value);
     				let i;
 
@@ -8675,7 +8711,7 @@ var app = (function () {
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div21);
+    			if (detaching) detach_dev(div23);
     			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
     			mounted = false;
@@ -8702,11 +8738,12 @@ var app = (function () {
     function instance$1($$self, $$props, $$invalidate) {
     	let $jwt_token;
     	validate_store(jwt_token, 'jwt_token');
-    	component_subscribe($$self, jwt_token, $$value => $$invalidate(10, $jwt_token = $$value));
+    	component_subscribe($$self, jwt_token, $$value => $$invalidate(12, $jwt_token = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('AdminPage', slots, []);
     	const api_root = window.location.origin;
-    	let startdate = "";
+    	let fromDate = "";
+    	let toDate = "";
     	let groupName = "";
     	let seasonYear = "";
     	let groups = [];
@@ -8720,7 +8757,7 @@ var app = (function () {
     		};
 
     		axios$1(config).then(function (response) {
-    			$$invalidate(3, groups = response.data);
+    			$$invalidate(4, groups = response.data);
     		}).catch(function (error) {
     			console.log(error);
     		});
@@ -8729,14 +8766,14 @@ var app = (function () {
     	function getMissingTrainings() {
     		var config = {
     			method: "get",
-    			url: api_root + "/api/trainingsMissing/" + groupName + "/" + startdate,
+    			url: api_root + "/api/trainingsMissing/" + groupName + "/" + fromDate + "/" + toDate,
     			headers: { Authorization: "Bearer " + $jwt_token }
     		};
 
     		console.log(config.url);
 
     		axios$1(config).then(function (response) {
-    			$$invalidate(4, missingTrainings = response.data);
+    			$$invalidate(5, missingTrainings = response.data);
     		}).catch(function (error) {
     			console.log(error);
     		});
@@ -8770,18 +8807,23 @@ var app = (function () {
 
     	function input0_input_handler() {
     		seasonYear = this.value;
-    		$$invalidate(2, seasonYear);
+    		$$invalidate(3, seasonYear);
     	}
 
     	function input1_input_handler() {
-    		startdate = this.value;
-    		$$invalidate(0, startdate);
+    		fromDate = this.value;
+    		$$invalidate(0, fromDate);
+    	}
+
+    	function input2_input_handler() {
+    		toDate = this.value;
+    		$$invalidate(1, toDate);
     	}
 
     	function select_change_handler() {
     		groupName = select_value(this);
-    		$$invalidate(1, groupName);
-    		$$invalidate(3, groups);
+    		$$invalidate(2, groupName);
+    		$$invalidate(4, groups);
     	}
 
     	$$self.$capture_state = () => ({
@@ -8789,7 +8831,8 @@ var app = (function () {
     		api_root,
     		user,
     		jwt_token,
-    		startdate,
+    		fromDate,
+    		toDate,
     		groupName,
     		seasonYear,
     		groups,
@@ -8802,11 +8845,12 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('startdate' in $$props) $$invalidate(0, startdate = $$props.startdate);
-    		if ('groupName' in $$props) $$invalidate(1, groupName = $$props.groupName);
-    		if ('seasonYear' in $$props) $$invalidate(2, seasonYear = $$props.seasonYear);
-    		if ('groups' in $$props) $$invalidate(3, groups = $$props.groups);
-    		if ('missingTrainings' in $$props) $$invalidate(4, missingTrainings = $$props.missingTrainings);
+    		if ('fromDate' in $$props) $$invalidate(0, fromDate = $$props.fromDate);
+    		if ('toDate' in $$props) $$invalidate(1, toDate = $$props.toDate);
+    		if ('groupName' in $$props) $$invalidate(2, groupName = $$props.groupName);
+    		if ('seasonYear' in $$props) $$invalidate(3, seasonYear = $$props.seasonYear);
+    		if ('groups' in $$props) $$invalidate(4, groups = $$props.groups);
+    		if ('missingTrainings' in $$props) $$invalidate(5, missingTrainings = $$props.missingTrainings);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -8818,7 +8862,8 @@ var app = (function () {
     	}
 
     	return [
-    		startdate,
+    		fromDate,
+    		toDate,
     		groupName,
     		seasonYear,
     		groups,
@@ -8827,6 +8872,7 @@ var app = (function () {
     		downloadPDF,
     		input0_input_handler,
     		input1_input_handler,
+    		input2_input_handler,
     		select_change_handler
     	];
     }

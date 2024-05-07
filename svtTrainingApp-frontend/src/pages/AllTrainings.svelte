@@ -117,7 +117,7 @@
                     <div class="accordion-body" style="background-color: white;">
                         <div class="row gx-3 mb-3">
                             <div class="col-md-6">
-                                Datum: {training.date}
+                                Datum: {formatDate(training.date)}
                             </div>
                         </div>
                        <div class="row gx-3 mb-3">

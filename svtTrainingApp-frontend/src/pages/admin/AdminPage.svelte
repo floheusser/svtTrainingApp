@@ -7,7 +7,8 @@
         getGroups();
     }
 
-    let startdate = "";
+    let fromDate = "";
+    let toDate = "";
     let groupName = "";
     let seasonYear = "";
     let groups = [];
@@ -32,7 +33,7 @@
     function getMissingTrainings() {
         var config = {
             method: "get",
-            url: api_root + "/api/trainingsMissing/"+groupName+"/"+startdate,
+            url: api_root + "/api/trainingsMissing/"+groupName+"/"+fromDate+"/"+toDate,
             headers: { Authorization: "Bearer " + $jwt_token },
         };
         console.log(config.url);
@@ -110,16 +111,21 @@
                 <div class="card-body">
                     <div class="row gx-3 mb-3">
                         <div class="alert alert-info" role="alert">
-                        <small class="text-muted">Verwenden Sie diese Funktion, um die fehlenden Trainingsprotokolle für eine bestimmte Gruppe seit einem bestimmten Datum bis heute anzuzeigen. 
+                        <small class="text-muted">Verwenden Sie diese Funktion, um die fehlenden Trainingsprotokolle für eine bestimmte Gruppe in einem bestimmten Zeitraum (Von-Bis) anzuzeigen. 
                         </small>
                         </div>
                     </div>
                     <form>
                         <div class="row gx-3 mb-3">
                             <div class="col-md-6">
-                                <label class="small mb-1" for="startdate">Startdatum</label>
-                                <input class="form-control" id="startdate" type="date" bind:value="{startdate}">
+                                <label class="small mb-1" for="fromDate">Von</label>
+                                <input class="form-control" id="fromDate" type="date" bind:value="{fromDate}">
                             </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="toDate">Bis</label>
+                                <input class="form-control" id="toDate" type="date" bind:value="{toDate}">
+                            </div>
+                        <div class="row gx-3 mb-3">
                             <div class="col-md-6">
                                 <label class="small mb-1" for="groupName">Gruppe</label>
                                 <select class="form-select" id="groupName" bind:value="{groupName}">
@@ -129,7 +135,8 @@
                                     {/each}
                                 </select>
                             </div>
-                        </div>                        
+                        </div>
+                    </div>                        
                         <button
                             on:click={getMissingTrainings}
                             class="btn btn-primary"

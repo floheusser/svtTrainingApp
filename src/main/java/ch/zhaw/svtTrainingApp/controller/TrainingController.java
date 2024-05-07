@@ -55,14 +55,19 @@ public class TrainingController {
     @Secured("ROLE_trainer")
     public ResponseEntity<Training> createTraining(@AuthenticationPrincipal Jwt jwt,
                                             @RequestPart("trainingData") TrainingDTO tDTO,
-                                            @RequestPart("file") MultipartFile file) throws IOException {
-        Training tDAO = new Training(jwt.getClaimAsString("email"), tDTO.getTrainerName(), tDTO.getGroupName(), tDTO.getHelpTrainerName(), tDTO.getDate(), tDTO.getWeather());
-        tDAO.setTrainingContent(tDTO.getTrainingContent());
-        if (file != null) {
-           tDAO.setTrainingContentPicture(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
+                                            @RequestPart(value = "file", required = false) MultipartFile file) throws IOException {
+        
+        if (!tDTO.getDate().isEmpty() && !tDTO.getGroupName().isEmpty()) {    
+            Training tDAO = new Training(jwt.getClaimAsString("email"), tDTO.getTrainerName(), tDTO.getGroupName(), tDTO.getHelpTrainerName(), tDTO.getDate(), tDTO.getWeather());
+            tDAO.setTrainingContent(tDTO.getTrainingContent());
+            if (file != null) {
+            tDAO.setTrainingContentPicture(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
+            }
+            Training training = trainingRepository.save(tDAO);
+            return new ResponseEntity<>(training, HttpStatus.CREATED);
         }
-        Training training = trainingRepository.save(tDAO);
-        return new ResponseEntity<>(training, HttpStatus.CREATED);
+
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping(value = "/user/training", consumes = "multipart/form-data")
@@ -128,19 +133,19 @@ public class TrainingController {
         return new ResponseEntity<>(trainings, HttpStatus.OK);
     }
 
-    @GetMapping("/trainingsMissing/{groupName}/{sdate}")
+    @GetMapping("/trainingsMissing/{groupName}/{fDate}/{tDate}")
     @Secured("ROLE_admin")
-    public ResponseEntity<List<LocalDate>> getTrainingsMissingByGroup(@PathVariable String groupName, @PathVariable String sdate) {
+    public ResponseEntity<List<LocalDate>> getTrainingsMissingByGroup(@PathVariable String groupName, @PathVariable String fDate, @PathVariable String tDate) {
          try {
-            LocalDate startDate = LocalDate.parse(sdate);
-            LocalDate today = LocalDate.now();
+            LocalDate fromDate = LocalDate.parse(fDate);
+            LocalDate toDate = LocalDate.parse(tDate);
             Group group = groupRepository.findFirstByName(groupName);
             
-            if (startDate.isAfter(today) || group == null) {
+            if (fromDate.isAfter(toDate) || group == null) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
             
-            List<LocalDate> allDates = startDate.datesUntil(today)
+            List<LocalDate> allDates = fromDate.datesUntil(toDate)
                                                .filter(d -> d.getDayOfWeek().equals(group.getWeekday()))
                                                .collect(Collectors.toList());
 
