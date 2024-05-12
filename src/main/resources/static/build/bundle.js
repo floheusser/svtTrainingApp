@@ -6677,11 +6677,11 @@ var app = (function () {
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[8] = list[i];
+    	child_ctx[9] = list[i];
     	return child_ctx;
     }
 
-    // (202:8) {:else}
+    // (231:8) {:else}
     function create_else_block$2(ctx) {
     	let h6;
 
@@ -6691,7 +6691,7 @@ var app = (function () {
     			h6.textContent = "Keine Trainingsprotokolle vorhanden";
     			attr_dev(h6, "class", "text-center my-3 pb-3");
     			set_style(h6, "color", "red");
-    			add_location(h6, file$3, 202, 8, 7887);
+    			add_location(h6, file$3, 231, 8, 9070);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h6, anchor);
@@ -6708,14 +6708,14 @@ var app = (function () {
     		block,
     		id: create_else_block$2.name,
     		type: "else",
-    		source: "(202:8) {:else}",
+    		source: "(231:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (168:8) {#if myTrainings.length != 0}
+    // (186:8) {#if myTrainings.length != 0}
     function create_if_block$2(ctx) {
     	let div;
     	let current;
@@ -6741,7 +6741,7 @@ var app = (function () {
 
     			attr_dev(div, "class", "accordion accordion-flush");
     			attr_dev(div, "id", "accordionFlush");
-    			add_location(div, file$3, 168, 8, 5842);
+    			add_location(div, file$3, 186, 8, 6395);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -6755,7 +6755,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*myTrainings, updateTraining, formatDate*/ 9) {
+    			if (dirty & /*myTrainings, deleteTraining, updateTraining, formatDate*/ 25) {
     				each_value = /*myTrainings*/ ctx[0];
     				validate_each_argument(each_value);
     				let i;
@@ -6811,36 +6811,36 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(168:8) {#if myTrainings.length != 0}",
+    		source: "(186:8) {#if myTrainings.length != 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (170:12) {#each myTrainings as myTraining}
+    // (188:12) {#each myTrainings as myTraining}
     function create_each_block$2(ctx) {
-    	let div6;
+    	let div9;
     	let h2;
     	let button0;
     	let div2;
     	let div0;
     	let b0;
     	let t1;
-    	let t2_value = formatDate$2(/*myTraining*/ ctx[8].date) + "";
+    	let t2_value = formatDate$2(/*myTraining*/ ctx[9].date) + "";
     	let t2;
     	let t3;
     	let div1;
     	let b1;
     	let t5;
-    	let t6_value = /*myTraining*/ ctx[8].groupName + "";
+    	let t6_value = /*myTraining*/ ctx[9].groupName + "";
     	let t6;
     	let button0_data_bs_target_value;
     	let button0_aria_controls_value;
     	let h2_id_value;
     	let t7;
-    	let div5;
-    	let div4;
+    	let div8;
+    	let div7;
     	let form;
     	let trainingprotocolform;
     	let t8;
@@ -6849,22 +6849,27 @@ var app = (function () {
     	let img_src_value;
     	let img_alt_value;
     	let t9;
+    	let div6;
+    	let div4;
     	let button1;
-    	let div5_id_value;
-    	let div5_aria_labelledby_value;
     	let t11;
+    	let div5;
+    	let button2;
+    	let div8_id_value;
+    	let div8_aria_labelledby_value;
+    	let t13;
     	let current;
     	let mounted;
     	let dispose;
 
     	trainingprotocolform = new TrainingProtocolForm({
-    			props: { data: /*myTraining*/ ctx[8] },
+    			props: { data: /*myTraining*/ ctx[9] },
     			$$inline: true
     		});
 
     	const block = {
     		c: function create() {
-    			div6 = element("div");
+    			div9 = element("div");
     			h2 = element("h2");
     			button0 = element("button");
     			div2 = element("div");
@@ -6880,61 +6885,76 @@ var app = (function () {
     			t5 = text(" ");
     			t6 = text(t6_value);
     			t7 = space();
-    			div5 = element("div");
-    			div4 = element("div");
+    			div8 = element("div");
+    			div7 = element("div");
     			form = element("form");
     			create_component(trainingprotocolform.$$.fragment);
     			t8 = space();
     			div3 = element("div");
     			img = element("img");
     			t9 = space();
+    			div6 = element("div");
+    			div4 = element("div");
     			button1 = element("button");
     			button1.textContent = "Update Training";
     			t11 = space();
-    			add_location(b0, file$3, 175, 32, 6419);
+    			div5 = element("div");
+    			button2 = element("button");
+    			button2.textContent = "Training Löschen";
+    			t13 = space();
+    			add_location(b0, file$3, 193, 32, 6972);
     			attr_dev(div0, "class", "col-sm");
-    			add_location(div0, file$3, 174, 28, 6365);
-    			add_location(b1, file$3, 178, 32, 6587);
+    			add_location(div0, file$3, 192, 28, 6918);
+    			add_location(b1, file$3, 196, 32, 7140);
     			attr_dev(div1, "class", "col-sm");
-    			add_location(div1, file$3, 177, 28, 6533);
+    			add_location(div1, file$3, 195, 28, 7086);
     			attr_dev(div2, "class", "row");
-    			add_location(div2, file$3, 173, 24, 6318);
+    			add_location(div2, file$3, 191, 24, 6871);
     			attr_dev(button0, "class", "accordion-button collapsed");
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "data-bs-toggle", "collapse");
-    			attr_dev(button0, "data-bs-target", button0_data_bs_target_value = "#flush-collapse" + /*myTraining*/ ctx[8].id);
+    			attr_dev(button0, "data-bs-target", button0_data_bs_target_value = "#flush-collapse" + /*myTraining*/ ctx[9].id);
     			attr_dev(button0, "aria-expanded", "false");
-    			attr_dev(button0, "aria-controls", button0_aria_controls_value = "flush-collapse" + /*myTraining*/ ctx[8].id);
-    			add_location(button0, file$3, 172, 20, 6093);
+    			attr_dev(button0, "aria-controls", button0_aria_controls_value = "flush-collapse" + /*myTraining*/ ctx[9].id);
+    			add_location(button0, file$3, 190, 20, 6646);
     			attr_dev(h2, "class", "accordion-header");
-    			attr_dev(h2, "id", h2_id_value = "flush-heading" + /*myTraining*/ ctx[8].id);
-    			add_location(h2, file$3, 171, 16, 6008);
+    			attr_dev(h2, "id", h2_id_value = "flush-heading" + /*myTraining*/ ctx[9].id);
+    			add_location(h2, file$3, 189, 16, 6561);
     			attr_dev(img, "class", "img-fluid img-thumbnail mx-auto d-block");
     			set_style(img, "max-width", "400px");
     			set_style(img, "max-height", "600px");
-    			if (!src_url_equal(img.src, img_src_value = /*myTraining*/ ctx[8].imageUrl)) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", img_alt_value = `Trainingsbild für die Gruppe ${/*myTraining*/ ctx[8].groupName} am ${/*myTraining*/ ctx[8].date}`);
-    			add_location(img, file$3, 188, 32, 7203);
+    			if (!src_url_equal(img.src, img_src_value = /*myTraining*/ ctx[9].imageUrl)) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", img_alt_value = `Trainingsbild für die Gruppe ${/*myTraining*/ ctx[9].groupName} am ${/*myTraining*/ ctx[9].date}`);
+    			add_location(img, file$3, 206, 32, 7756);
     			attr_dev(div3, "class", "row mt-5 mb-5");
-    			add_location(div3, file$3, 187, 28, 7142);
+    			add_location(div3, file$3, 205, 28, 7695);
     			attr_dev(button1, "class", "btn btn-primary");
     			attr_dev(button1, "type", "button");
-    			add_location(button1, file$3, 190, 28, 7477);
-    			add_location(form, file$3, 185, 24, 7034);
-    			attr_dev(div4, "class", "accordion-body");
-    			set_style(div4, "background-color", "white");
-    			add_location(div4, file$3, 184, 20, 6947);
-    			attr_dev(div5, "id", div5_id_value = "flush-collapse" + /*myTraining*/ ctx[8].id);
-    			attr_dev(div5, "class", "accordion-collapse collapse");
-    			attr_dev(div5, "aria-labelledby", div5_aria_labelledby_value = "flush-heading" + /*myTraining*/ ctx[8].id);
-    			attr_dev(div5, "data-bs-parent", "#accordionFlush");
-    			add_location(div5, file$3, 183, 16, 6769);
-    			attr_dev(div6, "class", "accordion-item");
-    			add_location(div6, file$3, 170, 12, 5962);
+    			add_location(button1, file$3, 210, 36, 8138);
+    			attr_dev(div4, "class", "col-6");
+    			add_location(div4, file$3, 209, 32, 8081);
+    			attr_dev(button2, "class", "btn btn-danger float-end");
+    			attr_dev(button2, "type", "button");
+    			add_location(button2, file$3, 217, 36, 8542);
+    			attr_dev(div5, "class", "col-6");
+    			add_location(div5, file$3, 216, 32, 8485);
+    			attr_dev(div6, "class", "row");
+    			add_location(div6, file$3, 208, 28, 8030);
+    			add_location(form, file$3, 203, 24, 7587);
+    			attr_dev(div7, "class", "accordion-body");
+    			set_style(div7, "background-color", "white");
+    			add_location(div7, file$3, 202, 20, 7500);
+    			attr_dev(div8, "id", div8_id_value = "flush-collapse" + /*myTraining*/ ctx[9].id);
+    			attr_dev(div8, "class", "accordion-collapse collapse");
+    			attr_dev(div8, "aria-labelledby", div8_aria_labelledby_value = "flush-heading" + /*myTraining*/ ctx[9].id);
+    			attr_dev(div8, "data-bs-parent", "#accordionFlush");
+    			add_location(div8, file$3, 201, 16, 7322);
+    			attr_dev(div9, "class", "accordion-item");
+    			add_location(div9, file$3, 188, 12, 6515);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div6, anchor);
-    			append_dev(div6, h2);
+    			insert_dev(target, div9, anchor);
+    			append_dev(div9, h2);
     			append_dev(h2, button0);
     			append_dev(button0, div2);
     			append_dev(div2, div0);
@@ -6946,70 +6966,88 @@ var app = (function () {
     			append_dev(div1, b1);
     			append_dev(div1, t5);
     			append_dev(div1, t6);
-    			append_dev(div6, t7);
-    			append_dev(div6, div5);
-    			append_dev(div5, div4);
-    			append_dev(div4, form);
+    			append_dev(div9, t7);
+    			append_dev(div9, div8);
+    			append_dev(div8, div7);
+    			append_dev(div7, form);
     			mount_component(trainingprotocolform, form, null);
     			append_dev(form, t8);
     			append_dev(form, div3);
     			append_dev(div3, img);
     			append_dev(form, t9);
-    			append_dev(form, button1);
+    			append_dev(form, div6);
+    			append_dev(div6, div4);
+    			append_dev(div4, button1);
     			append_dev(div6, t11);
+    			append_dev(div6, div5);
+    			append_dev(div5, button2);
+    			append_dev(div9, t13);
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen_dev(
-    					button1,
-    					"click",
-    					function () {
-    						if (is_function(/*updateTraining*/ ctx[3](/*myTraining*/ ctx[8]))) /*updateTraining*/ ctx[3](/*myTraining*/ ctx[8]).apply(this, arguments);
-    					},
-    					false,
-    					false,
-    					false,
-    					false
-    				);
+    				dispose = [
+    					listen_dev(
+    						button1,
+    						"click",
+    						function () {
+    							if (is_function(/*updateTraining*/ ctx[3](/*myTraining*/ ctx[9]))) /*updateTraining*/ ctx[3](/*myTraining*/ ctx[9]).apply(this, arguments);
+    						},
+    						false,
+    						false,
+    						false,
+    						false
+    					),
+    					listen_dev(
+    						button2,
+    						"click",
+    						function () {
+    							if (is_function(/*deleteTraining*/ ctx[4](/*myTraining*/ ctx[9]))) /*deleteTraining*/ ctx[4](/*myTraining*/ ctx[9]).apply(this, arguments);
+    						},
+    						false,
+    						false,
+    						false,
+    						false
+    					)
+    				];
 
     				mounted = true;
     			}
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty & /*myTrainings*/ 1) && t2_value !== (t2_value = formatDate$2(/*myTraining*/ ctx[8].date) + "")) set_data_dev(t2, t2_value);
-    			if ((!current || dirty & /*myTrainings*/ 1) && t6_value !== (t6_value = /*myTraining*/ ctx[8].groupName + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty & /*myTrainings*/ 1) && t2_value !== (t2_value = formatDate$2(/*myTraining*/ ctx[9].date) + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty & /*myTrainings*/ 1) && t6_value !== (t6_value = /*myTraining*/ ctx[9].groupName + "")) set_data_dev(t6, t6_value);
 
-    			if (!current || dirty & /*myTrainings*/ 1 && button0_data_bs_target_value !== (button0_data_bs_target_value = "#flush-collapse" + /*myTraining*/ ctx[8].id)) {
+    			if (!current || dirty & /*myTrainings*/ 1 && button0_data_bs_target_value !== (button0_data_bs_target_value = "#flush-collapse" + /*myTraining*/ ctx[9].id)) {
     				attr_dev(button0, "data-bs-target", button0_data_bs_target_value);
     			}
 
-    			if (!current || dirty & /*myTrainings*/ 1 && button0_aria_controls_value !== (button0_aria_controls_value = "flush-collapse" + /*myTraining*/ ctx[8].id)) {
+    			if (!current || dirty & /*myTrainings*/ 1 && button0_aria_controls_value !== (button0_aria_controls_value = "flush-collapse" + /*myTraining*/ ctx[9].id)) {
     				attr_dev(button0, "aria-controls", button0_aria_controls_value);
     			}
 
-    			if (!current || dirty & /*myTrainings*/ 1 && h2_id_value !== (h2_id_value = "flush-heading" + /*myTraining*/ ctx[8].id)) {
+    			if (!current || dirty & /*myTrainings*/ 1 && h2_id_value !== (h2_id_value = "flush-heading" + /*myTraining*/ ctx[9].id)) {
     				attr_dev(h2, "id", h2_id_value);
     			}
 
     			const trainingprotocolform_changes = {};
-    			if (dirty & /*myTrainings*/ 1) trainingprotocolform_changes.data = /*myTraining*/ ctx[8];
+    			if (dirty & /*myTrainings*/ 1) trainingprotocolform_changes.data = /*myTraining*/ ctx[9];
     			trainingprotocolform.$set(trainingprotocolform_changes);
 
-    			if (!current || dirty & /*myTrainings*/ 1 && !src_url_equal(img.src, img_src_value = /*myTraining*/ ctx[8].imageUrl)) {
+    			if (!current || dirty & /*myTrainings*/ 1 && !src_url_equal(img.src, img_src_value = /*myTraining*/ ctx[9].imageUrl)) {
     				attr_dev(img, "src", img_src_value);
     			}
 
-    			if (!current || dirty & /*myTrainings*/ 1 && img_alt_value !== (img_alt_value = `Trainingsbild für die Gruppe ${/*myTraining*/ ctx[8].groupName} am ${/*myTraining*/ ctx[8].date}`)) {
+    			if (!current || dirty & /*myTrainings*/ 1 && img_alt_value !== (img_alt_value = `Trainingsbild für die Gruppe ${/*myTraining*/ ctx[9].groupName} am ${/*myTraining*/ ctx[9].date}`)) {
     				attr_dev(img, "alt", img_alt_value);
     			}
 
-    			if (!current || dirty & /*myTrainings*/ 1 && div5_id_value !== (div5_id_value = "flush-collapse" + /*myTraining*/ ctx[8].id)) {
-    				attr_dev(div5, "id", div5_id_value);
+    			if (!current || dirty & /*myTrainings*/ 1 && div8_id_value !== (div8_id_value = "flush-collapse" + /*myTraining*/ ctx[9].id)) {
+    				attr_dev(div8, "id", div8_id_value);
     			}
 
-    			if (!current || dirty & /*myTrainings*/ 1 && div5_aria_labelledby_value !== (div5_aria_labelledby_value = "flush-heading" + /*myTraining*/ ctx[8].id)) {
-    				attr_dev(div5, "aria-labelledby", div5_aria_labelledby_value);
+    			if (!current || dirty & /*myTrainings*/ 1 && div8_aria_labelledby_value !== (div8_aria_labelledby_value = "flush-heading" + /*myTraining*/ ctx[9].id)) {
+    				attr_dev(div8, "aria-labelledby", div8_aria_labelledby_value);
     			}
     		},
     		i: function intro(local) {
@@ -7022,10 +7060,10 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div6);
+    			if (detaching) detach_dev(div9);
     			destroy_component(trainingprotocolform);
     			mounted = false;
-    			dispose();
+    			run_all(dispose);
     		}
     	};
 
@@ -7033,7 +7071,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(170:12) {#each myTrainings as myTraining}",
+    		source: "(188:12) {#each myTrainings as myTraining}",
     		ctx
     	});
 
@@ -7100,25 +7138,25 @@ var app = (function () {
     			t6 = space();
     			if_block.c();
     			attr_dev(div0, "class", "card-header");
-    			add_location(div0, file$3, 151, 16, 5175);
+    			add_location(div0, file$3, 169, 16, 5728);
     			attr_dev(button, "class", "btn btn-success");
     			attr_dev(button, "type", "submit");
-    			add_location(button, file$3, 155, 24, 5381);
-    			add_location(form, file$3, 153, 20, 5283);
+    			add_location(button, file$3, 173, 24, 5934);
+    			add_location(form, file$3, 171, 20, 5836);
     			attr_dev(div1, "class", "card-body");
-    			add_location(div1, file$3, 152, 16, 5238);
+    			add_location(div1, file$3, 170, 16, 5791);
     			attr_dev(div2, "class", "card mb-4");
-    			add_location(div2, file$3, 150, 12, 5134);
+    			add_location(div2, file$3, 168, 12, 5687);
     			attr_dev(div3, "class", "col-xl");
-    			add_location(div3, file$3, 149, 8, 5100);
+    			add_location(div3, file$3, 167, 8, 5653);
     			attr_dev(div4, "class", "row");
-    			add_location(div4, file$3, 148, 4, 5073);
+    			add_location(div4, file$3, 166, 4, 5626);
     			attr_dev(h4, "class", "text-center");
-    			add_location(h4, file$3, 166, 8, 5727);
+    			add_location(h4, file$3, 184, 8, 6280);
     			attr_dev(div5, "class", "row");
-    			add_location(div5, file$3, 165, 4, 5700);
+    			add_location(div5, file$3, 183, 4, 6253);
     			attr_dev(div6, "class", "container mt-4");
-    			add_location(div6, file$3, 147, 0, 5039);
+    			add_location(div6, file$3, 165, 0, 5592);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7213,7 +7251,7 @@ var app = (function () {
     function instance$3($$self, $$props, $$invalidate) {
     	let $jwt_token;
     	validate_store(jwt_token, 'jwt_token');
-    	component_subscribe($$self, jwt_token, $$value => $$invalidate(4, $jwt_token = $$value));
+    	component_subscribe($$self, jwt_token, $$value => $$invalidate(5, $jwt_token = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('MyTrainings', slots, []);
     	const api_root = window.location.origin;
@@ -7348,6 +7386,22 @@ var app = (function () {
     		}
     	}
 
+    	function deleteTraining(myTraining) {
+    		var config = {
+    			method: "delete",
+    			url: api_root + "/api/user/training/" + myTraining.id,
+    			headers: { Authorization: "Bearer " + $jwt_token }
+    		};
+
+    		axios$1(config).then(function (response) {
+    			alert("Training wurde gelöscht");
+    			getMyTrainings();
+    			window.location.reload();
+    		}).catch(function (error) {
+    			console.log(error);
+    		});
+    	}
+
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -7367,6 +7421,7 @@ var app = (function () {
     		updateTraining,
     		getMyTrainings,
     		fetchTrainingImage,
+    		deleteTraining,
     		formatDate: formatDate$2,
     		$jwt_token
     	});
@@ -7384,7 +7439,7 @@ var app = (function () {
     		getMyTrainings();
     	}
 
-    	return [myTrainings, training, createTraining, updateTraining];
+    	return [myTrainings, training, createTraining, updateTraining, deleteTraining];
     }
 
     class MyTrainings extends SvelteComponentDev {

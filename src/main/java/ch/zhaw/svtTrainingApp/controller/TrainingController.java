@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -110,7 +111,13 @@ public class TrainingController {
             })
             .orElse(ResponseEntity.notFound().build());
     }
-    
+
+
+    @DeleteMapping("/user/training/{id}")
+    public ResponseEntity<Object> deleteTraining(@AuthenticationPrincipal Jwt jwt, @PathVariable String id) {
+        trainingRepository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
     @GetMapping("/user/myTrainings")
     public ResponseEntity<List<Training>> getAllTrainingsFromUser(@AuthenticationPrincipal Jwt jwt) {

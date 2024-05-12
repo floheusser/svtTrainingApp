@@ -138,6 +138,24 @@
             return 'default-placeholder.png'; // A default placeholder in case of errors
         }
     }
+
+    function deleteTraining(myTraining) {
+        var config = {
+            method: "delete",
+            url: api_root + "/api/user/training/"+myTraining.id,
+            headers: { Authorization: "Bearer " + $jwt_token },
+        };
+
+        axios(config)
+            .then(function (response) {
+                alert("Training wurde gelöscht")
+                getMyTrainings();
+                window.location.reload();
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
     
     function formatDate(dateStr) {
         const date = new Date(dateStr);
@@ -188,11 +206,22 @@
                             <div class="row mt-5 mb-5">
                                 <img class="img-fluid img-thumbnail mx-auto d-block" style="max-width: 400px; max-height: 600px" src={myTraining.imageUrl} alt={`Trainingsbild für die Gruppe ${myTraining.groupName} am ${myTraining.date}`} />
                             </div>
-                            <button
-                                on:click={updateTraining(myTraining)}
-                                class="btn btn-primary"
-                                type="button">Update Training</button
-                                >
+                            <div class="row">
+                                <div class="col-6">
+                                    <button
+                                        on:click={updateTraining(myTraining)}
+                                        class="btn btn-primary"
+                                        type="button">Update Training</button
+                                        >
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        on:click={deleteTraining(myTraining)}
+                                        class="btn btn-danger float-end"
+                                        type="button">Training Löschen</button
+                                        >
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
