@@ -32,6 +32,13 @@
 							href="#/account">Account</a
 						>
 					</li>
+					<li class="nav-item">
+						<a
+							class="nav-link"
+							aria-current="page"
+							href="#/allTrainings">All Trainings</a
+						>
+					</li>
 					{/if}
 					{#if $isAuthenticated && $user.user_roles.includes("trainer")}
 					<li class="nav-item">
@@ -39,13 +46,6 @@
 							class="nav-link"
 							aria-current="page"
 							href="#/myTrainings">My Trainings</a
-						>
-					</li>
-					<li class="nav-item">
-						<a
-							class="nav-link"
-							aria-current="page"
-							href="#/allTrainings">All Trainings</a
 						>
 					</li>
 					{/if}

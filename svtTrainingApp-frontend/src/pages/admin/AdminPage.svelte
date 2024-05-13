@@ -82,7 +82,7 @@
                 <div class="card-body">
                     <div class="row gx-3 mb-3">
                         <div class="alert alert-info" role="alert">
-                        <small class="text-muted">Verwenden Sie diese Funktion, um alle Trainingsprotokolle eines bestimmten Jahres heruterzuladen. Falls Sie alle Trainingsprotokolle wollen schreibe "Alle" in das Feld "Saison Jahr" 
+                        <small class="text-muted">Verwenden Sie diese Funktion, um alle Trainingsprotokolle eines bestimmten Jahres heruterzuladen. Falls Sie alle Trainingsprotokolle wollen schreiben Sie "Alle" in das Feld "Saison Jahr" 
                         </small>
                         </div>
                     </div>
