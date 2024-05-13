@@ -7,6 +7,7 @@
         getGroups();
     }
 
+    let missingTrainingsRequest = false;
     let fromDate = "";
     let toDate = "";
     let groupName = "";
@@ -40,6 +41,7 @@
         axios(config)
             .then(function (response) {
                 missingTrainings = response.data;
+                missingTrainingsRequest = true;
             })
             .catch(function (error) {
                 console.log(error);
@@ -147,6 +149,17 @@
             </div>
         </div>
     </div>
+    {#if missingTrainings.length > 0 && missingTrainingsRequest}
+        <div class="row mb-3">
+            <h5>Folgend die Daten an denen für die Gruppe "{groupName}" noch kein Trainingsprotokoll erstellt wurde:</h5>
+        </div>
+        {:else if missingTrainingsRequest}
+        <div class="row mb-3">
+            <div class="alert alert-success" role="alert">
+                <h5>Vom {formatDate(fromDate)} bis zum {formatDate(toDate)} wurden alle Trainingsprotokolle der Gruppe "{groupName}" erstellt!</h5>
+            </div>
+        </div>
+    {/if}
     <div class="row">
         <ul class="list-group list-group-flush">
         {#each missingTrainings as date}
