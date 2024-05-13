@@ -67,12 +67,16 @@
         try {
             const response = await axios.get(`${api_root}/api/user/training/${trainingId}/image`, {
                 headers: { Authorization: `Bearer ${$jwt_token}` },
-                responseType: 'blob'  // This ensures the response is handled as a Blob
+                responseType: 'blob'  
             });
-            return URL.createObjectURL(response.data); // Creates a URL for the blob
+            if (response.data.size > 0) {
+                return URL.createObjectURL(response.data);
+            } else {
+                return 'Kein Bild hochgeladen';
+            }
         } catch (error) {
             console.error('Error fetching image:', error);
-            return 'default-placeholder.png'; // A default placeholder in case of errors
+            return 'Kein Bild hochgeladen';
         }
     }
 
@@ -145,7 +149,9 @@
                         {/if}
                         
                         <div class="row gx-3 mb-3">
-                            <img class="img-fluid img-thumbnail mx-auto d-block" style="max-width: 400px; max-height: 600px" src={training.imageUrl} alt={`Trainingsbild für die Gruppe ${training.groupName} am ${training.date}`} />
+                            {#if training.imageUrl != 'Kein Bild hochgeladen'}
+                                <img class="img-fluid img-thumbnail mx-auto d-block" style="max-width: 400px; max-height: 600px" src={training.imageUrl} alt={`Trainingsbild für die Gruppe ${training.groupName} am ${training.date}`} />
+                            {/if}
                         </div>
                     </div>
                 </div>

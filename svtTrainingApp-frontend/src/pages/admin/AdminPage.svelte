@@ -42,6 +42,7 @@
             .then(function (response) {
                 missingTrainings = response.data;
                 missingTrainingsRequest = true;
+                setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 300);
             })
             .catch(function (error) {
                 console.log(error);
@@ -142,7 +143,7 @@
                         <button
                             on:click={getMissingTrainings}
                             class="btn btn-primary"
-                            type="submit">Missing Protocols</button
+                            type="submit">Fehlende Protokolle</button
                         >
                     </form>
                 </div>

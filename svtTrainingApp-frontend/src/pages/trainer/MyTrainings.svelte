@@ -21,11 +21,11 @@
     }
 
     let myTrainings = [];
+    let newTrainingId = null;
 
     function createTraining() {
         let formData = new FormData();
 
-        // Append each property of the training object to the formData
         formData.append("trainingData", new Blob([JSON.stringify({
             id: training.id,
             trainerName: training.trainerName,
@@ -38,7 +38,6 @@
             type: "application/json"
         }));
 
-        // Append file to formData if it exists
         if (training.trainingContentPicture && training.trainingContentPicture.size > 0) {
             formData.append("file", training.trainingContentPicture);
         }
@@ -47,7 +46,6 @@
             method: "post",
             url: api_root + "/api/user/training",
             headers: {
-                // Remove 'Content-Type': 'application/json', let the browser set it
                 Authorization: "Bearer " + $jwt_token
             },
             data: formData,
@@ -56,17 +54,29 @@
         axios(config)
             .then(function (response) {
                 alert("Training erstellt!");
-                window.location.reload(); // Reloading the page to reflect changes
+                newTrainingId = response.data.id; 
+                getMyTrainings().then(() => {
+                    openAndScrollToNewTraining();
+                });
             })
             .catch(function (error) {
                 alert(error.response.data.message || "Could not create");
             });
     }
 
+    function openAndScrollToNewTraining() {
+        if (newTrainingId) {
+            const accordionButton = document.querySelector(`#flush-heading${newTrainingId} .accordion-button`);
+            if (accordionButton) {
+                accordionButton.click();
+                accordionButton.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
+
     function updateTraining(myTraining) {
     let formData = new FormData();
 
-    // Append each property of the myTraining object to the formData
     formData.append("trainingData", new Blob([JSON.stringify({
         id: myTraining.id,
         trainerName: myTraining.trainerName,
@@ -79,7 +89,6 @@
         type: "application/json"
     }));
 
-    // Append file to formData if it exists and is changed
     if (myTraining.trainingContentPicture && myTraining.trainingContentPicture.size > 0) {
         formData.append("file", myTraining.trainingContentPicture);
     }
@@ -88,7 +97,6 @@
         method: "put",
         url: api_root + "/api/user/training",
         headers: {
-            // Remove 'Content-Type': 'application/json', let the browser set it
             Authorization: "Bearer " + $jwt_token
         },
         data: formData,
@@ -97,7 +105,7 @@
     axios(config)
         .then(function (response) {
             alert("Training updated!");
-            window.location.reload(); // Reloading the page to reflect changes
+            window.location.reload(); 
         })
         .catch(function (error) {
             alert(error.response.data.message || "Could not update");
@@ -130,12 +138,16 @@
         try {
             const response = await axios.get(`${api_root}/api/user/training/${trainingId}/image`, {
                 headers: { Authorization: `Bearer ${$jwt_token}` },
-                responseType: 'blob' // This ensures the response is handled as a Blob
+                responseType: 'blob'  
             });
-            return URL.createObjectURL(response.data); // Creates a URL for the blob
+            if (response.data.size > 0) {
+                return URL.createObjectURL(response.data);
+            } else {
+                return 'Kein Bild hochgeladen';
+            }
         } catch (error) {
             console.error('Error fetching image:', error);
-            return 'default-placeholder.png'; // A default placeholder in case of errors
+            return 'Kein Bild hochgeladen';
         }
     }
 
@@ -204,7 +216,13 @@
                         <form>
                             <TrainingProtocolForm data={myTraining} />
                             <div class="row mt-5 mb-5">
-                                <img class="img-fluid img-thumbnail mx-auto d-block" style="max-width: 400px; max-height: 600px" src={myTraining.imageUrl} alt={`Trainingsbild für die Gruppe ${myTraining.groupName} am ${myTraining.date}`} />
+                                {#if myTraining.imageUrl != 'Kein Bild hochgeladen'}
+                                    <img class="img-fluid img-thumbnail mx-auto d-block" style="max-width: 400px; max-height: 600px" src={myTraining.imageUrl} alt={`Trainingsbild für die Gruppe ${myTraining.groupName} am ${myTraining.date}`} />
+                                {:else}
+                                <div class="alert alert-info text-center" role="alert">
+                                    <small class="text-muted">Kein Bild vom Trainingsinhalt vorhanden</small>
+                                </div>
+                                {/if}
                             </div>
                             <div class="row">
                                 <div class="col-6">
@@ -218,7 +236,7 @@
                                     <button
                                         on:click={deleteTraining(myTraining)}
                                         class="btn btn-danger float-end"
-                                        type="button">Training Löschen</button
+                                        type="button">Training Löschen &nbsp;&nbsp;<i class="fa-solid fa-trash-can"></i></button
                                         >
                                 </div>
                             </div>
