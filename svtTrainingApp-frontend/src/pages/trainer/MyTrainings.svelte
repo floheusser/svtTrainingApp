@@ -152,22 +152,23 @@
     }
 
     function deleteTraining(myTraining) {
+    if (confirm(`Sind Sie sicher, dass Sie dieses Trainingprotokoll löschen möchten?`)) {
         var config = {
             method: "delete",
-            url: api_root + "/api/user/training/"+myTraining.id,
+            url: api_root + "/api/user/training/" + myTraining.id,
             headers: { Authorization: "Bearer " + $jwt_token },
         };
 
         axios(config)
             .then(function (response) {
-                alert("Training wurde gelöscht")
-                getMyTrainings();
                 window.location.reload();
             })
             .catch(function (error) {
-                console.log(error);
+                console.error(error);
+                alert("Das Trainingprotokoll konnte nicht gelöscht werden.");
             });
-    }
+    } 
+}
     
     function formatDate(dateStr) {
         const date = new Date(dateStr);

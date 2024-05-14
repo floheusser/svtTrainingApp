@@ -6681,7 +6681,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (249:8) {:else}
+    // (250:8) {:else}
     function create_else_block_1(ctx) {
     	let h6;
 
@@ -6691,7 +6691,7 @@ var app = (function () {
     			h6.textContent = "Keine Trainingsprotokolle vorhanden";
     			attr_dev(h6, "class", "text-center my-3 pb-3");
     			set_style(h6, "color", "red");
-    			add_location(h6, file$3, 249, 8, 9573);
+    			add_location(h6, file$3, 250, 8, 9666);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h6, anchor);
@@ -6708,14 +6708,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(249:8) {:else}",
+    		source: "(250:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (198:8) {#if myTrainings.length != 0}
+    // (199:8) {#if myTrainings.length != 0}
     function create_if_block$3(ctx) {
     	let div;
     	let current;
@@ -6741,7 +6741,7 @@ var app = (function () {
 
     			attr_dev(div, "class", "accordion accordion-flush");
     			attr_dev(div, "id", "accordionFlush");
-    			add_location(div, file$3, 198, 8, 6438);
+    			add_location(div, file$3, 199, 8, 6531);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -6811,14 +6811,14 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
-    		source: "(198:8) {#if myTrainings.length != 0}",
+    		source: "(199:8) {#if myTrainings.length != 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (221:32) {:else}
+    // (222:32) {:else}
     function create_else_block$2(ctx) {
     	let div;
     	let small;
@@ -6829,10 +6829,10 @@ var app = (function () {
     			small = element("small");
     			small.textContent = "Kein Bild vom Trainingsinhalt vorhanden";
     			attr_dev(small, "class", "text-muted");
-    			add_location(small, file$3, 222, 36, 8265);
+    			add_location(small, file$3, 223, 36, 8358);
     			attr_dev(div, "class", "alert alert-info text-center");
     			attr_dev(div, "role", "alert");
-    			add_location(div, file$3, 221, 32, 8172);
+    			add_location(div, file$3, 222, 32, 8265);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -6848,14 +6848,14 @@ var app = (function () {
     		block,
     		id: create_else_block$2.name,
     		type: "else",
-    		source: "(221:32) {:else}",
+    		source: "(222:32) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (219:32) {#if myTraining.imageUrl != 'Kein Bild hochgeladen'}
+    // (220:32) {#if myTraining.imageUrl != 'Kein Bild hochgeladen'}
     function create_if_block_1$3(ctx) {
     	let img;
     	let img_src_value;
@@ -6869,7 +6869,7 @@ var app = (function () {
     			set_style(img, "max-height", "600px");
     			if (!src_url_equal(img.src, img_src_value = /*myTraining*/ ctx[11].imageUrl)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = `Trainingsbild für die Gruppe ${/*myTraining*/ ctx[11].groupName} am ${/*myTraining*/ ctx[11].date}`);
-    			add_location(img, file$3, 219, 36, 7889);
+    			add_location(img, file$3, 220, 36, 7982);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -6892,14 +6892,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$3.name,
     		type: "if",
-    		source: "(219:32) {#if myTraining.imageUrl != 'Kein Bild hochgeladen'}",
+    		source: "(220:32) {#if myTraining.imageUrl != 'Kein Bild hochgeladen'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (200:12) {#each myTrainings as myTraining}
+    // (201:12) {#each myTrainings as myTraining}
     function create_each_block$2(ctx) {
     	let div9;
     	let h2;
@@ -6991,51 +6991,51 @@ var app = (function () {
     			t12 = text("Training Löschen   ");
     			i = element("i");
     			t13 = space();
-    			add_location(b0, file$3, 205, 32, 7015);
+    			add_location(b0, file$3, 206, 32, 7108);
     			attr_dev(div0, "class", "col-sm");
-    			add_location(div0, file$3, 204, 28, 6961);
-    			add_location(b1, file$3, 208, 32, 7183);
+    			add_location(div0, file$3, 205, 28, 7054);
+    			add_location(b1, file$3, 209, 32, 7276);
     			attr_dev(div1, "class", "col-sm");
-    			add_location(div1, file$3, 207, 28, 7129);
+    			add_location(div1, file$3, 208, 28, 7222);
     			attr_dev(div2, "class", "row");
-    			add_location(div2, file$3, 203, 24, 6914);
+    			add_location(div2, file$3, 204, 24, 7007);
     			attr_dev(button0, "class", "accordion-button collapsed");
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "data-bs-toggle", "collapse");
     			attr_dev(button0, "data-bs-target", button0_data_bs_target_value = "#flush-collapse" + /*myTraining*/ ctx[11].id);
     			attr_dev(button0, "aria-expanded", "false");
     			attr_dev(button0, "aria-controls", button0_aria_controls_value = "flush-collapse" + /*myTraining*/ ctx[11].id);
-    			add_location(button0, file$3, 202, 20, 6689);
+    			add_location(button0, file$3, 203, 20, 6782);
     			attr_dev(h2, "class", "accordion-header");
     			attr_dev(h2, "id", h2_id_value = "flush-heading" + /*myTraining*/ ctx[11].id);
-    			add_location(h2, file$3, 201, 16, 6604);
+    			add_location(h2, file$3, 202, 16, 6697);
     			attr_dev(div3, "class", "row mt-5 mb-5");
-    			add_location(div3, file$3, 217, 28, 7738);
+    			add_location(div3, file$3, 218, 28, 7831);
     			attr_dev(button1, "class", "btn btn-primary");
     			attr_dev(button1, "type", "button");
-    			add_location(button1, file$3, 228, 36, 8591);
+    			add_location(button1, file$3, 229, 36, 8684);
     			attr_dev(div4, "class", "col-6");
-    			add_location(div4, file$3, 227, 32, 8534);
+    			add_location(div4, file$3, 228, 32, 8627);
     			attr_dev(i, "class", "fa-solid fa-trash-can");
-    			add_location(i, file$3, 238, 83, 9240);
+    			add_location(i, file$3, 239, 83, 9333);
     			attr_dev(button2, "class", "btn btn-danger float-end");
     			attr_dev(button2, "type", "button");
-    			add_location(button2, file$3, 235, 36, 8995);
+    			add_location(button2, file$3, 236, 36, 9088);
     			attr_dev(div5, "class", "col-6");
-    			add_location(div5, file$3, 234, 32, 8938);
+    			add_location(div5, file$3, 235, 32, 9031);
     			attr_dev(div6, "class", "row");
-    			add_location(div6, file$3, 226, 28, 8483);
-    			add_location(form, file$3, 215, 24, 7630);
+    			add_location(div6, file$3, 227, 28, 8576);
+    			add_location(form, file$3, 216, 24, 7723);
     			attr_dev(div7, "class", "accordion-body");
     			set_style(div7, "background-color", "white");
-    			add_location(div7, file$3, 214, 20, 7543);
+    			add_location(div7, file$3, 215, 20, 7636);
     			attr_dev(div8, "id", div8_id_value = "flush-collapse" + /*myTraining*/ ctx[11].id);
     			attr_dev(div8, "class", "accordion-collapse collapse");
     			attr_dev(div8, "aria-labelledby", div8_aria_labelledby_value = "flush-heading" + /*myTraining*/ ctx[11].id);
     			attr_dev(div8, "data-bs-parent", "#accordionFlush");
-    			add_location(div8, file$3, 213, 16, 7365);
+    			add_location(div8, file$3, 214, 16, 7458);
     			attr_dev(div9, "class", "accordion-item");
-    			add_location(div9, file$3, 200, 12, 6558);
+    			add_location(div9, file$3, 201, 12, 6651);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div9, anchor);
@@ -7163,7 +7163,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(200:12) {#each myTrainings as myTraining}",
+    		source: "(201:12) {#each myTrainings as myTraining}",
     		ctx
     	});
 
@@ -7230,25 +7230,25 @@ var app = (function () {
     			t6 = space();
     			if_block.c();
     			attr_dev(div0, "class", "card-header");
-    			add_location(div0, file$3, 181, 16, 5771);
+    			add_location(div0, file$3, 182, 16, 5864);
     			attr_dev(button, "class", "btn btn-success");
     			attr_dev(button, "type", "submit");
-    			add_location(button, file$3, 185, 24, 5977);
-    			add_location(form, file$3, 183, 20, 5879);
+    			add_location(button, file$3, 186, 24, 6070);
+    			add_location(form, file$3, 184, 20, 5972);
     			attr_dev(div1, "class", "card-body");
-    			add_location(div1, file$3, 182, 16, 5834);
+    			add_location(div1, file$3, 183, 16, 5927);
     			attr_dev(div2, "class", "card mb-4");
-    			add_location(div2, file$3, 180, 12, 5730);
+    			add_location(div2, file$3, 181, 12, 5823);
     			attr_dev(div3, "class", "col-xl");
-    			add_location(div3, file$3, 179, 8, 5696);
+    			add_location(div3, file$3, 180, 8, 5789);
     			attr_dev(div4, "class", "row");
-    			add_location(div4, file$3, 178, 4, 5669);
+    			add_location(div4, file$3, 179, 4, 5762);
     			attr_dev(h4, "class", "text-center");
-    			add_location(h4, file$3, 196, 8, 6323);
+    			add_location(h4, file$3, 197, 8, 6416);
     			attr_dev(div5, "class", "row");
-    			add_location(div5, file$3, 195, 4, 6296);
+    			add_location(div5, file$3, 196, 4, 6389);
     			attr_dev(div6, "class", "container mt-4");
-    			add_location(div6, file$3, 177, 0, 5635);
+    			add_location(div6, file$3, 178, 0, 5728);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7488,19 +7488,20 @@ var app = (function () {
     	}
 
     	function deleteTraining(myTraining) {
-    		var config = {
-    			method: "delete",
-    			url: api_root + "/api/user/training/" + myTraining.id,
-    			headers: { Authorization: "Bearer " + $jwt_token }
-    		};
+    		if (confirm(`Sind Sie sicher, dass Sie dieses Trainingprotokoll löschen möchten?`)) {
+    			var config = {
+    				method: "delete",
+    				url: api_root + "/api/user/training/" + myTraining.id,
+    				headers: { Authorization: "Bearer " + $jwt_token }
+    			};
 
-    		axios$1(config).then(function (response) {
-    			alert("Training wurde gelöscht");
-    			getMyTrainings();
-    			window.location.reload();
-    		}).catch(function (error) {
-    			console.log(error);
-    		});
+    			axios$1(config).then(function (response) {
+    				window.location.reload();
+    			}).catch(function (error) {
+    				console.error(error);
+    				alert("Das Trainingprotokoll konnte nicht gelöscht werden.");
+    			});
+    		}
     	}
 
     	const writable_props = [];
