@@ -54,6 +54,17 @@
         axios(config)
             .then(function (response) {
                 alert("Training erstellt!");
+                //window.location.reload();
+                training = {
+                    id: "",
+                    trainerName: "",
+                    helpTrainerName: "",
+                    groupName: "",
+                    date: "",
+                    weather: "",
+                    trainingContent: "",
+                    trainingContentPicture: {}
+                }
                 newTrainingId = response.data.id; 
                 getMyTrainings().then(() => {
                     openAndScrollToNewTraining();
@@ -207,7 +218,7 @@
                                 <b>Datum:</b>&nbsp;{formatDate(myTraining.date)}
                             </div>
                             <div class="col-sm">
-                                <b>Gruppe:</b>&nbsp;{myTraining.groupName}
+                                <b>Gruppe:</b>{myTraining.groupName}
                             </div>
                         </div>
                     </button>
