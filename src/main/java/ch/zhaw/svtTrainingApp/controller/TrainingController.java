@@ -62,7 +62,7 @@ public class TrainingController {
             Training tDAO = new Training(jwt.getClaimAsString("email"), tDTO.getTrainerName(), tDTO.getGroupName(), tDTO.getHelpTrainerName(), tDTO.getDate(), tDTO.getWeather());
             tDAO.setTrainingContent(tDTO.getTrainingContent());
             if (file != null) {
-            tDAO.setTrainingContentPicture(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
+                tDAO.setTrainingContentPicture(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
             }
             Training training = trainingRepository.save(tDAO);
             return new ResponseEntity<>(training, HttpStatus.CREATED);

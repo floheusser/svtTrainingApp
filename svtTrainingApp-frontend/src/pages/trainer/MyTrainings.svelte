@@ -54,8 +54,9 @@
         axios(config)
             .then(function (response) {
                 alert("Training erstellt!");
-                //window.location.reload();
-                training = {
+                window.location.reload();
+                
+                /*training = {
                     id: "",
                     trainerName: "",
                     helpTrainerName: "",
@@ -68,7 +69,7 @@
                 newTrainingId = response.data.id; 
                 getMyTrainings().then(() => {
                     openAndScrollToNewTraining();
-                });
+                }); */
             })
             .catch(function (error) {
                 alert(error.response.data.message || "Could not create");
