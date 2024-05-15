@@ -3,8 +3,8 @@
     export let edit;
 
     const trainerValues = [
-		{ label: 'Trainer', value: 'trainer' },
-		{ label: 'Hilfstrainer', value: 'helptrainer' }
+		{ label: 'Trainer*in', value: 'trainer' },
+		{ label: 'Hilfstrainer*in', value: 'helptrainer' }
 	];
 </script>
 <div class="row gx-3 mb-3">

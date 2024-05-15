@@ -72,7 +72,7 @@
 </div>
 <div class="row gx-3 mb-3">
     <div class="col-md-6">
-        <label class="small mb-1" for="inputTrainerName">Name Trainer</label>
+        <label class="small mb-1" for="inputTrainerName">Name Trainer*in</label>
         <select class="form-select" id="inputTrainerName" bind:value="{data.trainerName}">
             <option selected> </option>
             {#each trainers as trainer}
@@ -81,7 +81,7 @@
         </select>
     </div>
     <div class="col-md-6">
-        <label class="small mb-1" for="inputHelpTrainerName">Name Hilfstrainer</label>
+        <label class="small mb-1" for="inputHelpTrainerName">Name Hilfstrainer*in</label>
         <select class="form-select" id="inputHelpTrainerName" bind:value="{data.helpTrainerName}">
             <option selected> </option>
             {#each helptrainers as trainer}

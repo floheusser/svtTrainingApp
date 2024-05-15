@@ -126,10 +126,10 @@
                         </div>
                        <div class="row gx-3 mb-3">
                             <div class="col-md-6">
-                                Trainer: {training.trainerName}
+                                Trainer*in: {training.trainerName}
                             </div>
                             <div class="col-md-6">
-                                Hilfstrainer: {training.helpTrainerName}
+                                Hilfstrainer*in: {training.helpTrainerName}
                             </div>
                         </div>
                         <div class="row gx-3 mb-3">

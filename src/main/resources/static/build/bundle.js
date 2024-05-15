@@ -5263,12 +5263,12 @@ var app = (function () {
     			input.__value = /*value*/ ctx[7].value;
     			input.value = input.__value;
     			input.disabled = /*edit*/ ctx[1];
-    			add_location(input, file$6, 20, 12, 764);
+    			add_location(input, file$6, 20, 12, 770);
     			attr_dev(label, "class", "form-check-label");
     			attr_dev(label, "for", "type" + /*value*/ ctx[7].value);
-    			add_location(label, file$6, 21, 12, 909);
+    			add_location(label, file$6, 21, 12, 915);
     			attr_dev(div, "class", "form-check form-check-inline ");
-    			add_location(div, file$6, 19, 8, 707);
+    			add_location(div, file$6, 19, 8, 713);
     			binding_group.p(input);
     		},
     		m: function mount(target, anchor) {
@@ -5369,40 +5369,40 @@ var app = (function () {
     			t7 = space();
     			input1 = element("input");
     			attr_dev(small, "class", "text-muted");
-    			add_location(small, file$6, 11, 4, 277);
+    			add_location(small, file$6, 11, 4, 283);
     			attr_dev(div0, "class", "alert alert-info");
     			attr_dev(div0, "role", "alert");
-    			add_location(div0, file$6, 10, 4, 228);
+    			add_location(div0, file$6, 10, 4, 234);
     			attr_dev(div1, "class", "row gx-3 mb-3");
-    			add_location(div1, file$6, 9, 0, 195);
+    			add_location(div1, file$6, 9, 0, 201);
     			attr_dev(div2, "class", "col-md-6 my-auto");
-    			add_location(div2, file$6, 17, 4, 627);
+    			add_location(div2, file$6, 17, 4, 633);
     			attr_dev(div3, "class", "row gx-3 mb-3");
-    			add_location(div3, file$6, 16, 0, 594);
+    			add_location(div3, file$6, 16, 0, 600);
     			attr_dev(label0, "class", "small mb-1");
     			attr_dev(label0, "for", "inputName");
-    			add_location(label0, file$6, 28, 8, 1110);
+    			add_location(label0, file$6, 28, 8, 1116);
     			attr_dev(input0, "class", "form-control");
     			attr_dev(input0, "id", "inputName");
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "placeholder", "Vor-/Nachname");
     			input0.disabled = /*edit*/ ctx[1];
-    			add_location(input0, file$6, 29, 8, 1183);
+    			add_location(input0, file$6, 29, 8, 1189);
     			attr_dev(div4, "class", "col-md-6");
-    			add_location(div4, file$6, 27, 4, 1078);
+    			add_location(div4, file$6, 27, 4, 1084);
     			attr_dev(label1, "class", "small mb-1");
     			attr_dev(label1, "for", "email");
-    			add_location(label1, file$6, 32, 8, 1357);
+    			add_location(label1, file$6, 32, 8, 1363);
     			attr_dev(input1, "class", "form-control");
     			input1.disabled = true;
     			attr_dev(input1, "id", "email");
     			attr_dev(input1, "type", "email");
     			attr_dev(input1, "placeholder", "Enter E-Mail");
-    			add_location(input1, file$6, 33, 8, 1419);
+    			add_location(input1, file$6, 33, 8, 1425);
     			attr_dev(div5, "class", "col-md-6");
-    			add_location(div5, file$6, 31, 4, 1325);
+    			add_location(div5, file$6, 31, 4, 1331);
     			attr_dev(div6, "class", "row gx-3 mb-3");
-    			add_location(div6, file$6, 26, 0, 1045);
+    			add_location(div6, file$6, 26, 0, 1051);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5513,9 +5513,9 @@ var app = (function () {
     	let { edit } = $$props;
 
     	const trainerValues = [
-    		{ label: 'Trainer', value: 'trainer' },
+    		{ label: 'Trainer*in', value: 'trainer' },
     		{
-    			label: 'Hilfstrainer',
+    			label: 'Hilfstrainer*in',
     			value: 'helptrainer'
     		}
     	];
@@ -5937,7 +5937,7 @@ var app = (function () {
     			t = text(t_value);
     			option.__value = option_value_value = /*trainer*/ ctx[19].name;
     			option.value = option.__value;
-    			add_location(option, file$4, 78, 16, 2256);
+    			add_location(option, file$4, 78, 16, 2259);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -5980,7 +5980,7 @@ var app = (function () {
     			t = text(t_value);
     			option.__value = option_value_value = /*trainer*/ ctx[19].name;
     			option.value = option.__value;
-    			add_location(option, file$4, 87, 16, 2680);
+    			add_location(option, file$4, 87, 16, 2686);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -6023,7 +6023,7 @@ var app = (function () {
     			t = text(t_value);
     			option.__value = option_value_value = /*group*/ ctx[16].name;
     			option.value = option.__value;
-    			add_location(option, file$4, 98, 16, 3104);
+    			add_location(option, file$4, 98, 16, 3110);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -6135,7 +6135,7 @@ var app = (function () {
     			div4 = element("div");
     			div2 = element("div");
     			label1 = element("label");
-    			label1.textContent = "Name Trainer";
+    			label1.textContent = "Name Trainer*in";
     			t4 = space();
     			select0 = element("select");
     			option0 = element("option");
@@ -6147,7 +6147,7 @@ var app = (function () {
     			t5 = space();
     			div3 = element("div");
     			label2 = element("label");
-    			label2.textContent = "Name Hilfstrainer";
+    			label2.textContent = "Name Hilfstrainer*in";
     			t7 = space();
     			select1 = element("select");
     			option1 = element("option");
@@ -6208,75 +6208,75 @@ var app = (function () {
     			option0.selected = true;
     			option0.__value = " ";
     			option0.value = option0.__value;
-    			add_location(option0, file$4, 76, 12, 2170);
+    			add_location(option0, file$4, 76, 12, 2173);
     			attr_dev(select0, "class", "form-select");
     			attr_dev(select0, "id", "inputTrainerName");
     			if (/*data*/ ctx[0].trainerName === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[5].call(select0));
-    			add_location(select0, file$4, 75, 8, 2074);
+    			add_location(select0, file$4, 75, 8, 2077);
     			attr_dev(div2, "class", "col-md-6");
     			add_location(div2, file$4, 73, 4, 1963);
     			attr_dev(label2, "class", "small mb-1");
     			attr_dev(label2, "for", "inputHelpTrainerName");
-    			add_location(label2, file$4, 83, 8, 2398);
+    			add_location(label2, file$4, 83, 8, 2401);
     			option1.selected = true;
     			option1.__value = " ";
     			option1.value = option1.__value;
-    			add_location(option1, file$4, 85, 12, 2590);
+    			add_location(option1, file$4, 85, 12, 2596);
     			attr_dev(select1, "class", "form-select");
     			attr_dev(select1, "id", "inputHelpTrainerName");
     			if (/*data*/ ctx[0].helpTrainerName === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[6].call(select1));
-    			add_location(select1, file$4, 84, 8, 2486);
+    			add_location(select1, file$4, 84, 8, 2492);
     			attr_dev(div3, "class", "col-md-6");
-    			add_location(div3, file$4, 82, 4, 2366);
+    			add_location(div3, file$4, 82, 4, 2369);
     			attr_dev(div4, "class", "row gx-3 mb-3");
     			add_location(div4, file$4, 72, 0, 1930);
     			attr_dev(label3, "class", "small mb-1");
     			attr_dev(label3, "for", "inputGroupName");
-    			add_location(label3, file$4, 94, 8, 2859);
+    			add_location(label3, file$4, 94, 8, 2865);
     			option2.selected = true;
     			option2.__value = " ";
     			option2.value = option2.__value;
-    			add_location(option2, file$4, 96, 12, 3022);
+    			add_location(option2, file$4, 96, 12, 3028);
     			attr_dev(select2, "class", "form-select");
     			attr_dev(select2, "id", "inputGroupName");
     			if (/*data*/ ctx[0].groupName === void 0) add_render_callback(() => /*select2_change_handler*/ ctx[7].call(select2));
-    			add_location(select2, file$4, 95, 8, 2930);
+    			add_location(select2, file$4, 95, 8, 2936);
     			attr_dev(div5, "class", "col-md-6");
-    			add_location(div5, file$4, 93, 4, 2827);
+    			add_location(div5, file$4, 93, 4, 2833);
     			attr_dev(label4, "class", "small mb-1");
     			attr_dev(label4, "for", "inputWeather");
-    			add_location(label4, file$4, 103, 8, 3242);
+    			add_location(label4, file$4, 103, 8, 3248);
     			attr_dev(input1, "class", "form-control");
     			attr_dev(input1, "id", "inputWeather");
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "placeholder", "Wetter/ Wind");
-    			add_location(input1, file$4, 104, 8, 3317);
+    			add_location(input1, file$4, 104, 8, 3323);
     			attr_dev(div6, "class", "col-md-6");
-    			add_location(div6, file$4, 102, 4, 3210);
+    			add_location(div6, file$4, 102, 4, 3216);
     			attr_dev(div7, "class", "row gx-3 mb-3");
-    			add_location(div7, file$4, 92, 0, 2794);
+    			add_location(div7, file$4, 92, 0, 2800);
     			attr_dev(label5, "class", "small mb-1");
     			attr_dev(label5, "for", "inputTrainingContent");
-    			add_location(label5, file$4, 109, 8, 3517);
+    			add_location(label5, file$4, 109, 8, 3523);
     			attr_dev(textarea, "class", "form-control");
     			attr_dev(textarea, "id", "inputTrainingContent");
     			attr_dev(textarea, "type", "text");
     			attr_dev(textarea, "placeholder", "Trainingsablauf/ Übungen");
-    			add_location(textarea, file$4, 110, 8, 3603);
+    			add_location(textarea, file$4, 110, 8, 3609);
     			attr_dev(div8, "class", "col-md-6");
-    			add_location(div8, file$4, 108, 4, 3485);
+    			add_location(div8, file$4, 108, 4, 3491);
     			attr_dev(label6, "class", "small mb-1");
     			attr_dev(label6, "for", "inputTrainingContentPicture");
-    			add_location(label6, file$4, 113, 8, 3799);
-    			add_location(br, file$4, 114, 8, 3899);
+    			add_location(label6, file$4, 113, 8, 3805);
+    			add_location(br, file$4, 114, 8, 3905);
     			attr_dev(input2, "type", "file");
     			attr_dev(input2, "accept", "image/*");
     			attr_dev(input2, "id", "inputTrainingContentPicture");
-    			add_location(input2, file$4, 115, 8, 3914);
+    			add_location(input2, file$4, 115, 8, 3920);
     			attr_dev(div9, "class", "col-md-6");
-    			add_location(div9, file$4, 112, 4, 3767);
+    			add_location(div9, file$4, 112, 4, 3773);
     			attr_dev(div10, "class", "row gx-3 mb-3");
-    			add_location(div10, file$4, 107, 0, 3452);
+    			add_location(div10, file$4, 107, 0, 3458);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7644,7 +7644,7 @@ var app = (function () {
     			h6.textContent = "Keine Trainingsprotokolle vorhanden";
     			attr_dev(h6, "class", "text-center my-3 pb-3");
     			set_style(h6, "color", "red");
-    			add_location(h6, file$2, 161, 8, 6554);
+    			add_location(h6, file$2, 161, 8, 6560);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h6, anchor);
@@ -7755,9 +7755,9 @@ var app = (function () {
     			t0 = text("Trainingsinhalt: ");
     			t1 = text(t1_value);
     			attr_dev(div0, "class", "col-md-6");
-    			add_location(div0, file$2, 144, 28, 5758);
+    			add_location(div0, file$2, 144, 28, 5764);
     			attr_dev(div1, "class", "row gx-3 mb-3");
-    			add_location(div1, file$2, 143, 24, 5701);
+    			add_location(div1, file$2, 143, 24, 5707);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -7798,7 +7798,7 @@ var app = (function () {
     			set_style(img, "max-height", "600px");
     			if (!src_url_equal(img.src, img_src_value = /*training*/ ctx[10].imageUrl)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = `Trainingsbild für die Gruppe ${/*training*/ ctx[10].groupName} am ${/*training*/ ctx[10].date}`);
-    			add_location(img, file$2, 152, 32, 6149);
+    			add_location(img, file$2, 152, 32, 6155);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7914,11 +7914,11 @@ var app = (function () {
     			t10 = space();
     			div7 = element("div");
     			div5 = element("div");
-    			t11 = text("Trainer: ");
+    			t11 = text("Trainer*in: ");
     			t12 = text(t12_value);
     			t13 = space();
     			div6 = element("div");
-    			t14 = text("Hilfstrainer: ");
+    			t14 = text("Hilfstrainer*in: ");
     			t15 = text(t15_value);
     			t16 = space();
     			div10 = element("div");
@@ -7960,17 +7960,17 @@ var app = (function () {
     			attr_dev(div5, "class", "col-md-6");
     			add_location(div5, file$2, 127, 28, 4907);
     			attr_dev(div6, "class", "col-md-6");
-    			add_location(div6, file$2, 130, 28, 5060);
+    			add_location(div6, file$2, 130, 28, 5063);
     			attr_dev(div7, "class", "row gx-3 mb-3");
     			add_location(div7, file$2, 126, 23, 4850);
     			attr_dev(div8, "class", "col-md-6");
-    			add_location(div8, file$2, 135, 28, 5307);
+    			add_location(div8, file$2, 135, 28, 5313);
     			attr_dev(div9, "class", "col-md-6");
-    			add_location(div9, file$2, 138, 28, 5457);
+    			add_location(div9, file$2, 138, 28, 5463);
     			attr_dev(div10, "class", "row gx-3 mb-3");
-    			add_location(div10, file$2, 134, 24, 5250);
+    			add_location(div10, file$2, 134, 24, 5256);
     			attr_dev(div11, "class", "row gx-3 mb-3");
-    			add_location(div11, file$2, 150, 24, 6008);
+    			add_location(div11, file$2, 150, 24, 6014);
     			attr_dev(div12, "class", "accordion-body");
     			set_style(div12, "background-color", "white");
     			add_location(div12, file$2, 120, 20, 4523);
