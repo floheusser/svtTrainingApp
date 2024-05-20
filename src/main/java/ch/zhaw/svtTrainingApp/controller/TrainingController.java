@@ -103,10 +103,10 @@ public class TrainingController {
                 if (training.getTrainingContentPicture() != null) {
                     byte[] bytes = training.getTrainingContentPicture().getData();
                     return ResponseEntity.ok()
-                            .contentType(MediaType.IMAGE_JPEG) // Stellen Sie sicher, dass der Medientyp dem Bildtyp entspricht
+                            .contentType(MediaType.IMAGE_JPEG)
                             .body(bytes);
                 } else {
-                    return ResponseEntity.ok(new byte[0]); // Leeres Byte-Array zurückgeben, wenn kein Bild vorhanden ist
+                    return ResponseEntity.ok(new byte[0]);
                 }
             })
             .orElse(ResponseEntity.notFound().build());

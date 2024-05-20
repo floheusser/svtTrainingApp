@@ -1,5 +1,5 @@
 <script>
-    import { isAuthenticated } from "../store";
+	import { isAuthenticated, user } from "../store";
     import auth from "../auth.service";
 
 </script>

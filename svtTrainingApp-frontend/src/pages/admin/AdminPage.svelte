@@ -54,7 +54,7 @@
             method: 'get',
             url: api_root + '/api/trainings/pdf/' + seasonYear,
             headers: { Authorization: "Bearer " + $jwt_token },
-            responseType: 'blob',  // Important
+            responseType: 'blob', 
         };
 
         axios(config)
@@ -62,10 +62,10 @@
                 const url = window.URL.createObjectURL(new Blob([response.data]));
                 const link = document.createElement('a');
                 link.href = url;
-                link.setAttribute('download', seasonYear+'_Trainingprotokolle.pdf.pdf'); //or any other extension
+                link.setAttribute('download', seasonYear+'_Trainingprotokolle.pdf.pdf');
                 document.body.appendChild(link);
                 link.click();
-                link.parentNode.removeChild(link);  // Clean up
+                link.parentNode.removeChild(link); 
             })
             .catch((error) => console.log(error));
     }

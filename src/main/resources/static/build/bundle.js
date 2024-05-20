@@ -1877,7 +1877,7 @@ var app = (function () {
     			button.textContent = "Log In";
     			attr_dev(button, "type", "button");
     			attr_dev(button, "class", "btn btn-primary btn-sm");
-    			add_location(button, file$7, 16, 16, 711);
+    			add_location(button, file$7, 16, 16, 714);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -1936,26 +1936,26 @@ var app = (function () {
     			if (if_block) if_block.c();
     			set_style(h1, "color", "#333");
     			set_style(h1, "margin-top", "20px");
-    			add_location(h1, file$7, 8, 12, 289);
+    			add_location(h1, file$7, 8, 12, 292);
     			if (!src_url_equal(img.src, img_src_value = "/svt-logo.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Logo");
     			attr_dev(img, "class", "img-fluid");
     			set_style(img, "max-height", "200px");
-    			add_location(img, file$7, 9, 12, 366);
+    			add_location(img, file$7, 9, 12, 369);
     			attr_dev(div0, "class", "col-12 d-flex flex-column align-items-center justify-content-center");
-    			add_location(div0, file$7, 7, 8, 195);
+    			add_location(div0, file$7, 7, 8, 198);
     			attr_dev(div1, "class", "row");
-    			add_location(div1, file$7, 6, 4, 169);
+    			add_location(div1, file$7, 6, 4, 172);
     			attr_dev(div2, "class", "col-12 d-flex flex-column align-items-center justify-content-center");
-    			add_location(div2, file$7, 14, 12, 573);
+    			add_location(div2, file$7, 14, 12, 576);
     			attr_dev(div3, "class", "row");
-    			add_location(div3, file$7, 13, 8, 543);
+    			add_location(div3, file$7, 13, 8, 546);
     			attr_dev(div4, "class", "container mt-5");
     			set_style(div4, "text-align", "center");
-    			add_location(div4, file$7, 12, 4, 478);
+    			add_location(div4, file$7, 12, 4, 481);
     			attr_dev(div5, "class", "container mt-5");
     			set_style(div5, "text-align", "center");
-    			add_location(div5, file$7, 5, 0, 108);
+    			add_location(div5, file$7, 5, 0, 111);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2018,7 +2018,13 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Home> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ isAuthenticated, auth, $isAuthenticated });
+    	$$self.$capture_state = () => ({
+    		isAuthenticated,
+    		user,
+    		auth,
+    		$isAuthenticated
+    	});
+
     	return [$isAuthenticated];
     }
 
