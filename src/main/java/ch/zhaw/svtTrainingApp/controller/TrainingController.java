@@ -197,8 +197,6 @@ public class TrainingController {
             if (training.getTrainingContentPicture() != null) {
                 Image img = Image.getInstance(training.getTrainingContentPicture().getData());
                 img.scaleToFit(400, 600);
-            
-                // Center the image on the page
                 img.setAlignment(Image.ALIGN_CENTER | Image.ALIGN_MIDDLE);
                 document.add(img);
             }
